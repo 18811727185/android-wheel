@@ -1,0 +1,506 @@
+<resources>
+
+    <style name="Widget.Leui" parent="@android:Widget.DeviceDefault.Light">
+    </style>
+
+    <!-- To Make SourceHanSans font as default theme text font -->
+    <style name="Widget.Leui.TextView" parent="@android:Widget.DeviceDefault.Light.TextView">
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="Widget.Leui.EditText" parent="@android:Widget.DeviceDefault.Light.EditText">
+        <item name="android:includeFontPadding">false</item>
+    </style>
+    
+    <style name="Widget.Leui.EditText.Multiline">
+        <item name="android:padding">10dp</item>
+        <item name="android:lineSpacingMultiplier">1.6</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColorHint">#daddde</item>
+        <item name="android:textColor">#38454f</item>
+        <item name="android:background">@drawable/le_shape_edittext_multiline</item>
+    </style>
+
+    <style name="Widget.Leui.LeListView">
+        <item name="leSwipeMode">both</item>
+        <item name="leSwipeActionLeft">reveal</item>
+        <item name="leSwipeActionRight">reveal</item>
+        <item name="leSwipeOffsetLeft">0dip</item>
+        <item name="leSwipeOffsetRight">0dip</item>
+        <item name="leSwipeOpenOnLongPress">true</item>
+        <item name="leSwipeAnimationTime">0</item>
+        <item name="leSwipeCloseAllItemsWhenMoveList">true</item>
+        <item name="leSortDragScrollStart">0.33</item>
+        <item name="leSortFloatAlpha">0.6</item>
+        <item name="leSortMaxDragScrollSpeed">0.5</item>
+        <item name="leSortSlideShuffleSpeed">0.3</item>
+        <item name="leSortUseDefaultController">true</item>
+        <item name="leSortEnabled">true</item>
+    </style>
+
+    <style name="Widget.Leui.StaggeredGridView">
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+        <item name="android:scrollbars">vertical</item>
+    </style>
+
+    <style name="Widget.Leui.ListView.DropDown" parent="@android:Widget.DeviceDefault.Light.ListView.DropDown" >
+        <item name="android:divider">@drawable/le_list_dropdown_divider</item>
+        <item name="android:scrollbars">none</item>
+    </style>
+
+    <style name="Widget.Leui.TextView.SpinnerItem" parent="@android:Widget.DeviceDefault.Light.TextView.SpinnerItem" >
+          <item name="android:textAppearance">@style/TextAppearance.Leui.Widget.TextView.SpinnerItem</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingEnd">0dp</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+
+    <style name="Widget.Leui.DropDownItem" parent="@android:Widget.DeviceDefault.Light.DropDownItem" >
+    </style>
+
+    <style name="Widget.Leui.DropDownItem.Spinner" parent="@android:Widget.DeviceDefault.Light.DropDownItem.Spinner" >
+        <item name="android:textAppearance">@style/TextAppearance.Leui.Widget.TextView.SpinnerDropdownItem</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <!-- popup style start by dongshangyong<dongshangyong@letv.com> -->
+    <style name="Widget.Leui.PopupWindow" parent="@android:Widget.DeviceDefault.Light.PopupWindow" >
+        <item name="android:popupBackground">@drawable/le_popup_bg</item>
+    </style>
+    <style name="Widget.Leui.ListPopupWindow" parent="@android:Widget.DeviceDefault.Light.ListPopupWindow" >
+        <item name="android:popupBackground">@drawable/le_popup_bg</item>
+        <item name="android:dropDownSelector">?android:attr/listChoiceBackgroundIndicator</item>
+    </style>
+
+    <style name="Widget.Leui.PopupMenu" parent="@android:Widget.DeviceDefault.Light.PopupMenu" >
+        <item name="android:popupBackground">@drawable/le_popup_bg</item>
+    </style>
+    <!-- popup style end  -->
+
+    <!-- preference default style begin -->
+
+    <style name="Preference" parent="">
+        <item name="android:layout">@layout/le_preference_normal</item>
+    </style>
+
+    <style name="Preference.Leui">
+        <item name="android:layout">@layout/le_preference_normal</item>
+    </style>
+
+
+    <style name="Preference.Leui.Category" parent="@style/Preference.Category">
+        <item name="android:layout">@layout/le_preference_category</item>
+    </style>
+       <style name="Preference.Leui.PreferenceScreen">
+    </style>
+
+       <style name="Preference.Leui.DialogPreference">
+           <item name="android:positiveButtonText">@android:string/ok</item>
+        <item name="android:negativeButtonText">@android:string/cancel</item>
+    </style>
+
+
+    <style name="Preference.Leui.LeEditTextPreference">
+        <item name="android:layout">@layout/le_preference_edittext</item>
+        <item name="focusColor">@color/preference_focus_color</item>
+    </style>
+
+
+    <style name="Preference.Leui.LeDialogPreference">
+        <item name="android:layout">@layout/le_preference_middle</item>
+        <item name="android:positiveButtonText">@android:string/ok</item>
+        <item name="android:negativeButtonText">@android:string/no</item>
+    </style>
+
+
+
+    <style name="Preference.Leui.LeEditDialogPreference"></style>
+
+
+    <style name="Preference.Leui.LeRadioGroupPreference"></style>
+
+
+    <style name="Preference.Leui.LeRadioPreference">
+        <item name="android:widgetLayout">@layout/le_radio_widget</item>
+    </style>
+
+
+    <style name="Preference.Leui.LePassWordPreference" parent="Preference.Leui.LeEditTextPreference">
+        <item name="android:layout">@layout/le_preference_password_edittext</item>
+        <item name="android:widgetLayout">@layout/le_password_widget</item>
+    </style>
+
+
+    <!-- preference default style end -->
+
+    <style name="Widget.Leui.Checkbox" parent="@android:style/Widget.DeviceDefault.Light.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/le_checkbox_selector</item>
+        <item name="android:background">@null</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+
+    <style name="Widget.Leui.Seekbar" parent="@android:style/Widget.DeviceDefault.Light.SeekBar">
+        <item name="android:thumb">@drawable/le_seekbar_thumb</item>
+        <item name="android:progressDrawable">@drawable/le_seek_bar</item>
+        <item name="android:thumbOffset">6dp</item>
+    </style>
+
+
+    <style name="Widget.Leui.PullToRefreshBase">
+        <item name="lePtrAnimationStyle">rotate</item>
+        <item name="lePtrMode">pullFromStart</item>
+        <item name="lePtrRefreshableViewBackground">@android:color/darker_gray</item>
+        <item name="lePtrHeaderTextColor">@android:color/white</item>
+    </style>
+
+
+    <style name="Widget.Leui.PullToRefreshBase.PullToRefreshListView">
+        <item name="lePtrListViewExtrasEnabled">true</item>
+    </style>
+
+    <!-- ModifiedGallery start -->
+
+    <style name="Widget.Leui.ModifiedGalleryStyle">
+       <item name="leSpacing">@dimen/leSpacing</item>
+       <item name="leScrollEnableWhenLessContent">false</item>
+       <item name="leMaxOverScrollDistance">@dimen/le_modifiedgallery_max_overscroll_distance</item>
+    </style>
+    <!-- ModifiedGallery end -->
+
+    <style name="Preference.Leui.LeListPreference" >
+        <item name="android:layout">@layout/le_preference_list</item>
+        <item name="android:widgetLayout">@layout/le_preference_widget_arrow</item>
+        <item name="leListPreferenceMode">MODE_BOTTOM_SHEET</item>
+        <item name="lePopGravity">GRAVITY_END</item>
+        <item name="leListTitleColorNormal">@color/le_list_title_color_normal</item>
+        <item name="leListTitleColorSelected">@color/le_list_title_color_selected</item>
+    </style>
+
+
+    <style name="Widget.Leui.Switch" parent="@style/Widget.Holo.CompoundButton.Switch">
+       <item name="android:switchMinWidth">0dp</item>
+       <item name="android:textOff">""</item>
+       <item name="android:textOn">""</item>
+       <item name="android:thumb">@drawable/le_switch_selector</item>
+       <item name="android:track">@drawable/le_switch_bg</item>
+    </style>
+
+
+
+
+    <!-- Base style for animations.  This style specifies no animations. -->
+    <style name="LeAnimation" />
+
+    <style name="LeAnimation.LeFullscreenHandler">
+        <item name="android:windowEnterAnimation">@anim/le_fullscreen_handler_enter</item>
+        <item name="android:windowExitAnimation">@anim/le_fullscreen_handler_exit</item>
+    </style>
+
+    <style name="Widget.Leui.TextView.ListSeparator">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingStart">@dimen/le_preference_content_padding_start</item>
+        <item name="android:textColor">#747474</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="TextAppearance.Leui" parent="@android:style/TextAppearance.DeviceDefault">
+        <item name="android:textColor">?android:textColorPrimary</item>
+        <item name="android:textColorHighlight">?android:textColorHighlight</item>
+        <item name="android:textColorHint">?android:textColorHint</item>
+        <item name="android:textColorLink">?android:textColorLink</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextAppearance.Leui.Large" parent="@android:style/TextAppearance.DeviceDefault.Large">
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="TextAppearance.Leui.Medium" parent="@android:style/TextAppearance.DeviceDefault.Medium">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+    <style name="TextAppearance.Leui.Small" parent="@android:style/TextAppearance.DeviceDefault.Small">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="TextAppearance.Leui.ItemTitle" parent="@android:style/TextAppearance.DeviceDefault.Large">
+        <item name="android:textSize">@dimen/le_item_title_text_size</item>
+        <item name="android:textColor">@color/le_item_title_text_color</item>
+    </style>
+    <style name="TextAppearance.Leui.ItemSummary" parent="@android:style/TextAppearance.DeviceDefault.Medium">
+        <item name="android:textSize">@dimen/le_item_subtitle_text_size</item>
+        <item name="android:textColor">@color/le_item_subtitle_text_color</item>
+    </style>
+    <style name="TextAppearance.Leui.ItemValues" parent="@android:style/TextAppearance.DeviceDefault.Small">
+        <item name="android:textSize">@dimen/le_item_value_text_size</item>
+        <item name="android:textColor">@color/le_item_value_text_color</item>
+    </style>
+
+    <style name="TextAppearance.Leui.Widget" parent="@android:TextAppearance.DeviceDefault.Widget.TextView"></style>
+
+    <style name="TextAppearance.Leui.Widget.TextView" parent="@android:TextAppearance.DeviceDefault.Widget.TextView"></style>
+
+    <style name="TextAppearance.Leui.Widget.TextView.SpinnerItem" parent="@android:TextAppearance.DeviceDefault.Widget.TextView.SpinnerItem">
+        <!-- <item name="textColor">#1e2d38</item> -->
+        <item name="android:fontFamily">hans-sans</item>
+        <item name="android:textSize">15dp</item>
+    </style>
+
+    <style name="TextAppearance.Leui.Widget.TextView.SpinnerDropdownItem" parent="@android:TextAppearance.DeviceDefault.Widget.TextView.SpinnerItem">
+        <item name="android:textColor">@color/le_selector_text_color_spinner_item</item>
+        <item name="android:fontFamily">hans-sans-normal</item>
+        <item name="android:textSize">15dp</item>
+    </style>
+    
+        <!-- <item name="listLayout">@layout/select_dialog_material</item>
+        <item name="progressLayout">@layout/progress_dialog_material</item>
+        <item name="horizontalProgressLayout">@layout/alert_dialog_progress_material</item>
+        <item name="listItemLayout">@layout/select_dialog_item_material</item>
+        <item name="multiChoiceItemLayout">@layout/select_dialog_multichoice_material</item>
+        <item name="singleChoiceItemLayout">@layout/select_dialog_singlechoice_material</item> -->
+
+    <!-- Leui theme for dialog windows and activities. This changes the window to be
+    floating (not fill the entire screen), and puts a frame around its contents. You can set this
+    theme on an activity if you would like to make an activity that looks like a Dialog. -->
+
+
+    <style name="Widget.Leui.leListPreferenceViewStyle" >
+    </style>
+
+    <style name="Widget.Leui.ListView" parent="@android:style/Widget.DeviceDefault.Light.ListView">
+        <item name="android:divider">@drawable/le_list_divider</item>
+        <item name="android:listSelector">?android:attr/listChoiceBackgroundIndicator</item>
+    </style>
+
+    <style name="Widget.Leui.ExpandableListView" parent="@android:style/Widget.DeviceDefault.Light.ExpandableListView">
+        <item name="android:divider">@drawable/le_list_divider</item>
+        <item name="android:listSelector">?android:attr/listChoiceBackgroundIndicator</item>
+    </style>
+
+    <style name="Widget.Leui.ProgressbarStyle" parent="@android:style/Widget.DeviceDefault.ProgressBar">
+        <item name="android:indeterminateDrawable">@drawable/le_progress_medium</item>
+    </style>
+
+
+    <style name="Widget.Leui.LeProgressbarStyle" parent="Widget.Leui.ProgressbarStyle">
+        <item name="le_type">circle</item>
+        <item name="le_progress_bar_height">3dp</item>
+        <item name="le_progress_round_radius">5px</item>
+        <item name="le_zebra_length">8dp</item>
+    </style>
+
+    <style name="Widget.LeuiCommon" parent="@android:Widget.DeviceDefault.Light">
+    </style>
+
+    <style name="Widget.LeuiCommon.SearchView">
+        <item name="lcBackground">@drawable/lc_selector_search_view_frame</item>
+        <item name="lcSearchIcon">@drawable/lc_icon_search_view_search</item>
+        <item name="lcClearIcon">@drawable/lc_icon_search_view_clear</item>
+
+        <item name="lcQueryTextSize">@dimen/lc_default_search_query_text_size</item>
+        <item name="lcQueryTextColor" >@color/lc_search_view_query_text_color</item>
+        <item name="lcQueryHintColor" >@color/lc_search_view_query_hint_text_color</item>
+        <item name="lcSearchUnfocusAlpha">0.3</item>
+        <item name="lcInputMarginLeft">@dimen/lc_search_track_margin_left</item>
+        <item name="lcInputMarginRight">@dimen/lc_search_track_margin_right</item>
+        <item name="lcInputMarginTop">@dimen/lc_search_track_margin_top</item>
+        <item name="lcInputMarginBottom">@dimen/lc_search_track_margin_bottom</item>
+        <item name="lcEditTextStyle">@style/Widget.LeuiCommon.AutoCompleteTextView</item>
+        <item name="android:textCursorDrawable">@drawable/lc_shape_search_view_cursor</item>
+        <item name="lcPopupItemLayout">@layout/lc_search_dropdown_item_icons_2line_light</item>
+        <item name="lcPopupBlurRadius">10dp</item>
+        <item name="lcPopupBackground">@drawable/lc_search_drop_down_bg</item>
+        <item name="lcPopupListDivider">@drawable/lc_search_drop_down_divider</item>
+    </style>
+    <style name="Widget.LeuiCommon.SearchView.Light">
+        <item name="lcBackground">@drawable/lc_selector_search_view_frame_light</item>
+        <item name="lcSearchIcon">@drawable/lc_icon_search_view_search_light</item>
+        <item name="lcClearIcon">@drawable/lc_icon_search_view_clear_light</item>
+
+        <item name="lcSearchUnfocusAlpha">1.0</item>
+        <item name="lcQueryTextColor" >@color/lc_search_view_query_text_color_light</item>
+        <item name="lcQueryHintColor" >@color/lc_search_view_query_hint_text_color_light</item>
+        <item name="android:textCursorDrawable">@drawable/lc_shape_search_view_cursor_light</item>
+    </style>
+
+    <style name="Widget.LeuiCommon.SearchView.Transparent">
+        <item name="lcMatchColor">#518ef1</item>
+        <item name="lcSearchIcon">@drawable/lc_icon_search_view_search</item>
+        <item name="lcClearIcon">@drawable/lc_icon_search_view_clear</item>
+        <item name="lcPopupItemLayout">@layout/lc_search_dropdown_item_icons_2line</item>
+        <item name="lcPopupBackground">@drawable/lc_search_drop_down_bg_transparent</item>
+        <item name="lcPopupListDivider">@drawable/lc_search_drop_down_divider_transparent</item>
+    </style>
+
+    <style name="Widget.LeuiCommon.AutoCompleteTextView" parent="@android:style/Widget.DeviceDefault.AutoCompleteTextView" >
+        <item name="android:dropDownVerticalOffset">0dip</item>
+        <item name="android:dropDownHorizontalOffset">0dip</item>
+        <item name="android:dropDownWidth">wrap_content</item>
+        <item name="lcDropDownPaddingLeft">@dimen/lc_default_search_view_drop_down_paddingLeft</item>
+        <item name="lcDropDownPaddingRight">@dimen/lc_default_search_view_drop_down_paddingRight</item>
+        <item name="lcDropDownPaddingTop">@dimen/lc_default_search_view_drop_down_paddingTop</item>
+        <item name="lcDropDownPaddingBottom">@dimen/lc_default_search_view_drop_down_paddingBottom</item>
+        <item name="android:dropDownSelector">?android:attr/listChoiceBackgroundIndicator</item>
+    </style>
+
+    <style name="Widget.LeuiCommon.AutoCompleteTextView.Light" >
+        <item name="lcDropDownBackground">@drawable/lc_search_drop_down_bg</item>
+    </style>
+    
+    <style name="Widget.Leui.EditText.Light">
+        <item name="android:background">@drawable/lc_selector_search_view_frame_light</item>
+        <item name="android:textCursorDrawable">@drawable/lc_shape_search_view_cursor_light</item>
+    </style>
+
+    <style name="Widget.Leui.EditText.Dark">
+        <item name="android:background">@drawable/lc_selector_search_view_frame</item>
+        <item name="android:textCursorDrawable">@drawable/lc_shape_search_view_cursor</item>
+    </style>
+    
+    <style name="Widget.Leui.EditText.Light.Dialog">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/le_dialog_edittext_height</item>
+        <item name="android:paddingStart">@dimen/le_dialog_edittext_padding_left</item>
+        <item name="android:textSize">@dimen/le_dialog_edittext_text_size</item>
+    </style>
+
+    <style name="Widget.Leui.EditText.Dark.Dialog">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/le_dialog_edittext_height</item>
+        <item name="android:paddingStart">@dimen/le_dialog_edittext_padding_left</item>
+        <item name="android:textSize">@dimen/le_dialog_edittext_text_size</item>
+    </style>
+
+    <style name="PreferenceFragmentList">
+            <item name="android:paddingStart">0dp</item>
+            <item name="android:paddingEnd">0dp</item>
+            <item name="android:paddingTop">@dimen/le_preference_fragment_padding_side</item>
+            <item name="android:paddingBottom">@dimen/le_preference_fragment_padding_side</item>
+    </style>
+
+    <style name="Preference.Leui.SeekBarPreference" >
+        <item name="android:layout">@layout/le_preference_seekbar</item>
+    </style>
+
+     
+    <style name="Animation" parent="android:Animation"/>
+    <style name="Animation.Leui" />
+    
+    <style name="Animation.Leui.Dialog" parent="android:Animation">
+         <item name="android:activityOpenEnterAnimation">@null</item>
+        <item name="android:activityOpenExitAnimation">@null</item>
+        <item name="android:activityCloseEnterAnimation">@null</item>
+        <item name="android:activityCloseExitAnimation">@null</item>
+        <item name="android:windowEnterAnimation">@anim/le_popup_enter_material</item>
+        <item name="android:windowExitAnimation">@anim/le_popup_exit_material</item>
+
+    </style>
+
+
+    <!--liushan add for share start -->
+    <style name="leShareActivityTheme" parent="@android:style/Theme.Light">
+        <item name="@android:windowAnimationStyle">@style/leShareWindowAnimationStyle</item>
+        <item name="@android:windowBackground">@android:color/transparent</item>
+        <item name="@android:windowNoTitle">true</item>
+        <item name="@android:windowContentOverlay">@null</item>
+        <item name="@android:windowIsTranslucent">true</item>
+        <!--<item name="android:windowMinWidthMinor">@dimen/share_dialog_min_width_minor</item>-->
+       <!--<item name="@android:alertDialogStyle">@style/leShareDialogStyle</item> -->
+    </style>
+    <style name="leShareDialogStyle" parent="@android:style/Theme.Light">
+        <item name="@android:layout">@layout/le_share_dialog_main</item>
+    </style>
+    <style name="leShareWindowAnimationStyle" >
+        <item name="@android:activityOpenEnterAnimation">@null</item>
+        <item name="@android:activityOpenExitAnimation">@null</item>
+        <item name="@android:activityCloseEnterAnimation">@null</item>
+        <item name="@android:activityCloseExitAnimation">@null</item>
+        <item name="@android:windowEnterAnimation">@anim/le_share_slide_bottom_in</item>
+        <item name="@android:windowExitAnimation">@anim/le_share_slide_bottom_out</item>
+    </style>
+
+    <!-- liushan add for leShareActivity end -->
+
+    <!-- wuwen add PrefenceheaderStyle start -->
+    <style name="PreferenceHeaderList">
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingEnd">0dp</item>
+        <item name="android:scrollbarStyle">@integer/le_preference_screen_header_scrollbarStyle</item>
+    </style>
+
+    <style name="myPreferenceFragment">
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingEnd">0dp</item>
+    </style>
+    <!-- wuwen add PrefenceheaderStyle end-->
+
+    <!-- liushan add for actionBarButton style start -->
+    <style name ="actionButtonStyle.Leui" parent="android:style/Widget.DeviceDefault.ActionButton">
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+    </style>
+
+    <!-- LeLicenceDialog -->
+    <style name="leLicenceDialogTheme" parent="android:Theme.Dialog">
+        <item name="@android:windowNoTitle">true</item>
+        <item name="android:windowMinWidthMinor">100%</item>
+        <item name="@android:windowBackground">@android:color/transparent</item>
+        <item name="@android:windowIsTranslucent">true</item>
+        <item name="@android:windowAnimationStyle">@style/leLicenceWindowAnimationStyle</item>
+    </style>
+    <style name="leLicenceWindowAnimationStyle" >
+        <item name="@android:activityOpenEnterAnimation">@null</item>
+        <item name="@android:activityOpenExitAnimation">@null</item>
+        <item name="@android:activityCloseEnterAnimation">@null</item>
+        <item name="@android:activityCloseExitAnimation">@null</item>
+        <item name="@android:windowEnterAnimation">@anim/le_licence_slide_bottom_in</item>
+        <item name="@android:windowExitAnimation">@anim/le_licence_slide_bottom_out</item>
+    </style>
+    <!-- LeLicenceDialog -->
+
+    <!-- LeBottomSheet -->
+    <style name="leBottomSheetThemeTop" parent="android:Theme.Dialog">
+        <item name="@android:windowNoTitle">true</item>
+        <item name="android:windowMinWidthMinor">100%</item>
+        <item name="@android:windowBackground">@android:color/transparent</item>
+        <item name="@android:windowIsTranslucent">true</item>
+        <item name="@android:windowAnimationStyle">@style/leBottomSheetAnimationStyleTop</item>
+    </style>
+    <style name="leBottomSheetAnimationStyleTop" >
+        <item name="@android:activityOpenEnterAnimation">@null</item>
+        <item name="@android:activityOpenExitAnimation">@null</item>
+        <item name="@android:activityCloseEnterAnimation">@null</item>
+        <item name="@android:activityCloseExitAnimation">@null</item>
+        <item name="@android:windowEnterAnimation">@anim/le_bottomsheet_slide_top_in</item>
+        <item name="@android:windowExitAnimation">@anim/le_bottomsheet_slide_top_out</item>
+    </style>
+    <!-- LeBottomSheet -->
+    <!-- LeActionBarBottomSlider -->
+    <style name="leActionBarBottomSliderTheme" parent="android:Theme.Dialog">
+        <item name="@android:windowNoTitle">true</item>
+        <item name="android:windowMinWidthMinor">100%</item>
+        <item name="@android:windowBackground">@android:color/transparent</item>
+        <item name="@android:windowIsTranslucent">true</item>
+    </style>
+
+    <!-- AlertDialog button -->
+    
+    <!-- AlertDialog title -->
+    <style name="TextAppearance.Material.DialogWindowTitle.Leui" parent="android:TextAppearance.DialogWindowTitle" >
+        <item name="android:textSize">@dimen/le_dialog_title_text_size</item>
+    </style>
+
+    <!-- LeTopSlideToast -->
+    <style name="leTopSlideToast">
+        <item name="@android:windowEnterAnimation">@anim/le_topslidetoast_anim_toast_enter</item>
+        <item name="@android:windowExitAnimation">@anim/le_topslidetoast_anim_toast_exit</item>
+    </style>
+</resources>
+

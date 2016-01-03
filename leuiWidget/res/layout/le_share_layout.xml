@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/share_layout">
+
+
+
+    <LinearLayout android:id="@+id/real_content"
+                  android:orientation="vertical"
+                  android:layout_alignParentBottom="true"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:background="#ffffff"
+                  android:clickable="true">
+        <View android:layout_width="match_parent"
+              android:layout_height="1px"
+              android:layout_marginLeft="16dp"
+              android:layout_marginRight="16dp"
+              android:background="#ececec"/>
+        <LinearLayout android:id="@+id/display_less_five"
+                      android:orientation="horizontal"
+                      android:layout_width="match_parent"
+                      android:layout_height="106dp"
+                      android:gravity="center"/>
+        <View android:id="@+id/specail_devider"
+              android:layout_width="match_parent"
+              android:layout_height="1px"
+              android:background="#ececec"
+              android:layout_marginLeft="16dp"
+              android:layout_marginRight="16dp"
+              android:visibility="gone"/>
+
+        <LinearLayout android:id="@+id/specail_layout"
+                      android:orientation="horizontal"
+                      android:layout_width="match_parent"
+                      android:layout_height="106dp"
+                      android:visibility="gone"
+                      android:gravity="center"/>
+        <LinearLayout android:id="@+id/awalys_id"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal"
+                      android:layout_marginTop="10dp"
+                      android:layout_marginBottom="10dp"
+                      android:visibility="gone" >
+            <com.letv.shared.widget.LeCheckBox
+                    android:id="@+id/checkbox_awalys"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:clickable="true"
+                    android:text="@string/le_share_default_select_tips"
+                    android:gravity="center_vertical"
+                    leBoxInnerPadding ="10dp"
+                    />
+
+        </LinearLayout>
+
+        <View android:layout_width="match_parent"
+              android:layout_height="1px"
+              android:layout_marginLeft="16dp"
+              android:layout_marginRight="16dp"
+              android:background="#ececec"/>
+
+        <Button android:id="@+id/cancel"
+                android:layout_width="fill_parent"
+                android:layout_height="48dp"
+                android:textSize="18sp"
+                android:background="@null"
+                android:textColor="#000000"
+                android:text="@string/share_cancel"/>
+    </LinearLayout>
+    <LinearLayout
+                  android:layout_height="wrap_content"
+                  android:layout_above="@id/real_content"
+                  android:orientation="vertical"
+                  android:layout_width="fill_parent"
+                  android:background="#ffffff">
+
+    <LinearLayout
+                  android:id="@+id/gv_anim_layout"
+                  android:layout_height="wrap_content"
+                  android:layout_width="fill_parent"
+                  android:orientation="vertical"
+
+                  android:visibility="visible">
+        <TextView android:layout_width="fill_parent"
+                  android:layout_height="48dp"
+                  android:textSize="16sp"
+                  android:gravity="center"
+                  android:id="@+id/share_title"
+                  android:textColor="#414141"
+                  android:text="@string/share_title"
+                 />
+        <View android:layout_width="match_parent"
+              android:layout_height="1px"
+              android:layout_marginLeft="16dp"
+              android:layout_marginRight="16dp"
+              android:background="#ececec"/>
+        <GridView android:id="@+id/share_gv"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:paddingLeft="10dp"
+                  android:paddingRight="10dp"
+                  android:visibility="gone"
+                  android:horizontalSpacing="0dp"
+                  android:columnWidth="@dimen/share_layout_item_width"
+                  android:fadeScrollbars="false"
+                  android:numColumns="5"/>
+    </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

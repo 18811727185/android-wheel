@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <string name="le_recipient_edit_imeActionLabel">确定</string>
+    
+    <!-- Pull-To-Refresh begin -->
+    <string name="le_ptr_pull_label">下拉刷新…</string>
+    <string name="le_ptr_release_label">放开以刷新…</string>
+    <string name="le_ptr_refreshing_label">正在载入…</string>
+  
+    <!-- Just use standard Pull Down String when pulling up. These can be set for languages which require it -->
+    <string name="le_ptr_from_bottom_pull_label">上拉刷新…</string>
+    <string name="le_ptr_from_bottom_release_label">@string/le_ptr_release_label</string>
+    <string name="le_ptr_from_bottom_refreshing_label">@string/le_ptr_refreshing_label</string>
+    <!-- Pull-To-Refresh end -->
+
+    <!-- Lunar -->
+    <string name="le_special_holiday_mother" >母亲节</string>
+    <string name="le_special_holiday_father" >父亲节</string>
+    <string name="le_status_format1" >yyyy年MM月dd日</string>
+    <string name="le_status_format2" >1900年1月31日</string>
+    <string name="le_status_leap">闰</string>
+    <string name="le_status_year" >年</string>
+    <string name="le_status_month" >月</string>
+    <string name="le_status_day" >日</string>
+    <string name="le_status_chushi" >初十</string>
+    <string name="le_status_ershi" >二十</string>
+    <string name="le_status_sanshi" >三十</string>
+    
+    <!--add for notification off data usage limit-->
+    <string name="data_usage_limit_warn_text">"您的流量已经达到流量上限的90%"</string>
+    <string name="disconnect_data_connection">"断开数据连接"</string>
+    <string name="detail">"查看详情"</string>
+    <string name="data_usage_background_forbid_notification_title">"后台背景数据访问已禁止"</string>
+    <string name="data_usage_background_forbid_notification_msg">"重启后台数据，请点击设置"</string>
+    
+    <!-- //LEUI-START [REQ][LEUI-] [fengzihua] added -->
+    <string name="perm_wakeLock_stats">读取应用电源锁记录</string>
+    <string name="permdesc_wakeLock_stats">读取应用电源锁记录</string>
+    <!-- //LEUI-END [REQ][LEUI-] [fengzihua] -->
+
+    <!-- Date&Time format Tool begin [nietong] -->
+    <string name="pattern_group_today">今天</string>
+    <string name="pattern_group_yesterday">昨天</string>
+    <string name="pattern_group_within_week">本周内</string>
+    <string name="pattern_group_within_month">本月内</string>
+    <string name="pattern_group_over_month">%-m月</string>
+    <string name="pattern_group_over_year">%y年%-m月</string>
+    <string name="pattern_list_yesterday">昨天</string>
+    <string name="pattern_detail_yesterday">昨天 %H:%M</string>
+    <string name="pattern_detail_yesterday_12">昨天 %p%l:%M</string>
+    <string name="pattern_today">今天</string>
+    <string name="pattern_yesterday">昨天</string>
+    <string name="pattern_tomorrow">明天</string>
+    <string name="pattern_day">天</string>
+    <string name="pattern_hour">小时</string>
+    <string name="pattern_minute">分</string>
+    <string name="pattern_second">秒</string>
+    <string name="pattern_month_day">%-m月%-e日</string>
+<string name="pattern_list_today_12">%p %I:%M</string>
+<string name="pattern_detail_today_12">%p %I:%M</string>
+<string name="pattern_detail_within_week">%a %H:%M</string>
+    <string name="pattern_detail_over_week">%-m/%-e %H:%M</string>
+    <string name="pattern_detail_over_week_12">%-m/%-e %p %I:%M</string>
+    <string name="pattern_detail_over_year">%y/%-m/%-e %H:%M</string>
+    <string name="pattern_detail_over_century">%Y/%-m/%-e %H:%M</string>
+    <string name="pattern_detail_future">%Y/%-m/%-e %H:%M</string>
+<string name="pattern_detail_within_week_12">%a %p %I:%M</string>
+<string name="pattern_detail_over_year_12">%y/%-m/%-e %p %I:%M</string>
+<string name="pattern_detail_over_century_12">%Y/%-m/%-e %p %I:%M</string>
+<string name="pattern_detail_future_12">%Y/%-m/%-e %p %I:%M</string>
+<string name="pattern_time_simple_12">%p %l:%M</string>
+<string name="pattern_time_complete_12">%p %I:%M</string>
+    <!-- Date&Time format Tool end [nietong] -->
+
+    <!-- LetvBugReporter error dialog message begin [tongtiancheng] -->
+    <string name="le_aerr_application">"抱歉，%1$s遇到了问题。"</string>
+    <string name="le_aerr_process">"抱歉，%1$s遇到了问题。"</string>
+    <string name="le_force_close">"确定"</string>
+    <string name="le_anr_activity_application">"%2$s 无响应。"</string>
+    <string name="le_anr_application_process">"%1$s 无响应。"</string>
+    <string name="le_anr_activity_process">"%1$s 活动无响应。"</string>
+    <string name="le_anr_process">"%1$s 进程无响应。"</string>
+    <!-- LetvBugReporter error dialog message end [tongtiancheng] -->
+
+    <!-- replace 3rd labelName start -->
+    <string name="le_map_name">"地图"</string>
+    <!-- replace 3rd labelName end -->
+    
+    <!--LETVREBOOT strings start-->
+    <string name="global_action_reboot">重新启动</string>
+    <string name="reboot">重新启动</string>
+    <string name="reboot_confirm" product="default">您的手机将会重新启动.</string>
+    <string name="reboot_confirm_question">您要重新启动吗？</string>
+    <!--LETVREBOOT strings end-->
+    
+    <!--LETVRE_GLOBALACTION strings start added by fengzihua-->
+    <string name="shutdow_btn">"关机"</string>
+    <string name="shutdown_tip">"因为有你, 我每天都在长大"</string>
+    <string name="reboot_btn">"下滑关机"</string>
+    <string name="reboot_tip">"因为有你, 我每天都在长大"</string>
+    <string name="reboot_btn_v2">"重启"</string>
+    <string name="cancel_btn_v2">"取消"</string>
+    <string name="locked_tip">"手机已锁定"</string>
+    <!--LETV_GLOBALACTION strings end-->
+
+    <string name="placeholder_symbol_4">啊啊啊啊</string>
+    <!--DATETIMEPICKER-->
+    <string name="date_format">M 月 d 日 EE</string>
+    <string name="hour">时</string>
+    <string name="minute">分</string>
+
+    <!-- LETV_SHARE strings start -->
+    <string name="share_title">分享或发送到</string>
+    <string name="share_cancel">取消</string>
+    <string name="share_show_more">更多</string>
+    <string name="share_browser_add_collect">添加收藏</string>
+    <string name="share_browser_send_deskTop">发送桌面</string>
+    <string name="share_browser_search">搜索</string>
+    <string name="share_browser_save_page">页面保存</string>
+    <string name="share_gallery_set_contact_photo">联系人头像</string>
+    <string name="share_gallery_set_wallpaper">设为壁纸</string>
+    <string name="share_gallery_set_ppt">幻灯片播放</string>
+    <string name="share_email_share_to_letv_cloud">分享至乐视云</string>
+    <string name="share_to">分享到</string>
+    <string name="send_to">发送到</string>
+    <string name="send_give">发送给</string>
+    <string name="add_to">添加到</string>
+    <string name="share_gallery_detail">详情</string>
+    <string name="share_gallery_download">下载</string>
+    <string name="share_browser_add_bookmark">加入书签</string>
+    <string name="share_browser_copy_link">复制链接</string>
+    <string name="weibo_name">微博</string>
+    <string name="share_gallery_to_dlna">推送到电视</string>
+    <string name="share_browser_add_home">加入主页</string>
+
+    <!-- LETV_VOLUME_ADJUST strings start -->
+    <string name="leui_volume_icon_description_ringer">铃声</string>
+    <string name="leui_volume_icon_description_incall">通话</string>
+    <string name="leui_volume_icon_description_incall_outspeak">通话外放</string>
+    <string name="leui_volume_icon_description_media">媒体</string>
+    <string name="leui_smart_sound_name">明亮模式</string>
+    <string name="mute_key_silent">已开启静音键，关闭后可调节铃声音量</string>
+    <string name="leui_safe_volume_title">继续增大音量易损伤听力</string>
+    <string name="leui_safe_volume_continue">继续</string>
+    <string name="leui_safe_volume_cancle">取消</string>
+    <!-- LETV_VOLUME_ADJUST strings end -->
+    
+    <!--appops add-->
+    <string name="app_ops_access_camera">访问摄像头</string>
+    <string name="app_ops_access_location">访问位置信息</string>
+    <string name="app_ops_access_notifications">读取通知</string>
+    <string name="app_ops_alarm_wakeup">定时唤醒</string>
+    <string name="app_ops_draw_on_top">悬浮框显示</string>
+    <string name="app_ops_keep_device_awake">保持屏幕唤醒</string>
+    <string name="app_ops_make_phone_call">拨打电话</string>
+    <string name="app_ops_modify_calendar">写/删除日历项</string>
+    <string name="app_ops_modify_call_log">写/删除通话记录</string>
+    <string name="app_ops_modify_clipboard">写/删除粘贴板</string>
+    <string name="app_ops_modify_contacts">写/删除联系人</string>
+    <string name="app_ops_modify_settings">修改设置项</string>
+    <string name="app_ops_play_audio">播放录音</string>
+    <string name="app_ops_post_notification">发送通知</string>
+    <string name="app_ops_read_calendar">读取日历</string>
+    <string name="app_ops_read_call_log">读取通话记录</string>
+    <string name="app_ops_read_clipboard">读取粘贴板</string>
+    <string name="app_ops_read_contacts">读取联系人</string>
+    <string name="app_ops_read_mms">读取彩信</string>
+    <string name="app_ops_read_sms">读取短信</string>
+    <string name="app_ops_receive_sms">接受短信</string>
+    <string name="app_ops_record_audio">录音</string>
+    <string name="app_ops_send_mms">发送彩信</string>
+    <string name="app_ops_send_sms">发送短信</string>
+    <string name="app_ops_start_at_bootup">开机启动</string>
+    <string name="app_ops_toggle_bluetooth">开关蓝牙</string>
+    <string name="app_ops_nfc">开关NFC</string>
+    <string name="app_ops_read_phone_state">读取手机信息</string>
+    <string name="app_ops_notification_sound">开关通知栏消息</string>
+    <string name="app_ops_toggle_mobile_data">开关移动数据</string>
+    <string name="app_ops_toggle_wifi">开关WLAN</string>
+    <string name="app_ops_use_alarm_volume">控制闹铃音量</string>
+    <string name="app_ops_use_audio_focus">媒体焦点</string>
+    <string name="app_ops_use_bluetooth_volume">控制蓝牙音量</string>
+    <string name="app_ops_use_master_volume">控制主音量</string>
+    <string name="app_ops_use_media_buttons">使用音量键</string>
+    <string name="app_ops_use_media_volume">控制媒体声音</string>
+    <string name="app_ops_use_notification_volume">控制通知栏音量</string>
+    <string name="app_ops_use_ring_volume">控制响铃音量</string>
+    <string name="app_ops_use_vibrate">震动</string>
+    <string name="app_ops_use_voice_volume">控制话筒音量</string>
+    <string name="app_ops_write_mms">写/删除彩信记录</string>
+    <string name="app_ops_write_sms">写/删除短信记录</string>
+    <string name="app_ops_notification_favourite">访问通知栏消息重要性</string>
+    <string name="app_ops_three_way_calling">拨打三方通话</string>
+    <string name="app_ops_usage_stats">获取使用信息</string>
+    <string name="app_ops_mute_microphone">静音麦克风</string>
+    <string name="app_ops_toast_window">显示Toast对话框</string>
+    <string name="app_ops_project_media">多媒体投影</string>
+    <string name="app_ops_activate_vpn">激活vpn</string>
+    <string name="privacy_guard_dialog_summary">%1$s申请%2$s.</string>
+    <string name="permission_remember_choice">不再提示</string>
+    <string name="deny">拒绝</string>
+    <string name="allow">允许</string>
+    <string name="always">始终</string>
+    
+    
+    <!--LETVSAFE strings begine-->
+    <string name="appops_conmunicate">通讯</string>
+    <string name="appops_internet">网络</string>
+    <string name="appops_media">多媒体</string>
+    <string name="appops_tool">工具</string>
+    <string name="appops_device">设备</string>
+    <string name="appops_system">系统</string>
+    <string name="appops_other">其他</string>
+    <string name="appops_privacy">隐私</string>
+    <string name="appops_location">定位</string>
+    <string name="appops_location_desc">有权获取当前位置</string>
+    <string name="appops_contact_log">联系人记录</string>
+    <string name="appops_contact_log_desc">有权读写联系人记录</string>
+    <string name="appops_call_log">通话记录</string>
+    <string name="appops_call_log_desc">有权读写通话记录</string>
+    <string name="appops_calendar">日历记录</string>
+    <string name="appops_calendar_desc">有权读写日历记录</string>
+    <string name="appops_call_phone">电话</string>
+    <string name="appops_call_phone_desc">允许拨打，接听或挂断电话</string>
+    <string name="appops_sms_log">短信记录</string>
+    <string name="appops_sms_log_desc">有权读取短信记录</string>
+    <string name="appops_mms_log">彩信记录</string>
+    <string name="appops_mms_log_desc">有权读写彩信记录</string>
+    <string name="appops_receive_sms">监听短信消息</string>
+    <string name="appops_receive_sms_desc">有权监听您的短信消息</string>
+    <string name="appops_send_sms">发送短信</string>
+    <string name="appops_send_sms_desc">允许发送短信</string>
+    <string name="appops_send_mms">发送彩信</string>
+    <string name="appops_send_mms_desc">允许发送彩信</string>
+    <string name="appops_write_settings">系统设置</string>
+    <string name="appops_write_settings_desc">有权修改系统设置</string>
+    <string name="appops_access_notification">读取通知栏记录</string>
+    <string name="appops_access_notification_desc">有权读取通知栏记录</string>
+    <string name="appops_camera">拍照和录像</string>
+    <string name="appops_camera_desc">有权拍照和录像</string>
+    <string name="appops_record_audio">录音</string>
+    <string name="appops_record_audio_desc">有权本地录音和通话录音</string>
+    <string name="appops_wifi">开关WLAN</string>
+    <string name="appops_wifi_desc">允许开关WLAN</string>
+    <string name="appops_bluetooth">开关蓝牙</string>
+    <string name="appops_bluetooth_desc">允许开关蓝牙</string>
+    <string name="appops_dataconnect">开关移动网络</string>
+    <string name="appops_dataconnect_desc">允许开关移动网络</string>
+    <string name="appops_autoboot">自启动</string>
+    <string name="appops_autoboot_desc">允许程序后台自启动</string>
+    <string name="appops_nfc">开关NFC</string>
+    <string name="appops_nfc_desc">允许开关NFC</string>
+    <string name="appops_phoneinfo">手机识别码</string>
+    <string name="appops_phoneinfo_desc">有权获得您的手机识别码，包括IMEI,IMSI等</string>
+    <string name="appops_clipboard">粘贴板记录</string>
+    <string name="appops_clipboard_desc">有权读写粘贴板记录</string>
+    <string name="appops_notification">发送通知栏消息</string>
+    <string name="appops_notification_desc">有权发送通知栏消息</string>
+    <string name="appops_system_alert_window">悬浮窗</string>
+    <string name="appops_system_alert_window_desc">有权开启或关闭悬浮窗</string>
+    <string name="appops_three_way_calling">三方通话</string>
+    <string name="appops_three_way_calling_desc">允许拨打三方通话</string>
+    <string name="le_share_default_select_tips">默认选择此项,不再提醒</string>
+    <!--LETVSAFE strings ends-->
+
+    <!-- package install AppSecurityPermission layout -->
+    <!-- String -->
+    <string name="always_allow">"总是询问"</string>
+    <string name="prohibit">"拒绝"</string>
+    <string name="all_allow">"允许"</string>
+    <string name="always_allow_value">"3"</string>
+    <string name="allow_value">"0"</string>
+    <string name="prohibit_value">"1"</string>
+    <string name= "on">"开"</string>
+    <string name= "off">"关"</string>
+    <string name= "setup_self" >"自启动"</string>
+    <string name= "cost" >"可能会产生费用"</string>
+    <!-- end package install AppSecurityPermission layout -->
+
+    <!-- adb install app by adb start-->
+    <string name= "apply_adb_install" >"是否允许通过后台命令行安装应用 ？"</string>
+    <string name= "adb_prompt_info" >"请选择：是否允许通过后台命令行安装应用？"</string>
+    <string name= "refuse_adb_install" >"拒绝了通过后台命令行安装应用！"</string>
+    <!-- end -->
+    <!-- Add Start Show dialog when SD plug in -->
+    <string name= "open_storage" >"打开"</string>
+    <string name= "cancel_storage" >"取消"</string>
+    <string name= "open_storage_text" >"浏览存储设备"</string>
+    <string name= "open_otg_text" >"浏览OTG存储设备"</string>
+    <!-- Add end -->
+    <!--appops end-->
+
+    <!-- LeSelectSim -->
+    <string name="le_dialpad_select_sim_card">选择要使用的SIM卡</string>
+    <string name="le_dialpad_select_sim_card_cancel">取消</string>
+    <string name="le_display_sim_name">卡 %1$s</string>
+
+    <!--lepai_share -->
+    <string name="le_pai_voice_share">声传</string>
+    
+     <!-- //+LEUI [REQ][LEUI-6586][fengzihua] added: add for phone bind permission-->
+    <string name="permlab_read_phone_bind_key">“访问机卡绑定KEY”</string>
+    <string name="permdesc_read_phone_bind_key">”允许应用访问机卡绑定KEY。“</string>
+    <!-- //-LEUI -->
+
+    <!-- Leui TextView -->
+    <string name="le_text_section_select">行选</string>
+    <string name="le_text_word_select">字选</string>
+    <string name="le_text_undo">撤销</string>
+    <string name="le_text_redo">重做</string>
+    <string name="le_select">选择</string>
+    <string name="le_login_hint">请先登录一个邮箱账号</string>
+
+    <string-array name="le_url_phone_list">
+        <item>拨打电话</item>
+        <item>发送短信</item>
+        <item>新建联系人</item>
+        <item>复制号码</item>
+        <item>添加已有联系人</item>
+    </string-array>
+
+    <string-array name="le_url_email_list">
+        <item>复制邮箱</item>
+        <item>发送邮件</item>
+        <item>保存邮箱</item>
+    </string-array>
+
+    <string-array name="le_url_web_list">
+        <item>复制</item>
+        <item>打开</item>
+        <item>保存</item>
+    </string-array>
+    <!-- Leui TextView end -->
+
+
+    <!-- LeLicenceDialog -->
+    <string name="le_licence_dialog_title">申明和条款</string>
+    <string name="le_licence_dialog_content">
+        <![CDATA[
+            您将使用乐视提供的%1$s，请阅读
+            <a href="http://static.scloud.letv.com/phone/letvprivacy/index_tow.html">使用协议</a>和
+            <a href="http://static.scloud.letv.com/phone/letvprivacy/index.html">隐私协议</a>。
+            在使用过程中需要%2$s，您是否同意？
+        ]]>
+    </string>
+    <string name="le_licence_dialog_content_type1">使用位置信息并联网</string>
+    <string name="le_licence_dialog_content_type2">联网</string>
+    <string name="le_licence_dialog_cb_text">不再提示</string>
+    <string name="le_licence_dialog_btn_exit">退出</string>
+    <string name="le_licence_dialog_btn_agree">同意并继续</string>
+    <!-- LeLicenceDialog -->
+
+</resources>

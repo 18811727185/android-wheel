@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ScaleView">
+        <attr name="scaleStyle">
+            <enum name="basedOnWidth" value="0" />
+            <enum name="basedOnHeight" value="1" />
+            <enum name="basedOnWidthAndHeight" value="2" />
+        </attr>
+    </declare-styleable>
+
+</resources>

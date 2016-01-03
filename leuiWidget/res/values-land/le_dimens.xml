@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2013 Meizu Co., Ltd. -->
+
+<resources>
+    <dimen name="le_option_popup_text_size">30.4dip</dimen>
+    
+    <dimen name="le_dialog_layout_max_height">320dip</dimen>
+
+</resources>

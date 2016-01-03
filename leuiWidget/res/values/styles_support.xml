@@ -1,0 +1,46 @@
+<resources>
+
+    <style name="Preference.Category">
+        <item name="android:layout">@android:layout/preference_category</item>
+        <!-- The title should not dim if the category is disabled, instead only the preference children should dim. -->
+        <item name="android:shouldDisableView">false</item>
+        <item name="android:selectable">false</item>
+    </style>
+
+    <style name="Widget.Holo.CompoundButton" parent="android:Widget.CompoundButton" />
+    <style name="Widget.Holo.CompoundButton.Switch">
+        <item name="android:switchTextAppearance">@android:style/TextAppearance.Holo.Small</item>
+        <item name="android:thumbTextPadding">12dip</item>
+        <item name="android:switchMinWidth">96dip</item>
+        <item name="android:switchPadding">16dip</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+
+
+    <style name="Theme.DeviceDefault.Dialog" parent="@android:style/Theme.Dialog" >
+        <item name="android:windowTitleStyle">@style/leDialogWindowTitle</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+
+        <item name="android:buttonBarStyle">@android:style/DeviceDefault.ButtonBar.AlertDialog</item>
+        <item name="android:borderlessButtonStyle">@android:style/Widget.DeviceDefault.Button.Borderless.Small</item>
+
+        <item name="android:textAppearance">@android:style/TextAppearance.DeviceDefault</item>
+        <item name="android:textAppearanceInverse">@android:style/TextAppearance.DeviceDefault.Inverse</item>
+    </style>
+
+    <style name="Theme.DeviceDefault.Dialog.Alert"  />
+
+    <style name="Animation.RecentApplications" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/recents_fade_in</item>
+        <item name="android:windowShowAnimation">@anim/recents_fade_in</item>
+        <item name="android:windowExitAnimation">@anim/recents_fade_out</item>
+        <item name="android:windowHideAnimation">@anim/recents_fade_out</item>
+    </style>
+
+    <style name="leDialogWindowTitle">
+        <item name="android:maxLines">1</item>
+        <item name="android:scrollHorizontally">true</item>
+        <item name="android:textAppearance">@android:style/TextAppearance.DialogWindowTitle</item>
+    </style>
+</resources>
+

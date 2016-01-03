@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/le_editor_frame"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+
+    <TextView
+            android:id="@+id/le_edit_text_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:visibility="gone"
+            />
+    <ImageView
+            android:id="@+id/le_edit_image_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:visibility="gone"
+            />
+    <LinearLayout
+        android:id="@+id/le_editor_plate"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <view
+            android:id="@+id/le_edit_text_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            class="com.letv.shared.widget.LeTitleEditText$LeEditTextView"
+            android:background="@null"
+            android:ellipsize="end"
+            android:inputType="text|textAutoComplete|textNoSuggestions"
+            android:minWidth="@dimen/le_edit_text_min_width"
+            android:singleLine="true"
+            android:textColor="@color/le_edit_text_color"
+            android:textColorHint="@color/le_edit_text_color_hint"
+            android:textSize="@dimen/le_default_edit_text_size"
+            android:includeFontPadding="false"
+             />
+
+        <ImageView
+            android:id="@+id/le_editor_clear_btn"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center_vertical"
+            android:focusable="true"
+            android:padding="9dp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <ImageView
+            android:id="@+id/le_edit_image_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:visibility="gone"
+            />
+</LinearLayout>

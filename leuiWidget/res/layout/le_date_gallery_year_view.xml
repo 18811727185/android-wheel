@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:paddingTop="14dp"
+    android:paddingBottom="14dp">
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:gravity="center"
+        android:textColor="#B4B4B5"
+        android:textSize="17sp" />
+    <TextView
+        android:layout_width="3dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        android:background="@drawable/le_date_gallery_circle"
+        android:visibility="invisible" />
+</LinearLayout>

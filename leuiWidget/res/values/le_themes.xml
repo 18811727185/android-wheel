@@ -1,0 +1,48 @@
+<resources>
+    <style name="Theme.Leui" parent="android:Theme.DeviceDefault.Light">
+        <!-- leui define  start -->
+        <item name="Leui.LeListViewStyle">@style/Widget.Leui.LeListView</item>
+        <item name="Leui.StaggeredGridViewStyle">@style/Widget.Leui.StaggeredGridView</item>
+        <item name="leEditTextPreferenceStyle">@style/Preference.Leui.LeEditTextPreference</item>
+        <item name="leEditDialogPreferenceStyle">@style/Preference.Leui.LeEditDialogPreference</item>
+        <item name="leRadioGroupPreferenceStyle">@style/Preference.Leui.LeRadioGroupPreference</item>
+        <item name="leRadioPreferenceStyle">@style/Preference.Leui.LeRadioPreference</item>
+        <item name="lePasswordPreferenceStyle">@style/Preference.Leui.LePassWordPreference</item>
+        <item name="leListPreferenceStyle">@style/Preference.Leui.LeListPreference</item>
+        <item name="Leui.PullToRefreshListView">@style/Widget.Leui.PullToRefreshBase.PullToRefreshListView</item>
+
+        <item name="leProgressbarStyle">@style/Widget.Leui.LeProgressbarStyle</item>
+
+        <!-- ModifiedGallery Style -->
+        <item name="Leui.ModifiedGalleryStyle">@style/Widget.Leui.ModifiedGalleryStyle</item>
+        <!-- preference attr -->
+        <item name="lePreferenceSelectableItemBackground">@drawable/le_preference_item_background</item>
+        <item name="lePreferenceArrow">@drawable/le_preference_arrow</item>
+        <item name="android:listPreferredItemHeight">@dimen/le_preference_item_min_hight</item>
+        <item name="android:textColorHighlight">@color/le_select_hightlight_color</item>
+
+        <item name="android:textColorPrimary">@color/le_primary_text_leui_light</item>
+        <item name="android:textColorSecondary">@color/le_secondary_text_leui_light</item>
+        <item name="textAppearanceItemValues">@style/TextAppearance.Leui.ItemValues</item>
+     </style>
+    <!-- Default holographic (dark) for windows that want to have the user's selected
+         wallpaper appear behind them.  -->
+    <style name="Theme.Leui.Wallpaper">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowShowWallpaper">true</item>
+    </style>
+
+    <!--Default holographic (dark) for windows that want to have the user's selected
+         wallpaper appear behind them and without an action bar. -->
+    <style name="Theme.Leui.Wallpaper.NoTitleBar">
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <!-- the animation for leui volume adjust -->
+    <style name="VolumeAdjustAnim" parent="android:Animation">
+        <item name="@android:windowEnterAnimation">@anim/leui_volume_adjust_anim_in</item>
+        <item name="@android:windowExitAnimation">@anim/leui_volume_adjust_anim_out</item>
+    </style>
+</resources>
+

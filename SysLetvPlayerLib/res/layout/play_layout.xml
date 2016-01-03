@@ -1,0 +1,43 @@
+<com.letv.tv.core.scaleview.ScaleRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/playid"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000" >
+    <!-- 350整体布局，请一定放到playView的上面 -->
+
+    <com.letv.tv.core.scaleview.ScaleRelativeLayout
+        android:id="@+id/stream_350_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+    <com.letv.tv.core.scaleview.ScaleFrameLayout
+        android:id="@+id/play_rootView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </com.letv.tv.core.scaleview.ScaleFrameLayout>
+
+    <!-- 350播放界面的布局，请一定放到playView的下面 -->
+
+    <com.letv.tv.core.scaleview.ScaleRelativeLayout
+        android:id="@+id/stream_350_layout_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+    <!-- 播放辅助功能布局 (不可手动取消的view)-->
+    <com.letv.tv.core.scaleview.ScaleRelativeLayout
+        android:id="@+id/play_function_layout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </com.letv.tv.core.scaleview.ScaleRelativeLayout>
+
+    <!-- 播放辅助功能布局(手动取消的view) -->
+
+    <com.letv.tv.core.scaleview.ScaleRelativeLayout
+        android:id="@+id/play_function_layout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </com.letv.tv.core.scaleview.ScaleRelativeLayout>
+
+</com.letv.tv.core.scaleview.ScaleRelativeLayout>

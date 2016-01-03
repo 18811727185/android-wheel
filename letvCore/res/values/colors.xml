@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="letv_toast_bg_color">#111111</color>
+    <color name="letv_toast_text_color">#ffffffff</color>
+
+</resources>

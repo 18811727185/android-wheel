@@ -1,0 +1,97 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:divider="?android:attr/dividerHorizontal" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/le_dialpad_select_sim_card"
+        android:textColor="@color/le_select_sim_label_text_color"
+        android:textSize="@dimen/le_select_sim_label_text_size"
+        android:includeFontPadding="false"
+        android:layout_gravity="center_horizontal"
+        android:paddingTop="@dimen/le_select_sim_label_top_padding"
+        android:paddingBottom="@dimen/le_select_sim_label_bottom_padding"
+        android:gravity="center"/>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/le_select_sim_divider_height"
+        android:background="@color/le_select_sim_divider_color" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/le_select_sim_sim_icon_top_padding"
+        android:paddingBottom="@dimen/le_select_sim_sim_label_bottom_padding"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:id="@+id/le_select_sim_sim1"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            >
+            <ImageView
+                android:layout_width="@dimen/le_select_sim_sim_icon_width"
+                android:layout_height="@dimen/le_select_sim_sim_icon_height"
+                android:src="@drawable/le_sim1"
+                android:paddingBottom="@dimen/le_select_sim_sim_icon_bottom_padding"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/le_select_sim_sim1_text"
+                android:textSize="@dimen/le_select_sim_sim_label_text_size"
+                android:color="@color/le_select_sim_sim_label_text_color"
+                android:text="@string/le_dialpad_select_sim_card_sim1"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:id="@+id/le_select_sim_sim2"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            >
+            <ImageView
+                android:layout_width="@dimen/le_select_sim_sim_icon_width"
+                android:layout_height="@dimen/le_select_sim_sim_icon_height"
+                android:src="@drawable/le_sim2"
+                android:paddingBottom="@dimen/le_select_sim_sim_icon_bottom_padding"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/le_select_sim_sim2_text"
+                android:textSize="@dimen/le_select_sim_sim_label_text_size"
+                android:color="@color/le_select_sim_sim_label_text_color"
+                android:text="@string/le_dialpad_select_sim_card_sim1"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/le_select_sim_divider_height"
+        android:background="@color/le_select_sim_divider_color" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/le_select_sim_cancel"
+        android:text="@string/le_dialpad_select_sim_card_cancel"
+        android:textColor="@color/le_select_sim_cancel_text_color"
+        android:textSize="@dimen/le_select_sim_cancel_text_size"
+        android:layout_gravity="center_horizontal"
+        android:paddingTop="@dimen/le_select_sim_cancel_top_padding"
+        android:paddingBottom="@dimen/le_select_sim_cancel_bottom_padding"
+        android:gravity="center"/>
+</LinearLayout>

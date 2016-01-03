@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_height="fill_parent"
+                android:layout_width="fill_parent"
+
+                >
+    <LinearLayout android:layout_height="fill_parent"
+                  android:layout_width="wrap_content"
+
+                  android:background="#00ffffee"
+                  android:id="@+id/left_layout"/>
+
+
+
+<RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:background="#00ffffee"
+                android:id="@+id/share_layout">
+
+
+
+    <LinearLayout android:id="@+id/real_content"
+                  android:orientation="vertical"
+                  android:layout_alignParentBottom="true"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:background="#ffffff"
+                  android:clickable="true">
+        <View android:layout_width="match_parent"
+              android:layout_height="1px"
+
+              android:background="#26000000"/>
+
+<ScrollView
+
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="106dp"
+        android:fadeScrollbars="false"
+        >
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+        <LinearLayout android:id="@+id/display_less_five"
+                      android:orientation="horizontal"
+                      android:layout_width="match_parent"
+                      android:layout_height="106dp"
+                      android:gravity="center"/>
+        <View android:id="@+id/specail_devider"
+              android:layout_width="match_parent"
+              android:layout_height="1px"
+              android:background="#26000000"
+              android:layout_marginLeft="5dp"
+              android:layout_marginRight="5dp"
+              android:visibility="gone"/>
+
+        <LinearLayout android:id="@+id/specail_layout"
+                      android:orientation="horizontal"
+                      android:layout_width="match_parent"
+                      android:layout_height="106dp"
+                      android:visibility="gone"
+                      android:gravity="center"/>
+        </LinearLayout>
+        </ScrollView>
+        <LinearLayout android:id="@+id/awalys_id"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal"
+                      android:layout_marginTop="10dp"
+                      android:layout_marginBottom="10dp"
+                      android:visibility="gone" >
+            <com.letv.shared.widget.LeCheckBox
+                    android:id="@+id/checkbox_awalys"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    />
+            <TextView android:layout_height="match_parent"
+                      android:layout_width="150dp"
+                      android:layout_marginLeft="10dp"
+                      android:text="@string/le_share_default_select_tips"></TextView>
+        </LinearLayout>
+
+        <View android:layout_width="match_parent"
+              android:layout_height="1px"
+              android:background="#26000000"/>
+
+        <Button android:id="@+id/cancel"
+                android:layout_width="fill_parent"
+                android:layout_height="48dp"
+                android:textSize="15sp"
+                android:background="@null"
+                android:textColor="#2395ee"
+                android:text="@string/share_cancel"/>
+    </LinearLayout>
+    <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_above="@id/real_content"
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:background="@drawable/leshare_popup_widonw_bg">
+
+        <LinearLayout
+                android:id="@+id/gv_anim_layout"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:orientation="vertical"
+
+                android:visibility="visible">
+            <TextView android:layout_width="fill_parent"
+                      android:layout_height="48dp"
+                      android:textSize="15sp"
+                      android:gravity="center"
+                      android:id="@+id/share_title"
+                      android:textColor="#525e66"
+                      android:text="@string/share_title"
+                    />
+            <View android:layout_width="match_parent"
+                  android:layout_height="1px"
+                  android:background="#26000000"/>
+            <GridView android:id="@+id/share_gv"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:paddingLeft="10dp"
+                      android:paddingRight="10dp"
+                      android:visibility="gone"
+                      android:horizontalSpacing="0dp"
+                      android:background="@color/le_share_gv_bg_color"
+                      android:columnWidth="@dimen/share_layout_item_width"
+                      android:fadeScrollbars="false"
+                      android:numColumns="5"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
+
+    <LinearLayout android:layout_height="fill_parent"
+                  android:layout_width="wrap_content"
+
+                  android:id="@+id/right_layout"
+                  android:background="#00ffffee"
+            />
+</LinearLayout>

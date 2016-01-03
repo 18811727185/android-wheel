@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal">
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginRight="8dp"
+                android:id="@+id/le_year_wrapper"
+                >
+            <com.letv.shared.widget.picker.WheelView
+                    android:id="@+id/le_year"
+
+                    android:layout_height="wrap_content"
+                    android:layout_width="75dp"
+                    />
+
+        </LinearLayout>
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:id="@+id/le_day_wrapper"
+            >
+            <com.letv.shared.widget.picker.WheelView
+                    android:id="@+id/le_day"
+
+                    android:layout_height="wrap_content"
+                    android:layout_width="80dp"
+                    />
+
+        </LinearLayout>
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginLeft="8dp"
+                android:id="@+id/le_hours_wrapper"
+                >
+            <com.letv.shared.widget.picker.WheelView
+                    android:id="@+id/le_am_pm"
+
+                    android:layout_height="wrap_content"
+                    android:layout_width="60dp" />
+
+            <com.letv.shared.widget.picker.WheelView
+                    android:id="@+id/le_hour"
+
+                    android:layout_height="wrap_content"
+                    android:layout_width="40dp" />
+
+            <com.letv.shared.widget.picker.WheelView
+                    android:id="@+id/le_mins"
+
+                    android:layout_height="wrap_content"
+                    android:layout_width="40dp" />
+        </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+
+</merge>

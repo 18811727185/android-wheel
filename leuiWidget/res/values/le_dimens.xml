@@ -1,0 +1,360 @@
+<resources>
+
+    
+    <!--  Bottom Navigation Widget and Bottom Action Widget begin -->
+    <!-- tab width and height -->
+    <dimen name="le_bottom_tab_with_icon_only_width">56dp</dimen>
+    <dimen name="le_bottom_tab_with_icon_title_width">64dp</dimen>
+    <dimen name="le_bottom_tab_with_icon_only_height">48dp</dimen>
+    <dimen name="le_bottom_tab_with_icon_title_height">48dp</dimen>
+    
+    <!-- icon topMargin if there are an icon and a title -->
+    <dimen name="le_bottom_tab_with_title_icon_margintop">5dp</dimen>
+    
+    <!-- icon widht/height -->
+    <dimen name="le_bottom_tab_icon_width">24dp</dimen>
+    <dimen name="le_bottom_tab_icon_height">24dp</dimen>
+    
+    <!-- title text size and padding -->
+    <dimen name="le_bottom_tab_title_textsize">10dp</dimen>
+    <dimen name="le_bottom_tab_title_paddingtop">4dp</dimen>
+    <dimen name="le_bottom_tab_title_paddingbottom">0dp</dimen>
+    
+    <!-- divider height -->
+    <dimen name="le_bottom_tab_top_strip_height">1px</dimen>
+    
+    <dimen name="le_tab_indicator_top_strip_height">1px</dimen>
+    
+    <dimen name="le_bottom_widget_top_strip_height">1px</dimen>
+    
+    <!-- tab indicator floating view -->
+    <dimen name="le_tab_indicator_float_view_width">56dp</dimen>
+    <dimen name="le_tab_indicator_float_view_height">56dp</dimen>
+    <dimen name="le_tab_indicator_float_view_marginbottom">8dp</dimen>
+    <!--  Bottom Navigation Widget and Bottom Action Widget end -->
+    
+    <!-- preference begin -->
+    <dimen name="le_preference_padding_start">16dp</dimen>
+    <dimen name="le_preference_padding_end">16dp</dimen>
+    <dimen name="le_preference_padding_top">12dp</dimen>
+    <dimen name="le_preference_padding_bottom">12dp</dimen>
+
+    <dimen name="le_preference_content_padding_start">0dp</dimen>
+
+    <dimen name="le_preference_icon_margin_right">10dp</dimen>
+
+    <dimen name="le_preference_category_hight">48dp</dimen>
+    <dimen name="le_preference_horizontal_widget_minWidth">20dp</dimen>
+    <dimen name="le_preference_category_paddingTop">22dp</dimen>
+    <dimen name="le_preference_category_paddingBottom">9dp</dimen>
+    <dimen name="le_preference_category_text_height">28dp</dimen>
+    
+    <dimen name="le_preference_item_min_hight">56dp</dimen>
+    <dimen name="le_preference_icon_size">32dp</dimen>
+    <dimen name="le_preference_title_summary_margin">6dp</dimen>
+    <dimen name="le_preference_summary_arrow_margin">6dp</dimen>
+    <dimen name="le_preference_edittext_margin_start">15dp</dimen>
+    <!-- preference end -->
+    
+    <!-- pull-to-refresh start -->
+    <dimen name="le_ptr_header_footer_left_right_padding">24dp</dimen>
+    <dimen name="le_ptr_header_footer_top_bottom_padding">12dp</dimen>
+    
+    <dimen name="le_dragsort_grid_overlap_if_switch_straight_line">16dp</dimen>
+    <!-- pull-to-refresh end -->
+    
+    <!-- ModifiedGallery start -->
+    <dimen name="le_modifiedgallery_max_overscroll_distance">120dp</dimen>
+    
+    <dimen name="leSpacing">10dp</dimen>
+    <!-- ModifiedGallery end -->
+    
+    <!-- LeTitleEditText res start -->
+    <dimen name="le_edit_text_min_width">192dp</dimen>
+    <dimen name="le_edit_text_preferred_width">320dp</dimen>
+    <dimen name="le_default_edit_text_size">18dp</dimen>
+	<dimen name="le_default_edit_text_clear_icon_size">32dp</dimen>
+	<dimen name="le_default_edit_text_clear_icon_padding">9dp</dimen>
+	<dimen name="le_default_edit_text_margin_left">20dp</dimen>
+	<dimen name="le_default_edit_text_margin_right">20dp</dimen>
+	<dimen name="le_default_edit_text_margin_top">8dp</dimen>
+	<dimen name="le_default_edit_text_margin_bottom">8dp</dimen>
+	<dimen name="le_default_edit_text_title_margin_right">6dp</dimen>
+	<!-- LeTitleEditText res End -->
+
+    <dimen name="le_popup_menu_item_min_width">80dp</dimen>
+    
+    <!-- LePinnedPopupWindow res Start -->
+    <dimen name="le_popup_frame_corner_radius">8px</dimen>
+    <dimen name="le_popup_text_size">14dp</dimen>
+    <dimen name="le_popup_horizontal_padding">12dp</dimen>
+    <dimen name="le_popup_item_horizontal_padding">12dp</dimen>
+    <dimen name="le_popup_item_height">42dp</dimen>
+    <!-- LePinnedPopupWindow res End -->
+    
+	<!-- LeTextView Text Selection Start -->
+    <dimen name="le_text_selection_popup_text_size">12dp</dimen>
+    <dimen name="le_text_selection_popup_item_padding">15dp</dimen>
+    <dimen name="le_text_selection_popup_item_height">34dp</dimen>
+    <dimen name="le_text_selection_popup_item_margin">14px</dimen>
+    <dimen name="le_text_popup_item_vertical_minwidth" >120dp</dimen>
+    <dimen name="le_default_text_cursor_width" >2dp</dimen>
+    <!-- LeTextView Text Selection End -->
+    
+    <!-- dialog start -->
+    <dimen name="le_dialog_title_text_size">18sp</dimen>
+    <dimen name="le_dialog_center_text_size">17sp</dimen>
+    <dimen name="le_dialog_no_title_paddingtop">16dip</dimen>
+    <dimen name="le_dialog_no_title_with_message_paddingtop">24dip</dimen>
+    <dimen name="le_dialog_two_button_width">78dip</dimen>
+    <dimen name="le_dialog_toppanel_minheight">49dip</dimen>
+    <dimen name="le_dialog_toppanel_only_minheight">58dip</dimen>
+    <dimen name="le_dialog_title_only_padding_top">16dip</dimen>
+    <dimen name="le_dialog_title_only_padding_bottom">16dip</dimen>
+    <dimen name="le_dialog_edittext_margin_top">0dip</dimen>
+    <dimen name="le_dialog_edittext_margin_top_internal">7dip</dimen>
+    <dimen name="le_dialog_edittext_margin_bottom">7dip</dimen>
+    
+    <dimen name="le_dialog_layout_margin_start">30.6dip</dimen>
+    <dimen name="le_dialog_layout_margin_end">30.6dip</dimen>
+    <dimen name="le_dialog_layout_max_height">393dip</dimen>
+    
+    <dimen name="le_dialog_title_layout_margin_start">10dip</dimen>
+    <dimen name="le_dialog_title_layout_margin_end">9dip</dimen>
+    
+    <dimen name="le_dialog_icon_padding_top">3dip</dimen>
+    <dimen name="le_dialog_icon_padding_end">8dip</dimen>
+    
+    <dimen name="le_dialog_content_layout_padding_bottom">16dip</dimen>
+    <dimen name="le_dialog_content_layout_padding_start">16dip</dimen>
+    <dimen name="le_dialog_content_layout_padding_end">16dip</dimen>
+    
+    <dimen name="le_dialog_custom_layout_padding_top">24dip</dimen>
+    <dimen name="le_dialog_custom_layout_padding_bottom">16dip</dimen>
+    <dimen name="le_dialog_custom_layout_padding_start">16dip</dimen>
+    <dimen name="le_dialog_custom_layout_padding_end">16dip</dimen>
+    
+    <dimen name="le_dialog_buttonpanel_minheight">54dip</dimen>
+    <dimen name="le_dialog_button_layout_padding_top">0dip</dimen>
+    <dimen name="le_dialog_button_layout_padding_bottom">16dip</dimen>
+    <dimen name="le_dialog_button_layout_padding_start">16dip</dimen>
+    <dimen name="le_dialog_button_layout_padding_end">16dip</dimen>
+    <dimen name="le_dialog_button_padding">20dip</dimen>
+    <dimen name="le_dialog_button_min_margin_start">4dip</dimen>
+    <dimen name="le_dialog_button_min_width">80dip</dimen>
+    <dimen name="le_dialog_button_layout_width">248dip</dimen>
+    <dimen name="le_dialog_button_layout_land_width">323dip</dimen>
+    <dimen name="le_dialog_button_min_height">38dip</dimen>
+    <dimen name="le_dialog_padding_material">16dip</dimen>
+    
+    <dimen name="le_alert_dialog_padding_top_material">16dp</dimen>
+    <dimen name="le_alert_dialog_padding_bottom_material">13dp</dimen>
+    <dimen name="le_dialog_button_text_size">18sp</dimen>
+    <!-- dialog end -->
+
+    <!-- LeTopWidget -->
+    <dimen name="leTopWidget_hight">48dp</dimen>
+    <dimen name="leTopWidget_leftview_margin">14dp</dimen>
+    <dimen name="leTopWidget_textview_width">100dp</dimen>
+    <dimen name="leTopWidget_textview_magin_left">4dp</dimen>
+    <dimen name="leTopWidget_textview_text_size">16dp</dimen>
+    <dimen name="leTopWidget_center_tv_width">160dp</dimen>
+    <dimen name="leTopWidget_left_tv_width">100dp</dimen>
+    <integer name="leTopWidget_textview_size">16</integer>
+
+    <!-- LeCheckBox -->
+    <dimen name="le_default_box_size">21dp</dimen>
+    <dimen name="le_default_box_size_with_border">18dp</dimen>
+    
+    <dimen name="le_default_activation_input_margin">6dp</dimen>
+    <dimen name="le_default_activation_input_padding_bottom">7dp</dimen>
+    <dimen name="le_default_activation_title_text_size">16dp</dimen>
+    <dimen name="le_default_activation_input_text_size">16dp</dimen>
+    <dimen name="le_default_activation_input_inner_margin">10dp</dimen>
+    
+    <!-- ListView -->
+    <dimen name="le_max_y_overscroll_distance">60dp</dimen>
+    
+    <!-- AlphabetWavesView -->
+    <dimen name="le_awv_toast_text_size">24sp</dimen>
+    <dimen name="le_awv_alphabet_text_size">10sp</dimen>
+    <dimen name="le_awv_padding_top_bottom">24dp</dimen>
+    <dimen name="le_awv_width">38dp</dimen>
+    <dimen name="le_awv_toast_offset">30dp</dimen>
+    <dimen name="le_awv_alphabet_max_offset">32dp</dimen>
+    <dimen name="le_awv_alphabet_left_margin">8dp</dimen>
+    
+
+<!-- LeTopTabWidget -->
+    <dimen name="le_tab_text_size">14dp</dimen>
+    
+    <!--  searchView indicator begin -->
+    <dimen name="lc_dropdownitem_icon_width">48dp</dimen>
+    <dimen name="lc_dropdownitem_text_padding_left">4dp</dimen>
+
+    <dimen name="lc_search_view_text_min_width">192dp</dimen>
+
+    <!-- Preferred width of the search view. -->
+    <dimen name="lc_search_view_preferred_width">320dp</dimen>
+
+    <!-- search view icon size/margin/padding -->
+    <dimen name="lc_default_search_icon_size">32dp</dimen>
+    <dimen name="lc_default_search_icon_margin_left">4dp</dimen>
+    <dimen name="lc_default_search_icon_margin_right">0dp</dimen>
+    <dimen name="lc_default_search_icon_margin_top">0dp</dimen>
+    <dimen name="lc_default_search_icon_margin_bottom">0dp</dimen>
+    <dimen name="lc_default_search_icon_padding_left">0dp</dimen>
+    <dimen name="lc_default_search_icon_padding_right">0dp</dimen>
+    <dimen name="lc_default_search_icon_padding_top">0dp</dimen>
+    <dimen name="lc_default_search_icon_padding_bottom">0dp</dimen>
+
+    <!-- search view query text size -->
+    <dimen name="lc_default_search_query_text_size">15sp</dimen>
+
+    <!-- search view clear icon size/padding -->
+	<dimen name="lc_default_search_clear_icon_size">32dp</dimen>
+	<dimen name="lc_default_search_clear_icon_padding">0dp</dimen>
+
+	<!-- search view plate margin -->
+	<dimen name="lc_search_track_margin_left">16dp</dimen>
+	<dimen name="lc_search_track_margin_right">16dp</dimen>
+	<dimen name="lc_search_track_margin_top">8dp</dimen>
+	<dimen name="lc_search_track_margin_bottom">8dp</dimen>
+
+    <dimen name="lc_search_track_padding_left">4dp</dimen>
+    <dimen name="lc_search_track_padding_right">4dp</dimen>
+
+	<!-- search view drop down item padding -->
+	<dimen name="lc_default_search_view_drop_down_paddingLeft">0dp</dimen>
+	<dimen name="lc_default_search_view_drop_down_paddingRight">0dp</dimen>
+	<dimen name="lc_default_search_view_drop_down_paddingTop">0dp</dimen>
+	<dimen name="lc_default_search_view_drop_down_paddingBottom">0dp</dimen>
+	<dimen name="lc_default_search_view_drop_down_blurRadius">10dp</dimen>
+	<dimen name="lc_default_search_view_drop_down_title">18dp</dimen>
+	<dimen name="lc_default_search_view_drop_down_sub_title">12dp</dimen>
+	<dimen name="lc_default_search_view_drop_down_divider_height">1px</dimen>
+	<dimen name="lc_popup_round_radius">6dp</dimen>
+
+    <item name="lc_search_view_default_text_alpha" format="float" type="dimen" >1.0</item>
+    <item name="lc_search_track_alpha_unfocus_holo" format="float" type="dimen" >0.03</item>
+    <item name="lc_search_track_alpha_holo" format="float" type="dimen" >0.05</item>
+    <!-- searchView indicator end -->
+    
+    <!-- fengzihua added start: for global action. -->
+    <!-- global action handler text dimens -->
+    <dimen name="global_action_handler_tip_text_size">18dip</dimen>
+    <dimen name="global_action_handler_tip_region_width">100dip</dimen>
+    <dimen name="global_action_handler_tip_region_height">56dip</dimen>
+    <!-- global action handler tri dimens -->
+    <dimen name="global_action_handler_tri_region_width">100dip</dimen>
+    <dimen name="global_action_handler_tri_region_height">46dip</dimen>
+    <dimen name="global_action_handler_tri_width">36dip</dimen>
+    <dimen name="global_action_handler_tri_height">12dip</dimen>
+    <dimen name="global_action_handler_tri_pen_width">2dip</dimen>
+    <!-- global action bottombar dimens -->
+    <dimen name="global_action_bottombar_width">56dip</dimen>
+    <dimen name="global_action_bottombar_height">72dip</dimen>
+    <dimen name="global_action_bottombar_marginBottom">24dip</dimen>
+    <!-- global action bottombar text dimens -->
+    <dimen name="global_action_bottombar_tip_text_size">13dip</dimen>
+    <!-- global action bottombar shutdown line dimens -->
+    <dimen name="global_action_bottombar_line_width">1.35dip</dimen>
+    <dimen name="global_action_bottombar_line_height">16dip</dimen>
+    <dimen name="global_action_bottombar_line_padding">7dip</dimen>
+    <!-- global action bottombar shutdown arc dimens -->
+    <dimen name="global_action_bottombar_arc_width">1.35dip</dimen>
+    <dimen name="global_action_bottombar_arc_inner_ring_diameter">32dip</dimen>
+    <!-- global action bottombar scale arc dimens -->
+    <dimen name="global_action_bottombar_line_padding_inc">6dip</dimen>
+    <dimen name="global_action_bottombar_arc_inner_ring_diameter_inc">8.7dip</dimen>
+    <dimen name="global_action_bottombar_cross_width">16dip</dimen>
+    <dimen name="global_action_bottombar_arrow_width">3.35dip</dimen>
+    <dimen name="global_action_bottombar_text_padding_bottom">4dip</dimen>
+    <!-- shutdow welcome view -->
+    <dimen name="shutdown_welcome_text_size">18dip</dimen>
+    <!-- fengzihua added end-->
+
+    <!-- DialFloatButtonView -->
+    <dimen name="le_dial_float_button_view_circle_size">56dip</dimen>
+    <item name="le_dial_float_button_view_start_rotation" format="float" type="dimen" >0.0</item>
+    <item name="le_dial_float_button_view_end_rotation" format="float" type="dimen" >135.0</item>
+
+    <!-- OverScroll Max Distance -->
+    <dimen name="le_over_scroll_distance">128dip</dimen>
+    
+    <!-- Scroll Strip TabWidget -->
+    <dimen name="le_scroll_strip_tab_widget_height">48dp</dimen>
+    <dimen name="le_scroll_strip_tab_widget_text_size">14dp</dimen>
+    <dimen name="le_scroll_strip_tab_widget_fix_strip_height">1px</dimen>
+    <dimen name="le_scroll_strip_tab_widget_scroll_strip_height">3dp</dimen>
+    <dimen name="le_scroll_strip_tab_widget_scroll_strip_len_extension">18dp</dimen>
+    
+    <!-- EditText For AlertDialog -->
+    <dimen name="le_dialog_edittext_height">32dip</dimen>
+    <dimen name="le_dialog_edittext_padding_left" >4dip</dimen>
+    <dimen name="le_dialog_edittext_text_size" >17sp</dimen>
+    <dimen name="le_dialog_edittext_margin_start">16dip</dimen>
+    <dimen name="le_dialog_edittext_margin_end">16dip</dimen>
+    
+    <!--leShare -->
+    <dimen name="share_app_lable_size">12sp</dimen>
+    <dimen name="share_layout_item_width">68dp</dimen>
+    <dimen name="share_layout_item_gap_width">10dp</dimen>
+    <dimen name="share_layout_gv_max_height">212dp</dimen>
+    <item name="share_dialog_min_width_minor" type="dimen" >100%</item>
+    <dimen name="le_share_cancel_btn_height">48dp</dimen>
+
+    <dimen name="le_actionbar_menu_text_size">16dp</dimen>
+
+    <!-- Dimensions for select sim card to dial -->
+    <dimen name="le_select_sim_label_top_padding">16dp</dimen>
+    <dimen name="le_select_sim_label_text_size">16sp</dimen>
+    <dimen name="le_select_sim_label_bottom_padding">16dp</dimen>
+    <dimen name="le_select_sim_sim_icon_top_padding">30dp</dimen>
+    <dimen name="le_select_sim_sim_icon_width">40dp</dimen>
+    <dimen name="le_select_sim_sim_icon_height">40dp</dimen>
+    <dimen name="le_select_sim_sim_icon_bottom_padding">10dp</dimen>
+    <dimen name="le_select_sim_sim_label_text_size">12sp</dimen>
+    <dimen name="le_select_sim_sim_label_bottom_padding">30dp</dimen>
+    <dimen name="le_select_sim_cancel_top_padding">14dp</dimen>
+    <dimen name="le_select_sim_cancel_text_size">18sp</dimen>
+    <dimen name="le_select_sim_cancel_bottom_padding">14dp</dimen>
+    <dimen name="le_select_sim_divider_height">1px</dimen>
+    <dimen name="le_data_time_picker_padding">12dp</dimen>
+    
+    <!-- [+LEUI] [REQ][LEUI-6400] [wangziming] add LeItemView-->
+    <dimen name="le_item_title_text_size">16sp</dimen>
+    <dimen name="le_item_subtitle_text_size">12sp</dimen>
+    <dimen name="le_item_value_text_size">13sp</dimen>
+
+    <dimen name="le_item_padding_start">16dp</dimen>
+    <dimen name="le_item_padding_end">16dp</dimen>
+    <dimen name="le_item_padding_top_bottom_big">20dp</dimen>
+    <dimen name="le_item_padding_top_bottom_medium">14dp</dimen>
+    <dimen name="le_item_padding_top_bottom_small">12dp</dimen>
+    <dimen name="le_item_between_image_title_margin">12dp</dimen>
+    <dimen name="le_item_between_title_subtitle_margin">6dp</dimen>
+    <dimen name="le_item_between_subtitle_value_margin">30dp</dimen>
+    <dimen name="le_item_between_value_control_margin">8dp</dimen>
+    
+    <dimen name="le_item_divider_height">1px</dimen>
+    <dimen name="action_bar_default_height_material_leui">48dp</dimen>
+
+    <!-- [-LEUI] -->
+
+    <!-- WifiConnectViewActivity -->
+    <item type="dimen" format="float" name="transparency">0.0</item>
+
+    <item type="dimen" format="float" name="opacity">1.0</item>
+
+    <item type="dimen" format="float" name="wifi_connect_translate_y1">0</item>
+
+    <item type="dimen" format="float" name="wifi_connect_translate_y2">30</item>
+
+    <dimen  name="alert_dialog_button_bar_height">48dp</dimen>
+    <dimen  name="le_alert_dialog_padding_material">24dp</dimen>
+
+    <dimen name="le_preference_fragment_padding_side">16dp</dimen>
+
+
+</resources>

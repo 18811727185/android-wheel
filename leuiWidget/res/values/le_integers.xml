@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+** Copyright 2012, The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+<resources>
+    <!-- simple_lock_password length wanghailu@letv.com 2014.07.09 start-->
+    <integer name="leui_unlock_set_simple_password_length">4</integer>
+    <!-- simple_lock_password length wanghailu@letv.com 2014.07.09 end-->
+    
+    <!-- leSwitch by dongshangyong -->
+    <integer name="le_default_switch_animate_time">400</integer>
+    
+    <integer name="le_default_activation_input_text_length">6</integer>
+    
+    <integer name="le_view_enabled_alpha">100</integer>
+    <integer name="le_view_disabled_alpha">30</integer>
+
+    <integer name="le_unclickable_alpha">76</integer>
+    
+    <!-- Bottom Navigation Widget -->
+    <integer name="le_bottom_2_tabs_screen_ratio">50000</integer>
+    <integer name="le_bottom_3_tabs_screen_ratio">60000</integer>
+    <integer name="le_bottom_3_tabs_screen_dialer_ratio">73333</integer>
+    <integer name="le_bottom_4_tabs_screen_ratio">75000</integer>
+    <integer name="le_bottom_5_tabs_screen_ratio">85000</integer>
+    
+    <integer name="le_bottom_1_tabs_touch_flow_width_2_height_ratio">220</integer>
+    <integer name="le_bottom_2_tabs_touch_flow_width_2_height_ratio">200</integer>
+    <integer name="le_bottom_3_tabs_touch_flow_width_2_height_ratio">200</integer>
+    <integer name="le_bottom_4_tabs_touch_flow_width_2_height_ratio">200</integer>
+    <integer name="le_bottom_5_tabs_touch_flow_width_2_height_ratio">160</integer>
+    
+    <!-- global action bottom cicle angle -->
+    <integer name="global_action_bottombar_arc_begin_angle">-60</integer>
+    <integer name="global_action_bottombar_ring_begin_angle">-90</integer>
+    <!-- DialFloatButtonView -->
+    <integer name="le_dial_float_button_view_anim_duration">500</integer>
+
+
+    <integer name="wifi_connect_circle_scale_duration">1000</integer>
+    <integer name="wifi_connect_line_duration">500</integer>
+    <integer name="wifi_connect_line1_delay">175</integer>
+    <integer name="wifi_connect_line2_delay">245</integer>
+    <integer name="wifi_connect_line3_delay">315</integer>
+    <!-- value for led light color when battery is low on charging -->
+    <integer name="config_notificationsBatteryLowChargingARGB">0xFFFF9900</integer>
+    <integer name="le_config_activityShortDur">150</integer>
+    <integer name="le_preference_screen_header_scrollbarStyle">0x02000000</integer>
+</resources>

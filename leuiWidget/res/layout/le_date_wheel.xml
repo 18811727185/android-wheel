@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center" >
+
+        <com.letv.shared.widget.picker.WheelView
+            android:id="@+id/le_year"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+
+            android:layout_marginRight="5dp"
+            />
+
+        <com.letv.shared.widget.picker.WheelView
+            android:id="@+id/le_month"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            />
+
+        <com.letv.shared.widget.picker.WheelView
+            android:id="@+id/le_day"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+
+            />
+    </LinearLayout>
+    <!--android:paddingLeft="@dimen/le_data_time_picker_padding"
+    android:paddingRight="@dimen/le_data_time_picker_padding"-->
+</merge>

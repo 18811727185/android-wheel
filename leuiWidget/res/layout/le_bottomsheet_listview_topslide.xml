@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            
+            >
+        <TextView android:layout_width="match_parent"
+                  android:layout_height="48dp"
+                  android:gravity="center_vertical|left"
+                  android:layout_weight = "1"
+                  android:textSize="18sp"
+                  android:textStyle="normal"
+                  
+                  android:id="@+id/le_bottomsheet_list_title"
+
+                />
+        <TextView
+                android:layout_width="match_parent"
+                  android:layout_height="48dp"
+                  android:gravity="center_vertical|right"
+                  android:layout_weight="1"
+                  android:textSize="14sp"
+                  android:textStyle="normal"
+                  android:id="@+id/le_bottomsheet_list_title_tail"
+                  
+                />
+        
+    </LinearLayout>
+
+
+    <ListView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:id="@+id/le_bottomsheet_list_1"
+              android:scrollbarStyle="outsideOverlay"
+              android:clipToPadding="false"
+
+            >
+  
+    </ListView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <ImageView android:layout_width="match_parent"
+                   android:layout_height="1px"
+                   android:background="@drawable/le_bottomsheet_gapline_color"
+                   android:id="@+id/le_bottomsheet_listview_title_gap"
+
+                   android:layout_marginLeft="16dp"
+                   android:layout_marginRight="16dp"/>
+
+        </LinearLayout>
+
+
+
+
+    <Button android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/le_bottomsheet_title_color_default"
+            android:background="@drawable/item_background_holo_light"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textAllCaps="false"
+            android:id="@+id/le_bottomsheet_listview_title_btn"
+
+            />
+
+</LinearLayout>
+

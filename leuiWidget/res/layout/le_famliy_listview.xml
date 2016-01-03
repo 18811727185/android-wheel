@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="60dip"
+        android:layout_height="wrap_content"
+        android:background="@drawable/le_family_bg"
+        android:gravity="center" />
+
+</LinearLayout>

@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Pull-To-Refresh begin -->
+    <string name="le_ptr_pull_label">Pull to refresh…</string>
+    <string name="le_ptr_release_label">Release to refresh…</string>
+    <string name="le_ptr_refreshing_label">Loading…</string>
+    <!-- Just use standard Pull Down String when pulling up. These can be set for languages which require it -->
+    <string name="le_ptr_from_bottom_pull_label">@string/le_ptr_pull_label</string>
+    <string name="le_ptr_from_bottom_release_label">@string/le_ptr_release_label</string>
+    <string name="le_ptr_from_bottom_refreshing_label">@string/le_ptr_refreshing_label</string>
+    <!-- Pull-To-Refresh end -->
+    <!-- Lunar -->
+    <string name="data_usage_limit_warn_text">"You have used 90% of your data limit"</string>
+    <string name="disconnect_data_connection">"Disconnect data connection"</string>
+    <string name="detail">"detail"</string>
+
+    <string name="le_text_section_select">Line Select</string>
+    <string name="le_text_word_select">Word Select</string>
+    <string name="le_text_undo">Undo</string>
+    <string name="le_text_redo">Redo</string>
+    <string name="le_select">Select</string>
+    <string name="le_login_hint">Please Login a Email Account First</string>
+    <string-array name="le_url_phone_list">
+        <item>Make Call</item>
+        <item>Send Message</item>
+        <item>Save as New</item>
+        <item>Copy Number</item>
+        <item>Save to Exist</item>
+    </string-array>
+
+    <string-array name="le_url_email_list">
+        <item>Copy Email</item>
+        <item>Send Email</item>
+        <item>Save Email</item>
+    </string-array>
+
+    <string-array name="le_url_web_list">
+        <item>Copy</item>
+        <item>Open</item>
+        <item>Save</item>
+    </string-array>
+
+    <string name="data_usage_background_forbid_notification_title">"Background data usage disabled"</string>
+    <string name="data_usage_background_forbid_notification_msg">"To enable background data, go to settings"</string>
+    <!-- //LEUI-START [REQ][LEUI-] [fengzihua] added -->
+    <string name="perm_wakeLock_stats">Read app power usage log</string>
+    <string name="permdesc_wakeLock_stats">Read app power usage log</string>
+    <!-- //LEUI-END [REQ][LEUI-] [fengzihua] -->
+    <!-- Date&Time format Tool begin [nietong] -->
+    <string name="pattern_group_today">Today</string>
+    <string name="pattern_group_yesterday">Yesterday</string>
+    <string name="pattern_group_within_week">This week</string>
+    <string name="pattern_group_within_month">This month</string>
+    <string name="pattern_group_over_month">month %-m</string>
+    <string name="pattern_group_over_year">%y%-m</string>
+    <string name="pattern_group_over_century">%Y/%-m</string>
+    <string name="pattern_group_future">%Y/%-m</string>
+    <string name="pattern_list_today">%H:%M</string>
+    <string name="pattern_list_today_12">%I:%M%p</string>
+    <string name="pattern_list_yesterday">Yesterday</string>
+    <string name="pattern_list_within_week">%a</string>
+    <string name="pattern_list_over_week">%-m/%-e</string>
+    <string name="pattern_list_over_year">%y/%-m/%-e</string>
+    <string name="pattern_list_over_century">%Y/%-m/%-e</string>
+    <string name="pattern_list_future">%Y/%-m/%-e</string>
+    <string name="pattern_detail_today">%H:%M</string>
+    <string name="pattern_detail_today_12">%I:%M%p</string>
+    <string name="pattern_detail_yesterday">Yesterday %H:%M</string>
+    <string name="pattern_detail_yesterday_12">Yesterday %I:%M%p</string>
+    <string name="pattern_detail_within_week">%H:%M %a</string>
+    <string name="pattern_detail_within_week_12">%I:%M%p %a</string>
+    <string name="pattern_detail_over_week">%H:%M %-m/%-e</string>
+    <string name="pattern_detail_over_week_12">%I:%M%p %-m/%-e</string>
+    <string name="pattern_detail_over_year">%H:%M %y/%-m/%-e</string>
+    <string name="pattern_detail_over_year_12">%I:%M%p %y/%-m/%-e </string>
+    <string name="pattern_detail_over_century">%H:%M %Y/%-m/%-e</string>
+    <string name="pattern_detail_over_century_12">%I:%M%p %Y/%-m/%-e</string>
+    <string name="pattern_detail_future">%H:%M %Y/%-m/%-e</string>
+    <string name="pattern_detail_future_12">%I:%M%p %Y/%-m/%-e</string>
+    <string name="pattern_date_simple">%-m-%-d</string>
+    <string name="pattern_date_complete">%m-%d</string>
+    <string name="pattern_time_simple">%k:%M</string>
+    <string name="pattern_time_simple_12">%p%l:%M</string>
+    <string name="pattern_time_complete">%H:%M</string>
+    <string name="pattern_time_complete_12">%p%I:%M</string>
+    <string name="pattern_today">Today</string>
+    <string name="pattern_yesterday">Yesterday</string>
+    <string name="pattern_tomorrow">Tomorrow</string>
+    <string name="pattern_day">Day</string>
+    <string name="pattern_hour">hour</string>
+    <string name="pattern_minute">minute</string>
+    <string name="pattern_second">second</string>
+    <string name="pattern_month_day">%-m/%-e</string>
+    <string name="pattern_week_complete">%A</string>
+    <!-- Date&Time format Tool end [nietong]-->
+    
+    <!-- LeActivationEditText by dongshangyong -->
+    <string name="le_default_activation_title_text">激活码:</string>
+
+    <!-- replace 3rd labelName start -->
+    <string name="le_map_name">Map</string>
+    <!-- replace 3rd labelName end -->
+
+    <!-- LetvBugReporter error dialog message begin [tongtiancheng] -->
+    <string name="le_aerr_application">"%1$s has encountered a problem."</string>
+    <string name="le_aerr_process">"%1$s has encountered a problem."</string>
+    <string name="le_force_close">"Confirm"</string>
+    <string name="le_anr_activity_application">"No response from %2$s."</string>
+    <string name="le_anr_application_process">"No response from %1$s."</string>
+    <string name="le_anr_activity_process">"Activities from %1$s are not responding."</string>
+    <string name="le_anr_process">"%1$s process isn\'t responding."</string>
+    <!-- LetvBugReporter error dialog message end [tongtiancheng] -->
+    
+    <!--LETVREBOOT strings start-->
+    <string name="global_action_reboot">Reboot</string>
+    <string name="reboot">Reboot</string>
+    <string name="reboot_confirm" product="default">Your phone will be rebooted.</string>
+    <string name="reboot_confirm_question">Reboot now?</string>
+    <!--LETVREBOOT strings end-->
+    
+    <!--LETVRE_GLOBALACTION strings start added by fengzihua-->
+    <string name="shutdow_btn">"Shutdown"</string>
+    <string name="shutdown_tip">"Because of you, I grew up every day"</string>
+    <string name="reboot_btn">"Swipe down to power off"</string>
+    <string name="reboot_tip">"Because of you, I grew up every day"</string>
+    <string name="reboot_btn_v2">"Reboot"</string>
+    <string name="cancel_btn_v2">"Cancel"</string>
+    <string name="locked_tip">"phone has locked"</string>
+    <!--LETV_GLOBALACTION strings end-->
+
+    <string name="placeholder_symbol_4">aaaa</string>
+    <!--DATETIMEPICKER-->
+    <string name="date_format">EE MMMMMMM dd</string>
+    <string name="hour">H</string>
+    <string name="minute">M</string>
+
+    <!-- leshare strings start -->
+    <string name="share_title">Share or send to</string>
+    <string name="share_cancel">Cancel</string>
+    <string name="share_show_more">More</string>
+    <string name="share_browser_add_bookmark">Collection</string>
+    <string name="share_browser_send_deskTop">Usual use</string>
+    <string name="share_browser_copy_link">Copy</string>
+    <string name="share_browser_search">Search</string>
+    <string name="share_gallery_set_contact_photo">Contact</string>
+    <string name="share_gallery_set_wallpaper">Wallpaper</string>
+    <string name="share_gallery_set_ppt">Slideshow</string>
+    <string name="share_to">Share to</string>
+    <string name="send_to">Send to</string>
+    <string name="send_give">Send to</string>
+    <string name="add_to">Add to</string>
+    <string name="share_gallery_detail">Details</string>
+    <string name="share_gallery_download">Download</string>
+    <string name="share_email_share_to_letv_cloud">shareToLetvCloud</string>
+    <string name="share_send_to">Send to</string>
+    <string name="weibo_name">Weibo</string>
+    <string name="share_browser_add_collect">addToFavourate</string>
+    <string name="share_browser_save_page">Save</string>
+    <string name="share_gallery_to_dlna">TV</string>
+    <string name="share_browser_add_home">Add home</string>
+
+
+
+    <string name="lepinned">pinned</string>
+    
+    <!--appops added by gaozhipeng-->
+    <string name="app_ops_access_camera">Access camera</string>
+    <string name="app_ops_access_location">Access location</string>
+    <string name="app_ops_access_notifications">Read notifications</string>
+    <string name="app_ops_alarm_wakeup">Timed wake</string>
+    <string name="app_ops_draw_on_top">Alert window display</string>
+    <string name="app_ops_keep_device_awake">Keep screen awake</string>
+    <string name="app_ops_make_phone_call">Make calls</string>
+    <string name="app_ops_modify_calendar">Write/delete calendar</string>
+    <string name="app_ops_modify_call_log">Write/delete call log</string>
+    <string name="app_ops_modify_clipboard">Write/delete clipboard</string>
+    <string name="app_ops_modify_contacts">Write/delete contacts</string>
+    <string name="app_ops_modify_settings">Modify settings</string>
+    <string name="app_ops_play_audio">Play audio</string>
+    <string name="app_ops_post_notification">Send notifications</string>
+    <string name="app_ops_read_calendar">Read calendar</string>
+    <string name="app_ops_read_call_log">Read call log</string>
+    <string name="app_ops_read_clipboard">Read clipboard</string>
+    <string name="app_ops_read_contacts">Read contacts</string>
+    <string name="app_ops_read_mms">Read MMS</string>
+    <string name="app_ops_read_sms">Read SMS</string>
+    <string name="app_ops_receive_sms">Receive SMS</string>
+    <string name="app_ops_record_audio">Record audio</string>
+    <string name="app_ops_send_mms">Send MMS</string>
+    <string name="app_ops_send_sms">Send SMS</string>
+    <string name="app_ops_start_at_bootup">Start at boot up</string>
+    <string name="app_ops_toggle_bluetooth">Enable/disable Bluetooth</string>
+    <string name="app_ops_nfc">Enable/disable NFC</string>
+    <string name="app_ops_read_phone_state">Read phone info</string>
+    <string name="app_ops_notification_sound">Enable/disable notifications</string>
+    <string name="app_ops_toggle_mobile_data">Enable/disable mobile data</string>
+    <string name="app_ops_toggle_wifi">Enable/disable WLAN</string>
+    <string name="app_ops_use_alarm_volume">Control alarm volume</string>
+    <string name="app_ops_use_audio_focus">Audio focus</string>
+    <string name="app_ops_use_bluetooth_volume">Control Bluetooth volume</string>
+    <string name="app_ops_use_master_volume">Control master volume</string>
+    <string name="app_ops_use_media_buttons">Use volume keys</string>
+    <string name="app_ops_use_media_volume">Control media volume</string>
+    <string name="app_ops_use_notification_volume">Control notification volume</string>
+    <string name="app_ops_use_ring_volume">Control ringtone volume</string>
+    <string name="app_ops_use_vibrate">use haptic feedback</string>
+    <string name="app_ops_use_voice_volume">Control voice volume</string>
+    <string name="app_ops_write_mms">write MMS message</string>
+    <string name="app_ops_write_sms">write SMS message</string>
+    <string name="app_ops_notification_favourite">Access notification bar priority</string>
+    <string name="app_ops_three_way_calling">Make 3-way calls</string>
+    <string name="app_ops_usage_stats">Usage stats</string>
+    <string name="app_ops_mute_microphone">Mute microphone</string>
+    <string name="app_ops_toast_window">Show toast window</string>
+    <string name="app_ops_project_media">Cast media</string>
+    <string name="app_ops_activate_vpn">Activate VPN</string>
+    <string name="privacy_guard_dialog_title">Privacy Guard</string>
+    <string name="privacy_guard_dialog_summary">%1$s requests %2$s.</string>
+    <string name="permission_remember_choice">Remember my choice</string>
+    <string name="allow">Allow</string>
+    <string name="deny">Deny</string>
+    <string name="always">always</string>
+    
+    
+    <!--LETVSAFE strings begine-->
+    <string name="appops_conmunicate">communicate</string>
+    <string name="appops_internet">Internet</string>
+    <string name="appops_media">Media</string>
+    <string name="appops_tool">Tool</string>
+    <string name="appops_device">Device</string>
+    <string name="appops_system">System</string>
+    <string name="appops_other">Other</string>
+    <string name="appops_privacy">Privacy</string>
+    <string name="appops_location">Location</string>
+    <string name="appops_location_desc">Allow to access location</string>
+    <string name="appops_contact_log">Contacts log</string>
+    <string name="appops_contact_log_desc">Allow to read/write contacts log</string>
+    <string name="appops_call_log">Call log</string>
+    <string name="appops_call_log_desc">Allow to read/write call log</string>
+    <string name="appops_calendar">allowed access call log</string>
+    <string name="appops_calendar_desc">Allow to read/write calendar log</string>
+    <string name="appops_call_phone">call phone</string>
+    <string name="appops_call_phone_desc">Allow to make, receive and end phone calls</string>
+    <string name="appops_sms_log">SMS log</string>
+    <string name="appops_sms_log_desc">Allow to read SMS log</string>
+    <string name="appops_mms_log">MMS log</string>
+    <string name="appops_mms_log_desc">Allow to read/write MMS log</string>
+    <string name="appops_receive_sms">receive SMS</string>
+    <string name="appops_receive_sms_desc">allowed receive SMS</string>
+    <string name="appops_send_sms">Send SMS</string>
+    <string name="appops_send_sms_desc">Allow to send SMS</string>
+    <string name="appops_send_mms">Send MMS</string>
+    <string name="appops_send_mms_desc">Allow to send MMS</string>
+    <string name="appops_write_settings">System settings</string>
+    <string name="appops_write_settings_desc">Allow to change system settings</string>
+    <string name="appops_access_notification">Read notification log</string>
+    <string name="appops_access_notification_desc">Allow to read notification log</string>
+    <string name="appops_camera">camera</string>
+    <string name="appops_camera_desc">allowed use camera</string>
+    <string name="appops_record_audio">record audio</string>
+    <string name="appops_record_audio_desc">allowed record audio</string>
+    <string name="appops_wifi">Enable/disable WLAN</string>
+    <string name="appops_wifi_desc">Allow to enable/disable WLAN</string>
+    <string name="appops_bluetooth">Enable/disable Bluetooth</string>
+    <string name="appops_bluetooth_desc">Allow to enable/disable Bluetooth</string>
+    <string name="appops_dataconnect">turn on/off dataconnect</string>
+    <string name="appops_dataconnect_desc">allow to turn on/off dataconnect</string>
+    <string name="appops_autoboot">Auto boot</string>
+    <string name="appops_autoboot_desc">allowed autoboot</string>
+    <string name="appops_nfc">nfc</string>
+    <string name="appops_nfc_desc">Allow to enable/disable NFC</string>
+    <string name="appops_phoneinfo">phone info</string>
+    <string name="appops_phoneinfo_desc">allowed read phone info</string>
+    <string name="appops_clipboard">clipboard</string>
+    <string name="appops_clipboard_desc">allowed access clipboard</string>
+    <string name="appops_notification">notification</string>
+    <string name="appops_notification_desc">allowed to post notification</string>
+    <string name="appops_system_alert_window">system alert window</string>
+    <string name="appops_system_alert_window_desc">allowed to show system alert window</string>
+    <string name="appops_three_way_calling">3-way calling</string>
+    <string name="appops_three_way_calling_desc">Allow to make 3-way calls</string>
+    <string name="le_share_default_select_tips">Choose this setting by default, do not show again</string>
+    <!--LETVSAFE strings ends-->
+
+    <!-- package install AppSecurityPermission layout -->
+    <!-- String -->
+    <string name="always_allow">"Always ask"</string>
+    <string name="prohibit">"Deny"</string>
+    <string name="all_allow">"Allow"</string>
+    <string name="always_allow_value">3</string>
+    <string name="allow_value">0</string>
+    <string name="prohibit_value">1</string>
+
+    <string name= "on"> "On" </string>
+    <string name= "off"> "Off" </string>
+    <string name= "setup_self" > "Auto setup" </string>
+    <string name= "cost" >"Maybe cause cost"</string>
+
+    <!-- end package install AppSecurityPermission layout -->
+    <!-- end add-->
+
+    <!-- adb install app by adb start-->
+    <string name= "apply_adb_install" >"Apply for install the app by The ADB command ?"</string>
+    <string name= "adb_prompt_info" >"Please select on your phone whether can install the app by The ADB command?"</string>
+    <string name= "refuse_adb_install" >"refused to install the app by The ADB command !"</string>
+    <!-- end -->
+    <!-- Add Start Show dialog when SD plug in -->
+    <string name= "open_storage" >"Open"</string>
+    <string name= "cancel_storage" >"Cancel"</string>
+    <string name= "open_storage_text" >"Are you ready to open The Storage Device ?"</string>
+    <string name= "open_otg_text" >"Are you ready to open The OTG Storage Device ?"</string>
+    <!-- Add end -->
+
+    <string name="blue_value">#FF1D87E4</string>
+    <string name="green_value">#FF1C9D17</string>
+    <string name="orange_value">#FFFDA728</string>
+    <string name="red_value">#FFE94C38</string>
+    <!-- LETV_VOLUME_ADJUST strings start -->
+    <string name="leui_volume_icon_description_ringer">Ringtone</string>
+    <string name="leui_volume_icon_description_incall">Call</string>
+    <string name="leui_volume_icon_description_incall_outspeak">Speaker</string>
+    <string name="leui_volume_icon_description_media">Media</string>
+    <string name="leui_smart_sound_name">Smart Sound</string>
+    <string name="mute_key_silent">Adjust volume while turn it off</string>
+    <string name="leui_safe_volume_title">Continue to increase the volume is easy to damage hearing</string>
+    <string name="leui_safe_volume_continue">continue</string>
+    <string name="leui_safe_volume_cancle">cancle</string>
+    <!-- LETV_VOLUME_ADJUST strings end -->
+
+    <!-- LeSelectSim -->
+    <string name="le_dialpad_select_sim_card">Select SIM card to use</string>
+    <string name="le_dialpad_select_sim_card_cancel">Cancel</string>
+    <string name="le_dialpad_select_sim_card_sim1">SIM1</string>
+    <string name="le_dialpad_select_sim_card_sim2">SIM2</string>
+    <string name="le_display_sim_name">SIM 0%1$s</string>
+
+    <!--lepai_share -->
+    <string name="le_pai_voice_share">VoiceShare</string>
+
+
+    <!-- Lunar -->
+    <string name="le_special_holiday_mother" >母亲节</string>
+    <string name="le_special_holiday_father" >父亲节</string>
+    <string name="le_status_format1" >yyyy年MM月dd日</string>
+    <string name="le_status_format2" >1900年1月31日</string>
+    <string name="le_status_leap">闰</string>
+    <string name="le_status_year" >年</string>
+    <string name="le_status_month" >月</string>
+    <string name="le_status_day" >日</string>
+    <string name="le_status_chushi" >初十</string>
+    <string name="le_status_ershi" >二十</string>
+    <string name="le_status_sanshi" >三十</string>
+
+
+    <string name="scale_x">scaleX</string>
+    <string name="scale_y">scaleY</string>
+
+     <!-- //+LEUI [REQ][LEUI-6586][fengzihua] added: add for phone bind permission-->
+    <string name="permlab_read_phone_bind_key">“Access security KEY”</string>
+    <string name="permdesc_read_phone_bind_key">”Allows applications to access security KEY.“</string>
+    <!-- //-LEUI -->
+
+    <!-- LeLicenceDialog -->
+    <string name="le_licence_dialog_title">Statements and terms</string>
+    <string name="le_licence_dialog_content">
+        <![CDATA[
+        You will use the %1$s provided by Le, please read through the
+        <a href="http://xpage.scloud.letv.com/api/agree/user/en">usage agreement</a> and
+        <a href="http://xpage.scloud.letv.com/api/agree/privacy/en">privacy agreement</a>.
+        %2$s is required during use. Do you agree?
+        ]]>
+    </string>
+    <string name="le_licence_dialog_content_type1">Use your location information and connect to the network</string>
+    <string name="le_licence_dialog_content_type2">Connect to the network</string>
+    <string name="le_licence_dialog_cb_text">Do not show the prompt again</string>
+    <string name="le_licence_dialog_btn_exit">Exit</string>
+    <string name="le_licence_dialog_btn_agree">Agree and continue</string>
+    <!-- LeLicenceDialog -->
+    <!-- LETV_VOLUME_ADJUST strings start -->
+    <string name="ringtone_silent">Mute</string>
+    <!--zhangyd port fort temp.the string should be translated in the future-->
+    <string name="le_recipient_edit_imeActionLabel">确定</string>
+    <string name="le_share_give">傳送給</string>
+    <string name="le_share_to">傳送至</string>
+    <string name="app_name">thirdpart_support</string>
+</resources>

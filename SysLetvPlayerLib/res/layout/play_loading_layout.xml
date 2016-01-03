@@ -1,0 +1,41 @@
+<com.letv.tv.core.scaleview.ScaleRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/letv_bg"
+    android:visibility="gone" >
+
+    <com.letv.tv.core.scaleview.ScaleImageView
+        android:id="@+id/play_loading_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"/>
+
+    <com.letv.tv.core.scaleview.ScaleLinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/play_loading_image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dimen_55dp"
+        android:orientation="horizontal" >
+
+        <ProgressBar
+            android:id="@+id/play_loading_progress"
+            android:layout_width="@dimen/dimen_55dp"
+            android:layout_height="@dimen/dimen_55dp"
+            android:layout_gravity="center_vertical"
+            android:indeterminate="false"
+            android:indeterminateDrawable="@anim/play_progressbar" />
+        <com.letv.tv.core.scaleview.ScaleTextView
+            android:id="@+id/playloading_title_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/dimen_35dp"
+            android:layout_marginRight="@dimen/dimen_35dp"
+            android:singleLine="true"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/dimen_35sp" />
+    </com.letv.tv.core.scaleview.ScaleLinearLayout>
+
+</com.letv.tv.core.scaleview.ScaleRelativeLayout>
