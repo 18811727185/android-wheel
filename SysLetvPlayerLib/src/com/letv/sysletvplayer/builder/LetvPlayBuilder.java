@@ -200,7 +200,7 @@ public class LetvPlayBuilder {
 
         this.setSystemInfoListener(null);
 
-        BufferSetting.unitInstance();
+        BufferSetting.unInitInstance();
     }
 
     /**

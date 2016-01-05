@@ -351,7 +351,7 @@ public class TimeUtils {
      * @param date
      * @return 20150102
      */
-    public static long formatDateYYYYMMddHHmmLong(Date date) {
+    public static long formatDateYYYYMMddLong(Date date) {
         try {
             return Long.parseLong(formatDate(date, new SimpleDateFormat("yyyyMMdd")));
         } catch (NumberFormatException ex) {
@@ -375,6 +375,14 @@ public class TimeUtils {
             return Long.parseLong(formatDate(date, new SimpleDateFormat("yyyyMM")));
         } catch (NumberFormatException ex) {
             return 0L;
+        }
+    }
+
+    public static String formatDateYYYYMMDDString(Date date){
+        try {
+            return formatDate(date, new SimpleDateFormat("yyyyMMdd"));
+        } catch (NumberFormatException ex) {
+            return "";
         }
     }
 

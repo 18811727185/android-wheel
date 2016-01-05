@@ -14,7 +14,7 @@ public class BufferSetting {
     public static final int MEDIA_INFO_BUFFERING_START = 701;// 缓冲开始
     public static final int MEDIA_INFO_BUFFERING_END = 702;// 缓冲结束
     public static final int MEDIA_INFO_BUFFERING_PERCENT = 704;// 缓冲进度
-    private static BufferSetting sInstance;
+    private volatile static BufferSetting sInstance;
 
     private BufferSetting() {
     }
@@ -30,7 +30,7 @@ public class BufferSetting {
         return sInstance;
     }
 
-    public static void unitInstance() {
+    public static void unInitInstance() {
         sInstance = null;
     }
 
