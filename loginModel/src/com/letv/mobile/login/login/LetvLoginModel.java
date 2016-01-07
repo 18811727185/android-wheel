@@ -194,7 +194,13 @@ final public class LetvLoginModel {
             Uri uri = Uri.parse(LoginConstants.CONTENT_ACCOUNT_USER_INFO_URI);
             cursor = ContextProvider.getApplicationContext().getContentResolver()
                     .query(uri, null, null, null, null);
-            if (cursor != null && cursor.moveToFirst()) {
+            Logger.e(TAG, "cursor = " + cursor);
+            boolean result = false;
+            if (cursor != null) {
+                result = cursor.moveToFirst();
+                Logger.e(TAG, "moveToFirstResult = " + result);
+            }
+            if (cursor != null && result) {
                 token = cursor.getString(cursor.getColumnIndex(LoginConstants.TOKEN));
             }
         } catch (Exception e) {
