@@ -52,6 +52,9 @@ public class Constants {
     /** 起播类型：切换码流 */
     public static final String IPT_STREAM_CHANGED = "2";
 
+    /** CDE App ID：cde为每个app指定的唯一ID */
+    public static final String CAID = "1009";
+
     // 下面为cur_url的constants
     // - - - - - - - - - - - - - - - - - - - 超级列表首页 - - - - - - - - - - - - - - - - - - - - -
     /** 打开九宫格页面 */
