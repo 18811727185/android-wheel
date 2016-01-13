@@ -42,6 +42,7 @@ import com.media.ffmpeg.FFMpegPlayer.OnHardDecodeErrorListner;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author chenyueguo
@@ -67,6 +68,8 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
     private int duration;
     private int mCurrentState = STATE_IDLE;
     private int mTargetState = STATE_IDLE;
+    private static AtomicInteger atomicInteger = new AtomicInteger(1); //代表VideoViewTV的实例个数
+    private int mCount;
 
     private SurfaceHolder mSurfaceHolder = null;
     private MediaPlayer mMediaPlayer = null;
@@ -114,6 +117,8 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
         super(context);
         this.mContext = context;
         this.initVideoView();
+        mCount = atomicInteger.getAndIncrement();
+        LogTag.i("VideoViewTV","["+mCount+"]"+"VideoViewTV create");
         //不需要设置背景色
         // changed for tvlive by zanxiaofei 2015-10-28
         //this.setBackgroundColor(Color.argb(101, 99, 22, 00));
@@ -179,7 +184,7 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
         if (this.mMediaPlayer != null) {
             this.mMediaPlayer.reset();
             String currentDateRelease = Tools.getCurrentDate();
-			LetvMediaPlayerManager.getInstance().writePlayLog("系统当前时间:  "+currentDateRelease+"VideoViewTV release()");
+			LetvMediaPlayerManager.getInstance().writePlayLog("["+mCount+"]"+"系统当前时间:  "+currentDateRelease+"VideoViewTV release()");
 			if(mOnMediaStateTimeListener!=null){
 				mOnMediaStateTimeListener.onMediaStateTime(MeidaStateType.RELEASE, currentDateRelease);
 			}
@@ -277,7 +282,7 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
 
     public void setVideoURI(Uri uri, Map<String, String> headers) {
     	String currentDate = Tools.getCurrentDate();
-    	LetvMediaPlayerManager.getInstance().writePlayLog("系统当前时间:  " + currentDate + " VideoViewTV(乐视电视videoview)  setVideoURI(), url="
+    	LetvMediaPlayerManager.getInstance().writePlayLog("["+mCount+"]"+"系统当前时间:  " + currentDate + " VideoViewTV(乐视电视videoview)  setVideoURI(), url="
                 + ((uri != null) ? uri.toString() : "null"), true);
 		if(mOnMediaStateTimeListener!=null){
 			mOnMediaStateTimeListener.onMediaStateTime(MeidaStateType.INITPATH, currentDate);
@@ -334,8 +339,8 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
         this.release(false);
         try {
         	String currentDate = Tools.getCurrentDate();
-        	LetvMediaPlayerManager.getInstance().writePlayLog("系统当前时间:  "+currentDate+" VideoViewH264mp4(乐视电视videoview)  创建MediaPlayer对象");
-			if(mOnMediaStateTimeListener!=null){
+        	LetvMediaPlayerManager.getInstance().writePlayLog("["+mCount+"]"+"系统当前时间:  " + currentDate + " VideoViewH264mp4(乐视电视videoview)  创建MediaPlayer对象");
+            if(mOnMediaStateTimeListener!=null){
 				mOnMediaStateTimeListener.onMediaStateTime(MeidaStateType.CREATE, currentDate);
 			}
             this.mMediaPlayer = new MediaPlayer();
@@ -402,7 +407,7 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
                 int h) {
             VideoViewTV.this.mSurfaceWidth = w;
             VideoViewTV.this.mSurfaceHeight = h;
-            LogTag.i("VideoViewTV", "surfaceChanged(), mSurfaceWidth=" + mSurfaceWidth + ", mSurfaceHeight=" + mSurfaceHeight);
+            LogTag.i("VideoViewTV", "["+mCount+"]"+"surfaceChanged(), mSurfaceWidth=" + mSurfaceWidth + ", mSurfaceHeight=" + mSurfaceHeight);
             boolean isValidState = (VideoViewTV.this.mTargetState == STATE_PLAYING);
             boolean hasValidSize = (VideoViewTV.this.mVideoWidth == w && VideoViewTV.this.mVideoHeight == h);
             if (VideoViewTV.this.mMediaPlayer != null && isValidState
@@ -417,14 +422,14 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
 
         @Override
         public void surfaceCreated(SurfaceHolder holder) {
-        	LogTag.i("VideoViewTV", "surfaceCreated()");
+        	LogTag.i("VideoViewTV", "["+mCount+"]"+"surfaceCreated()");
             VideoViewTV.this.mSurfaceHolder = holder;
             VideoViewTV.this.openVideo();
         }
 
         @Override
         public void surfaceDestroyed(SurfaceHolder holder) {
-        	LogTag.i("VideoViewTV", "surfaceDestroyed()");
+        	LogTag.i("VideoViewTV", "["+mCount+"]"+"surfaceDestroyed()");
             VideoViewTV.this.mSurfaceHolder = null;
             if (VideoViewTV.this.mediaController != null) {
                 VideoViewTV.this.mediaController.hide();
@@ -441,7 +446,7 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
         if (this.mMediaPlayer != null) {
             this.mMediaPlayer.reset();
             String currentDateRelease = Tools.getCurrentDate();
-			LetvMediaPlayerManager.getInstance().writePlayLog("系统当前时间:  "+currentDateRelease+"VideoViewTV release()");
+			LetvMediaPlayerManager.getInstance().writePlayLog("["+mCount+"]"+"系统当前时间:  " + currentDateRelease + "VideoViewTV release()");
 			if(mOnMediaStateTimeListener!=null){
 				mOnMediaStateTimeListener.onMediaStateTime(MeidaStateType.RELEASE, currentDateRelease);
 			}
@@ -537,7 +542,7 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
         if (this.isInPlaybackState()) {
             this.mMediaPlayer.start();
             String currentDate = Tools.getCurrentDate();
-            LetvMediaPlayerManager.getInstance().writePlayLog("系统当前时间:  "+currentDate+" VideoViewTV(乐视电视videoview)  start()");
+            LetvMediaPlayerManager.getInstance().writePlayLog("["+mCount+"]"+"系统当前时间:  "+currentDate+" VideoViewTV(乐视电视videoview)  start()");
             this.mCurrentState = STATE_PLAYING;
         }
         this.mTargetState = STATE_PLAYING;
@@ -558,7 +563,7 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
                 if (this.mMediaPlayer != null && this.mMediaPlayer.isPlaying()) {
                     this.mMediaPlayer.pause();
                     String currentDate = Tools.getCurrentDate();
-                    LetvMediaPlayerManager.getInstance().writePlayLog("系统当前时间:  "+currentDate+" VideoViewTV(乐视电视videoview)  pause()");
+                    LetvMediaPlayerManager.getInstance().writePlayLog("["+mCount+"]"+"系统当前时间:  "+currentDate+" VideoViewTV(乐视电视videoview)  pause()");
                     this.mCurrentState = STATE_PAUSED;
                 }
             } catch (Exception e) {
@@ -645,7 +650,7 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
         public void onVideoSizeChanged(MediaPlayer mp, int width, int height) {
             mVideoWidth = mp.getVideoWidth();
             mVideoHeight = mp.getVideoHeight();
-            LogTag.i("VideoViewTV", "onVideoSizeChanged(), mVideoWidth=" + mVideoWidth + ", mVideoHeight=" + mVideoHeight);
+            LogTag.i("VideoViewTV", "["+mCount+"]"+"onVideoSizeChanged(), mVideoWidth=" + mVideoWidth + ", mVideoHeight=" + mVideoHeight);
             if (mVideoWidth != 0 && mVideoHeight != 0) {
                 getHolder().setFixedSize(mVideoWidth, mVideoHeight);
             }
@@ -685,7 +690,7 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
         @Override
         public void onPrepared(MediaPlayer mp) {
         	String currentDate = Tools.getCurrentDate();
-        	LetvMediaPlayerManager.getInstance().writePlayLog("系统当前时间:  "+currentDate+" VideoViewTv(乐视电视videoview)  onPrepared()");
+        	LetvMediaPlayerManager.getInstance().writePlayLog("["+mCount+"]"+"系统当前时间:  "+currentDate+" VideoViewTv(乐视电视videoview)  onPrepared()");
 			if(mOnMediaStateTimeListener!=null){
 				mOnMediaStateTimeListener.onMediaStateTime(MeidaStateType.PREPARED, currentDate);
 			}
@@ -801,7 +806,7 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
 
 //            PreferenceUtil.setErrorCode(mContext, "VideoViewTV error, framework_err=" + framework_err + ", impl_err=" + impl_err);
             String currentDate = Tools.getCurrentDate();
-            LetvMediaPlayerManager.getInstance().writePlayLog("系统当前时间:  "+currentDate+"VideoViewTV(乐视电视videoview) error, framework_err=" + framework_err + ", impl_err=" + impl_err);
+            LetvMediaPlayerManager.getInstance().writePlayLog("["+mCount+"]"+"系统当前时间:  "+currentDate+"VideoViewTV(乐视电视videoview) error, framework_err=" + framework_err + ", impl_err=" + impl_err);
 			if(mOnMediaStateTimeListener!=null){
 				mOnMediaStateTimeListener.onMediaStateTime(MeidaStateType.ERROR, currentDate);
 			}
