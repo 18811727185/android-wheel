@@ -72,7 +72,6 @@ public class VideoViewH264m3u8 extends GLSurfaceView implements
 	public static final int SURFACE_CHANGED_INIT = 1;
 
 	public static final int SURFACE_CHANGED_ING = 2;
-	
 
 	private static final int RELEASE_GL_STATE_INIT = 0;
 	private static final int RELEASE_GL_STATE_ING = 1;
@@ -126,6 +125,8 @@ public class VideoViewH264m3u8 extends GLSurfaceView implements
 	private int mVolumevalue = 1;//xuehui add on 2015-10-14 for multi object to control player volume
 	private int mInitPostion = 0;//xuehui add on 2015-09-28 for m3u8 init,tiao guo pian tou
 	private int mSourceType = 0;//xuehui 通知component player 当前要播放的片源的类型,0是普通片源，1是全景片源
+
+	private boolean isSupportScale = true;
 
 	private Handler mReleaseMediaPlayerHandler = new Handler();;
 
@@ -431,15 +432,8 @@ public class VideoViewH264m3u8 extends GLSurfaceView implements
 		int width = getDefaultSize(mVideoWidth, widthMeasureSpec);
 		int height = getDefaultSize(mVideoHeight, heightMeasureSpec);
 
-		if (mVideoWidth > 0 && mVideoHeight > 0) {
+		if (isSupportScale && mVideoWidth > 0 && mVideoHeight > 0) {
 			switch (mRatioType) {
-			case -1: // 自适配
-				if (mVideoWidth * height > width * mVideoHeight) {
-					height = width * mVideoHeight / mVideoWidth;
-				} else if (mVideoWidth * height < width * mVideoHeight) {
-					width = height * mVideoWidth / mVideoHeight;
-				}
-				break;
 
 			case 0: // 全屏
 				// float widthPixels = mSurfaceWidth;
@@ -464,6 +458,15 @@ public class VideoViewH264m3u8 extends GLSurfaceView implements
 					height = width * 9 / 16;
 				} else if (16 * height < width * 9) {
 					width = height * 16 / 9;
+				}
+				break;
+
+			case -1: // 自适配,执行默认逻辑
+			default:
+				if (mVideoWidth * height > width * mVideoHeight) {
+					height = width * mVideoHeight / mVideoWidth;
+				} else if (mVideoWidth * height < width * mVideoHeight) {
+					width = height * mVideoWidth / mVideoHeight;
 				}
 				break;
 
@@ -1472,7 +1475,7 @@ public class VideoViewH264m3u8 extends GLSurfaceView implements
 	private void startReleaseTimer(){
 		Timer timer = new Timer();
 		TimerTask task = new TimerTask() {
-			
+
 			@Override
 			public void run() {
 				String currentDate= Tools.getCurrentDate();
@@ -1684,7 +1687,7 @@ public class VideoViewH264m3u8 extends GLSurfaceView implements
 
 	@Override
 	public int setTwoFingertouchInfomation(float begin_x0, float begin_y0,
-			float begin_x1, float begin_y1, float end_x0, float end_y0,
+										   float begin_x1, float begin_y1, float end_x0, float end_y0,
 			float end_x1, float end_y1) {
 		// TODO Auto-generated method stub
 		if(mMediaPlayer!=null){
@@ -1777,4 +1780,13 @@ public class VideoViewH264m3u8 extends GLSurfaceView implements
     public void setOnNeedSetPlayParamsListener(OnNeedSetPlayParamsListener l) {
         //do nothing
     }
+
+	/**
+	 * 设置是否支持画面比例调整,如果不支持画面会填满父布局窗口;
+	 * 如果支持,根据ratioType,会将画面调整为原始,4:3,全屏等比例.
+	 * @param isSupportScale
+	 */
+	public void setIsSupportScale(boolean isSupportScale) {
+		this.isSupportScale = isSupportScale;
+	}
 }
