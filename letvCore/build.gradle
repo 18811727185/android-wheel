@@ -33,5 +33,4 @@ dependencies {
     compile 'com.alibaba:fastjson:1.1.45.android'
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.2'
     compile files('libs/letvHttpBaseLib.jar')
-    compile project(':libraryPrj:leuiWidget')
 }
