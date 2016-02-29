@@ -34,4 +34,5 @@ dependencies {
     compile files('libs/letvmeta.jar')
     compile files('libs/1.0_componentcorelib.jar')
     compile files('libs/gson-2.3.jar')
+    provided files('libs/stv-launcher-baseframe.jar')
 }

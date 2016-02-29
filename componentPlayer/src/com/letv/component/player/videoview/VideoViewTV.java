@@ -38,6 +38,8 @@ import com.media.ffmpeg.FFMpegPlayer.OnBlockListener;
 import com.media.ffmpeg.FFMpegPlayer.OnCacheListener;
 import com.media.ffmpeg.FFMpegPlayer.OnFirstPlayLitener;
 import com.media.ffmpeg.FFMpegPlayer.OnHardDecodeErrorListner;
+import com.stv.launcher.player.LetvPlayer;
+import com.stv.launcher.player.LetvPlayerFactory;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
@@ -72,7 +74,7 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
     private int mCount;
 
     private SurfaceHolder mSurfaceHolder = null;
-    private MediaPlayer mMediaPlayer = null;
+    private LetvPlayer mMediaPlayer = null;
     protected Context mContext;
     private int mVideoWidth;
     private int mVideoHeight;
@@ -343,7 +345,7 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
             if(mOnMediaStateTimeListener!=null){
 				mOnMediaStateTimeListener.onMediaStateTime(MeidaStateType.CREATE, currentDate);
 			}
-            this.mMediaPlayer = new MediaPlayer();
+            this.mMediaPlayer = LetvPlayerFactory.instantiate(); //使用launcher的app的MediaPlayer进行MeidaPlayer的创建，解决launcher内的播放器资源竞争问题
             this.initListener();
             this.duration = -1;
 
