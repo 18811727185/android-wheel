@@ -39,8 +39,7 @@ public class PlayUtils {
         if (bufferSelect == false) {
             DeviceType type = getDeviceType();
             boolean isDeviceSelected = (type == DeviceType.DEVICE_X60
-                    || type == DeviceType.DEVICE_MAX70
-                    || type == DeviceType.DEVICE_S250F
+                    || type == DeviceType.DEVICE_MAX70 || type == DeviceType.DEVICE_S250F
                     || type == DeviceType.DEVICE_S250U || type == DeviceType.DEVICE_S240F);
             bufferSelect = (IsUIVersion30() && isDeviceSelected);
         }
@@ -77,9 +76,8 @@ public class PlayUtils {
     public static boolean isOldBufferSelect() {
         // X60或Max70且不是3.0的rom
         DeviceType type = getDeviceType();
-        UIVersion uiversion = getUIVersion();
         if ((type == DeviceType.DEVICE_X60 || type == DeviceType.DEVICE_MAX70)
-                && uiversion != UIVersion.UIVERSION_30) {
+                && !DeviceUtils.isUI30orHigher()) {
             return true;
         }
         // C1或C1S或newC1s
