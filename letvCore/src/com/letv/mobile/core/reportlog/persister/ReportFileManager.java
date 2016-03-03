@@ -27,8 +27,7 @@ public final class ReportFileManager {
      * @param maxLoadCounts
      * @return List<CrashReportInfo> CrashReportInfo的列表
      */
-    public synchronized static List<ReportData> loadLogFromFile(
-            final int maxLoadCounts) {
+    public synchronized static List<ReportData> loadLogFromFile(final int maxLoadCounts) {
 
         if (maxLoadCounts <= 0) {
             throw new IllegalArgumentException("maxLoadCounts must be > 0");
@@ -81,17 +80,18 @@ public final class ReportFileManager {
             return;
         }
 
-        String filePath = ReportFileManager.makeFilePath(reportInfo
-                .getLogType());
+        String filePath = ReportFileManager.makeFilePath(reportInfo.getLogType());
         if (TextUtils.isEmpty(filePath)) {
             return;
         }
 
+        logger.i("filePath" + filePath);
         // 储存到文件
         ReportPersister persister = new ReportPersister();
         persister.storeToFile(reportInfo, filePath);
 
         ReportFileManager.checkAndClearDir();
+
     }
 
     /**
@@ -104,8 +104,7 @@ public final class ReportFileManager {
             return;
         }
 
-        String filePath = ReportFileManager.makeFilePath(reportInfo
-                .getLogType());
+        String filePath = ReportFileManager.makeFilePath(reportInfo.getLogType());
 
         if (TextUtils.isEmpty(filePath)) {
             return;

@@ -5,6 +5,8 @@ import com.letv.mobile.core.reportlog.collector.ReportDataCreater;
 import com.letv.mobile.core.reportlog.persister.ReportFileManager;
 import com.letv.mobile.core.reportlog.sender.ReportSender;
 
+import java.util.List;
+
 /**
  * 在另一个线程启动发送任务
  * @author ZhouKeWen E-mail:zhoukewen@letv.com
@@ -49,27 +51,24 @@ public class SendTask extends Thread {
             }
         }
 
-        // TODO(qingxia): Add report sender later.
-        // if (this.sender == null) {
-        // return;
-        // }
-        //
-        // // 从本地文件加载多组上报数据
-        // List<ReportData> infoList = ReportFileManager
-        // .loadLogFromFile(SendTask.MAX_LOAD_LOG_COUNT);
-        //
-        // if (infoList == null) {
-        // return;
-        // }
-        //
-        // for (ReportData info : infoList) {
-        // this.sender.send(info);
-        // try {
-        // Thread.sleep(SendTask.SEND_INTERVAL_TIME);
-        // } catch (InterruptedException e) {
-        // e.printStackTrace();
-        // }
-        // }
+        if (this.sender == null) {
+            return;
+        }
 
+        // 从本地文件加载多组上报数据
+        List<ReportData> infoList = ReportFileManager.loadLogFromFile(MAX_LOAD_LOG_COUNT);
+
+        if (infoList == null) {
+            return;
+        }
+
+        for (ReportData info : infoList) {
+            this.sender.send(info);
+            try {
+                sleep(SEND_INTERVAL_TIME);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
