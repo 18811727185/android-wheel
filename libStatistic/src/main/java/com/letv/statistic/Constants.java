@@ -122,6 +122,8 @@ public class Constants {
     // - - - - - - - - - - 设置菜单页 - - - - - - - - - - - - - - - - - - - - - - -
     /** 收藏点击量 */
     public static final String CUR_URL_BOOLEAN_BOOKMARK_ADDED_SUCCESS = "8.1";
+    /** danmu switch */
+    public static final String CUR_URL_BOOLEAN_DANMU_SWITCH = "8.2";
     // - - - - - - - 播放器页面－－－－－－－－－－－－－－－
     public static final String CUR_URL_CHANGE_CHANNEL = "9.1";
 
@@ -171,6 +173,10 @@ public class Constants {
     public static final String ADD_COLLECTION = "0";
     /** 取消收藏 */
     public static final String DEL_COLLECTION = "1";
+    /** danmu ON */
+    public static final String DANMU_ON = "0";
+    /** danmu OFF */
+    public static final String DANMU_OFF = "1";
     /** push接收成功 */
     public static final String PUSH_RECEIVE_SUCCESS = "0";
     /** push接收失败 */
