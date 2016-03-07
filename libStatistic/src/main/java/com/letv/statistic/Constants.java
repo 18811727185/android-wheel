@@ -127,6 +127,14 @@ public class Constants {
     // - - - - - - - 播放器页面－－－－－－－－－－－－－－－
     public static final String CUR_URL_CHANGE_CHANNEL = "9.1";
 
+    // - - - - - interactive card－－－－－－－－－－－－－
+    /** anytime buy card shows */
+    public static final String CUR_URL_OPEN_ANYTIME_BUY_CARD = "11.1";
+    /** anytime buy card is clicked */
+    public static final String CUR_URL_CLICK_ANYTIME_BUY_CARD = "11.2";
+    /** anytime buy card detail page shows */
+    public static final String CUR_URL_OPEN_ANYTIME_BUY_CARD_DETAIL_PAGE = "11.3";
+
     // 下面是ty的取值
     /** 点播 */
     public static final String TY_DIANBO = "0";
