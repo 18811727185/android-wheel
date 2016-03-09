@@ -5,11 +5,13 @@ import android.content.Context;
 import android.media.MediaPlayer;
 
 import com.letv.component.player.LetvMediaPlayerControl;
+import com.letv.mobile.core.log.Logger;
 import com.letv.sysletvplayer.control.base.BasePlayControllerImpl;
 import com.letv.sysletvplayer.listener.ControlListener;
 import com.letv.sysletvplayer.setting.BufferSetting;
 import com.letv.sysletvplayer.setting.RefreshBufferForCommon;
 import com.letv.sysletvplayer.setting.Video3DSetting;
+import com.letv.sysletvplayer.util.PlayUtils;
 
 /**
  * @author caiwei
@@ -20,9 +22,14 @@ public class PlayControllerImplForC1 extends BasePlayControllerImpl {
 
     public PlayControllerImplForC1(Context context) {
         super(context);
-        SystemWriteManager sw = (SystemWriteManager) context
-                .getSystemService("system_write");
-        Video3DSetting.setSystemWrite(sw);
+        try {
+            SystemWriteManager sw = (SystemWriteManager) context
+                    .getSystemService("system_write");
+            Video3DSetting.setSystemWrite(sw);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
         this.setting3d = new Video3DSetting();
     }
 
@@ -123,6 +130,15 @@ public class PlayControllerImplForC1 extends BasePlayControllerImpl {
     @Override
     public void adjustScreen(int type) {
         this.mPlayScreenSetting.adjust(type);
+    }
+
+    @Override
+    public void setOnInfo(int what, int extra) {
+        boolean bufferSelect = PlayUtils.isOldBufferSelect();
+        if (!bufferSelect) { // x60,Max 70 且 3.0rom ,使用标准的缓冲策略
+            BufferSetting.getInstance().setInfoBufferUpdateSelf(what, extra,
+                    this.callBack);
+        }
     }
 
 }
