@@ -24,6 +24,7 @@ import java.util.Date;
  */
 final public class TimeProvider {
     private static final String TAG = "TimeProvider";
+    public static final String LETV_API_DOMAIN = "http://api.itv.letv.com/";
     private static ReferenceTime sReferenceTime = new ReferenceTime();
     private static RemoteTimeFetcher[] sTimeFetchers = null;
     private static final int[] sRetryTimes = new int[] { 1, 4, 4, 8, 16, 32, 64 };
@@ -55,8 +56,8 @@ final public class TimeProvider {
     }
 
     static {
-        TimeProvider.sTimeFetchers = new RemoteTimeFetcher[] { new HttpHeaderTimeFetcher(),
-                new LetvTimeFetcher() };
+        TimeProvider.sTimeFetchers = new RemoteTimeFetcher[] {
+                new HttpHeaderTimeFetcher(LETV_API_DOMAIN), new HttpHeaderTimeFetcher() };
         // TODO(qingxia): Enable while test.
         // TimeProvider.testFetchTime();
     }
