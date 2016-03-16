@@ -26,7 +26,7 @@ public class PlayControllerImplForC1 extends BasePlayControllerImpl {
             SystemWriteManager sw = (SystemWriteManager) context
                     .getSystemService("system_write");
             Video3DSetting.setSystemWrite(sw);
-        } catch (Exception e){
+        } catch (Throwable e){
             e.printStackTrace();
         }
 
