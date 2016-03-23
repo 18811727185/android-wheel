@@ -282,7 +282,7 @@ public final class NetworkUtil {
             Object t = getInstanceMethod.invoke(null);
 
             Method method = c.getMethod("startSettingNetwork", Context.class, int.class);
-            getNetworkType();
+
             // 0  wire; 1 wireless; 2 wire & wireless & debug network
             method.invoke(t, context, 2);
 
