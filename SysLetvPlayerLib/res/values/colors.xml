@@ -152,7 +152,6 @@
     <color name="gray_black">#88000000</color>
     <color name="shadow_color">#55000000</color>
     <color name="backgroundcolor">#bf0b1722</color>
-    <!-- india load color-->
-    <color name="india_load_notice_color">#8E8C8D</color>
+
 
 </resources>
