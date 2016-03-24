@@ -6,6 +6,7 @@ import android.app.ActivityManager.RunningTaskInfo;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
@@ -67,8 +68,7 @@ public class SystemUtil {
      */
     public static int getVersionCode(Context ctx) {
         try {
-            PackageInfo packInfo = ctx.getPackageManager().getPackageInfo(
-                    ctx.getPackageName(), 0);
+            PackageInfo packInfo = ctx.getPackageManager().getPackageInfo(ctx.getPackageName(), 0);
             return packInfo.versionCode;
         } catch (Throwable t) {
             throw new RuntimeException(t);
@@ -81,8 +81,7 @@ public class SystemUtil {
      */
     public static String getVersionName(Context ctx) {
         try {
-            PackageInfo packInfo = ctx.getPackageManager().getPackageInfo(
-                    ctx.getPackageName(), 0);
+            PackageInfo packInfo = ctx.getPackageManager().getPackageInfo(ctx.getPackageName(), 0);
             return packInfo.versionName;
         } catch (Throwable t) {
             throw new RuntimeException(t);
@@ -97,8 +96,7 @@ public class SystemUtil {
      */
     public static int getVersionCode(Context ctx, final String packageName) {
         try {
-            PackageInfo packInfo = ctx.getPackageManager().getPackageInfo(
-                    packageName, 0);
+            PackageInfo packInfo = ctx.getPackageManager().getPackageInfo(packageName, 0);
             return packInfo.versionCode;
         } catch (Throwable t) {
             throw new RuntimeException(t);
@@ -113,8 +111,7 @@ public class SystemUtil {
      */
     public static String getVersionName(Context ctx, final String packageName) {
         try {
-            PackageInfo packInfo = ctx.getPackageManager().getPackageInfo(
-                    packageName, 0);
+            PackageInfo packInfo = ctx.getPackageManager().getPackageInfo(packageName, 0);
             return packInfo.versionName;
         } catch (Throwable t) {
             throw new RuntimeException(t);
@@ -209,8 +206,7 @@ public class SystemUtil {
                 String Mac;
                 result = callCmd(IFCONFIG, HWADDR);
                 if (!StringUtils.equalsNull(result) && result.length() > 0) {
-                    Mac = result.substring(result.indexOf(HWADDR) + 6,
-                            result.length() - 1);
+                    Mac = result.substring(result.indexOf(HWADDR) + 6, result.length() - 1);
                     if (Mac.length() > 1) {
                         Mac = Mac.replaceAll(" ", "");
                         result = "";
@@ -237,9 +233,8 @@ public class SystemUtil {
     private static String getMacAddressFromWifiManager() {
         String macAddress = "";
         try {
-            WifiManager wifiManager = (WifiManager) ContextProvider
-                    .getApplicationContext().getSystemService(
-                            Context.WIFI_SERVICE);
+            WifiManager wifiManager = (WifiManager) ContextProvider.getApplicationContext()
+                    .getSystemService(Context.WIFI_SERVICE);
             WifiInfo wifiInfo = wifiManager.getConnectionInfo();
 
             if (wifiInfo == null) {
@@ -330,13 +325,13 @@ public class SystemUtil {
     public static String getLocalIpAddress() {
         String ipaddress = "";
         try {
-            for (Enumeration<NetworkInterface> en = NetworkInterface
-                    .getNetworkInterfaces(); en.hasMoreElements();) {
+            for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en
+                    .hasMoreElements();) {
                 NetworkInterface intf = en.nextElement();
                 if (intf.getName().toLowerCase().equals(ETH0)
                         || intf.getName().toLowerCase().equals(WLAN0)) {// 仅过滤无线和有线的ip
-                    for (Enumeration<InetAddress> enumIpAddr = intf
-                            .getInetAddresses(); enumIpAddr.hasMoreElements();) {
+                    for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr
+                            .hasMoreElements();) {
                         InetAddress inetAddress = enumIpAddr.nextElement();
                         if (!inetAddress.isLoopbackAddress()) {
                             String ip = inetAddress.getHostAddress();
@@ -380,8 +375,7 @@ public class SystemUtil {
             ConnectivityManager cm = (ConnectivityManager) context
                     .getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo info = cm.getActiveNetworkInfo();
-            String typeName = info.getTypeName().toLowerCase(
-                    Locale.getDefault()); // WIFI/MOBILE
+            String typeName = info.getTypeName().toLowerCase(Locale.getDefault()); // WIFI/MOBILE
             if (typeName.equals(WIFI)) {
             } else {
                 // typeName = info.getExtraInfo().toLowerCase();
@@ -422,12 +416,10 @@ public class SystemUtil {
      *         false 后台运行
      */
     public static boolean isAppRunningForeground() {
-        ActivityManager am = (ActivityManager) ContextProvider
-                .getApplicationContext().getSystemService(
-                        Context.ACTIVITY_SERVICE);
+        ActivityManager am = (ActivityManager) ContextProvider.getApplicationContext()
+                .getSystemService(Context.ACTIVITY_SERVICE);
         if (Build.VERSION.SDK_INT >= 21) {
-            List<ActivityManager.RunningAppProcessInfo> processes = am
-                    .getRunningAppProcesses();
+            List<ActivityManager.RunningAppProcessInfo> processes = am.getRunningAppProcesses();
 
             if (processes == null || processes.size() <= 0) {
                 return false;
@@ -449,8 +441,8 @@ public class SystemUtil {
             ComponentName cn = runningTaskInfo.get(0).topActivity;
             String currentPackageName = cn.getPackageName();
             return !TextUtils.isEmpty(currentPackageName)
-                    && currentPackageName.equals(ContextProvider
-                            .getApplicationContext().getPackageName());
+                    && currentPackageName.equals(ContextProvider.getApplicationContext()
+                            .getPackageName());
 
         }
     }
@@ -469,17 +461,16 @@ public class SystemUtil {
     public static String getSystemProperty(String key) {
         try {
             Class<?> threadClazz = Class.forName("android.os.SystemProperties");
-            Method method = threadClazz.getMethod("get", String.class,
-                    String.class);
+            Method method = threadClazz.getMethod("get", String.class, String.class);
             return (String) method.invoke(null, key, "");
         } catch (Exception e) {
             e.printStackTrace();
             return "";
         }
     }
-	
+
     public static String getDeviceName() {
-        return  callCmd(GET_PRODUECT_NAME_CMD, "");
+        return callCmd(GET_PRODUECT_NAME_CMD, "");
     }
 
     /**
@@ -519,4 +510,16 @@ public class SystemUtil {
     // return property;
     // }
 
+    /**
+     * check apk is exists
+     */
+    public static boolean isAppExists(String packageName) {
+        PackageManager manager = ContextProvider.getApplicationContext().getPackageManager();
+        try {
+            manager.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
+            return true;
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        }
+    }
 }
