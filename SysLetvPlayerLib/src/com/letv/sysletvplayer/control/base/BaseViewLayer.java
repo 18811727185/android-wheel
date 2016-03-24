@@ -19,8 +19,7 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
-import com.letv.mobile.core.utils.ViewUtil;
-import com.letv.tv.core.scaleview.ScaleCalculator;
+import com.letv.mobile.core.scaleview.ScaleCalculator;
 import com.letv.mobile.core.utils.StringUtils;
 import com.letv.mobile.core.utils.VolumeUtils;
 

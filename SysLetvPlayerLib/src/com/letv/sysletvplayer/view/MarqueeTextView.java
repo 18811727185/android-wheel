@@ -5,7 +5,8 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.ViewDebug.ExportedProperty;
 
-import com.letv.tv.core.scaleview.ScaleTextView;
+import com.letv.mobile.core.scaleview.ScaleTextView;
+
 
 /**
  * 不获取焦点也能跑马灯
