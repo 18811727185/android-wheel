@@ -26,7 +26,7 @@
         android:textSize="@dimen/dimen_15dp"
         android:textStyle="normal" />
 
-    <com.letv.mobile.core.scaleview..ScaleTextView
+    <com.letv.mobile.core.scaleview.ScaleTextView
         android:id="@+id/play_speed_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
         android:textStyle="normal"
         android:visibility="gone" />
 
-    <com.letv.mobile.core.scaleview..ScaleTextView
+    <com.letv.mobile.core.scaleview.ScaleTextView
         android:id="@+id/play_buffer_toast"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
