@@ -1,17 +1,17 @@
-<com.letv.tv.core.scaleview.ScaleRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.letv.mobile.core.scaleview..ScaleRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:visibility="gone" >
 
-    <ProgressBar
+    <com.letv.mobile.core.scaleview.ScaleProgressBar
         android:id="@+id/play_buffer_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:indeterminateDrawable="@drawable/play_buffer_progress" />
 
-    <com.letv.tv.core.scaleview.ScaleTextView
+    <com.letv.mobile.core.scaleview.ScaleTextView
         android:id="@+id/play_progress_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -26,7 +26,7 @@
         android:textSize="@dimen/dimen_15dp"
         android:textStyle="normal" />
 
-    <com.letv.tv.core.scaleview.ScaleTextView
+    <com.letv.mobile.core.scaleview..ScaleTextView
         android:id="@+id/play_speed_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
         android:textStyle="normal"
         android:visibility="gone" />
 
-    <com.letv.tv.core.scaleview.ScaleTextView
+    <com.letv.mobile.core.scaleview..ScaleTextView
         android:id="@+id/play_buffer_toast"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -61,4 +61,4 @@
         android:textStyle="normal"
         android:visibility="visible" />
 
-</com.letv.tv.core.scaleview.ScaleRelativeLayout>
+</com.letv.mobile.core.scaleview..ScaleRelativeLayout>

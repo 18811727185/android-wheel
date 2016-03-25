@@ -1,17 +1,17 @@
-<com.letv.tv.core.scaleview.ScaleRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.letv.mobile.core.scaleview.ScaleRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/letv_bg"
     android:visibility="gone" >
 
-    <com.letv.tv.core.scaleview.ScaleImageView
+    <com.letv.mobile.core.scaleview.ScaleImageView
         android:id="@+id/play_loading_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"/>
 
-    <com.letv.tv.core.scaleview.ScaleLinearLayout
+    <com.letv.mobile.core.scaleview.ScaleLinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/play_loading_image"
@@ -26,7 +26,7 @@
             android:layout_gravity="center_vertical"
             android:indeterminate="false"
             android:indeterminateDrawable="@anim/play_progressbar" />
-        <com.letv.tv.core.scaleview.ScaleTextView
+        <com.letv.mobile.core.scaleview.ScaleTextView
             android:id="@+id/playloading_title_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -36,6 +36,6 @@
             android:singleLine="true"
             android:textColor="#ffffff"
             android:textSize="@dimen/dimen_35sp" />
-    </com.letv.tv.core.scaleview.ScaleLinearLayout>
+    </com.letv.mobile.core.scaleview.ScaleLinearLayout>
 
-</com.letv.tv.core.scaleview.ScaleRelativeLayout>
+</com.letv.mobile.core.scaleview.ScaleRelativeLayout>

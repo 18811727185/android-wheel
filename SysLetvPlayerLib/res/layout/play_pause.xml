@@ -1,14 +1,14 @@
-<com.letv.tv.core.scaleview.ScaleRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.letv.mobile.core.scaleview.ScaleRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:visibility="gone" >
 
-    <com.letv.tv.core.scaleview.ScaleImageView
+    <com.letv.mobile.core.scaleview.ScaleImageView
         android:id="@+id/play_pause_pic"
         android:layout_width="@dimen/dimen_108_67dp"
         android:layout_height="@dimen/dimen_108_67dp"
         android:layout_centerInParent="true"
         android:src="@drawable/play_pause_pic" />
 
-</com.letv.tv.core.scaleview.ScaleRelativeLayout>
+</com.letv.mobile.core.scaleview.ScaleRelativeLayout>
