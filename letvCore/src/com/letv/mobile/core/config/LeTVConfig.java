@@ -37,6 +37,8 @@ public final class LeTVConfig {
     // save log path config
     public static final String LETV_FILE_LOGGER_PATH = "/log/";
     public static final String LETV_ERROR_PATH = "/errorLog/";
+    public static final String LETV_ERROR_RECYCLE_PATH = "/errorLogRecycle/";
+
     // download path
     @Deprecated
     private static final String LETV_DOWNLOAD_PATH = "/download/";
@@ -93,6 +95,10 @@ public final class LeTVConfig {
 
     public static String getErrorLogPath() {
         return getGlobalWorkingPath() + sAppName + LETV_ERROR_PATH;
+    }
+
+    public static String getErrorLogRecyclePath() {
+        return getGlobalWorkingPath() + sAppName + LETV_ERROR_RECYCLE_PATH;
     }
 
     private static String getNoMediaFilePath() {

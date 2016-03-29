@@ -20,7 +20,7 @@ import com.letv.mobile.core.utils.FileUtils;
  */
 public final class ReportFileManager {
 
-    private static final int FILE_COUNT = 10;
+    private static final int FILE_COUNT = 5;
     private static final Logger logger = new Logger("ReportFileManager");
 
     /**
@@ -62,10 +62,10 @@ public final class ReportFileManager {
                 data.setDataForSend(content);
                 logList.add(data);
             }
-            // 删除被load后的文件。此时load出的数据还没send出去，所以可能有些小问题
-            file.delete();
+            // 将要发送的文件移动到回收目录，以便从本地文件查看
+            moveToLogRecycle(file);
         }
-
+        checkAndClearDir(LeTVConfig.getErrorLogRecyclePath());
         return logList;
 
     }
@@ -80,18 +80,16 @@ public final class ReportFileManager {
             return;
         }
 
-        String filePath = ReportFileManager.makeFilePath(reportInfo.getLogType());
+        String filePath = makeFilePath(reportInfo.getLogType());
         if (TextUtils.isEmpty(filePath)) {
             return;
         }
 
-        logger.i("filePath" + filePath);
         // 储存到文件
         ReportPersister persister = new ReportPersister();
         persister.storeToFile(reportInfo, filePath);
 
-        ReportFileManager.checkAndClearDir();
-
+        checkAndClearDir(LeTVConfig.getErrorLogPath());
     }
 
     /**
@@ -104,7 +102,7 @@ public final class ReportFileManager {
             return;
         }
 
-        String filePath = ReportFileManager.makeFilePath(reportInfo.getLogType());
+        String filePath = makeFilePath(reportInfo.getLogType());
 
         if (TextUtils.isEmpty(filePath)) {
             return;
@@ -114,7 +112,45 @@ public final class ReportFileManager {
         ReportPersister persister = new ReportPersister();
         persister.storeToFile(reportInfo.getDataForSend(), filePath);
 
-        ReportFileManager.checkAndClearDir();
+        checkAndClearDir(LeTVConfig.getErrorLogPath());
+    }
+
+    /**
+     * 将文件移到回收目录
+     * @param logFile
+     * @return
+     */
+    private static boolean moveToLogRecycle(File logFile) {
+        if (logFile == null) {
+            return false;
+        }
+        if (logFile.exists() && logFile.isFile()) {
+            String recycleFilePath = makeRecycleFilePath(logFile.getName());
+            if (TextUtils.isEmpty(recycleFilePath)) {
+                return false;
+            } else {
+                boolean result = copyFile(logFile.getAbsolutePath(), recycleFilePath);
+                logFile.delete();
+                return result;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    private static String makeRecycleFilePath(String fileName) {
+        String dirPath = LeTVConfig.getErrorLogRecyclePath();
+        File dir = new File(dirPath);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        // Double check the path
+        if (!dir.exists() || !dir.isDirectory()) {
+            logger.i("dir path error = " + dirPath);
+            return null;
+        }
+        return dirPath + fileName;
+
     }
 
     /**
@@ -135,7 +171,7 @@ public final class ReportFileManager {
 
         // Double check the path
         if (!dir.exists() || !dir.isDirectory()) {
-            ReportFileManager.logger.i("dir path error = " + filePath);
+            logger.i("dir path error = " + filePath);
             return null;
         }
 
@@ -143,21 +179,20 @@ public final class ReportFileManager {
     }
 
     /**
-     * 检测ErrorLog目录下的文件，如果超出指定数量，则优先删除老的文件
+     * 检测dirPath目录下的文件，如果超出指定数量，则优先删除老的文件
      */
-    private static void checkAndClearDir() {
-        String fileDir = LeTVConfig.getErrorLogPath();
-        File dir = new File(fileDir);
+    private static void checkAndClearDir(String dirPath) {
+        File dir = new File(dirPath);
         if (!dir.exists()) {
             dir.mkdirs();
         }
         // Double check the path
         if (!dir.exists() || !dir.isDirectory()) {
-            ReportFileManager.logger.i("dir path error = " + fileDir);
+            logger.i("dir path error = " + dirPath);
             return;
         }
         // 删除一些老的文件
-        ReportFileManager.deleteSomeOldFile(dir.listFiles());
+        deleteSomeOldFile(dir.listFiles());
     }
 
     /**
@@ -165,10 +200,10 @@ public final class ReportFileManager {
      * @param fileList
      */
     private static void deleteSomeOldFile(final File[] fileList) {
-        if (fileList != null && fileList.length > ReportFileManager.FILE_COUNT) {
+        if (fileList != null && fileList.length > FILE_COUNT) {
             // 从旧到新排序文件列表
             Arrays.sort(fileList, new ReportFileManager.CompratorForOldToNew());
-            int num = fileList.length - ReportFileManager.FILE_COUNT;
+            int num = fileList.length - FILE_COUNT;
             for (int i = 0; i < num; i++) {
                 try {
                     FileUtils.forceDelete(fileList[i]);
@@ -177,6 +212,18 @@ public final class ReportFileManager {
                 }
             }
         }
+    }
+
+    /**
+     * 拷贝文件
+     * @param srcFilePath
+     *            源文件路径
+     * @param dstFilePath
+     *            目标文件路径
+     * @return 文件是否拷贝成功
+     */
+    private static boolean copyFile(String srcFilePath, String dstFilePath) {
+        return android.os.FileUtils.copyFile(new File(srcFilePath), new File(dstFilePath));
     }
 
     /**
