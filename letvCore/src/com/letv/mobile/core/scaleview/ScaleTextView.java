@@ -8,7 +8,7 @@ import android.widget.TextView;
 /**
  * Created by lizhennian on 2014/5/29.
  */
-public class ScaleTextView extends TextView implements ScaleStyleInterface {
+public class ScaleTextView extends TextView {
 
     private ScaleParameter mScaleParameter;
 
@@ -35,10 +35,8 @@ public class ScaleTextView extends TextView implements ScaleStyleInterface {
 
         if (android.os.Build.VERSION.SDK_INT >= 16) {
             float lineSpacingExtra = this.getLineSpacingExtra();
-            lineSpacingExtra = ScaleCalculator.getInstance().scaleHeight(
-                    (int) lineSpacingExtra);
-            this.setLineSpacing(lineSpacingExtra,
-                    this.getLineSpacingMultiplier());
+            lineSpacingExtra = ScaleCalculator.getInstance().scaleHeight((int) lineSpacingExtra);
+            this.setLineSpacing(lineSpacingExtra, this.getLineSpacingMultiplier());
         }
     }
 
@@ -57,8 +55,8 @@ public class ScaleTextView extends TextView implements ScaleStyleInterface {
         super.setTextSize(unit, textSize);
     }
 
-    @Override
-    public ScaleStyle getScaleStyle() {
-        return this.mScaleParameter.getScaleStyle();
-    }
+//    @Override
+//    public ScaleStyle getScaleStyle() {
+//        return this.mScaleParameter.getScaleStyle();
+//    }
 }
