@@ -9,11 +9,11 @@ import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
+import android.widget.Toast;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 获取网络状态，提供网络状态变化监听
@@ -61,7 +61,8 @@ public final class NetworkUtil {
     }
 
     public static void notifyListenersNetworkConnected() {
-        for (OnNetworkChangeListener listener : (ArrayList<OnNetworkChangeListener>)sNetworkChangeListeners.clone()) {
+        for (OnNetworkChangeListener listener : (ArrayList<OnNetworkChangeListener>) sNetworkChangeListeners
+                .clone()) {
             if (listener != null) {
                 listener.onNetworkConnected();
             }
@@ -69,7 +70,8 @@ public final class NetworkUtil {
     }
 
     public static void notifyListenersNetworkDisconnected() {
-        for (OnNetworkChangeListener listener : (ArrayList<OnNetworkChangeListener>)sNetworkChangeListeners.clone()) {
+        for (OnNetworkChangeListener listener : (ArrayList<OnNetworkChangeListener>) sNetworkChangeListeners
+                .clone()) {
             if (listener != null) {
                 listener.onNetworkDisconnected();
             }
@@ -79,7 +81,8 @@ public final class NetworkUtil {
     /**
      * 注册网络状态变化监听者
      */
-    public synchronized static void registerNetworkChangeListener(OnNetworkChangeListener listener) {
+    public synchronized static void registerNetworkChangeListener(
+            OnNetworkChangeListener listener) {
         if (listener != null && !sNetworkChangeListeners.contains(listener)) {
             sNetworkChangeListeners.add(listener);
         }
@@ -88,7 +91,8 @@ public final class NetworkUtil {
     /**
      * 解除网络状态监听
      */
-    public synchronized static void unregisterNetworkChangeListener(OnNetworkChangeListener listener) {
+    public synchronized static void unregisterNetworkChangeListener(
+            OnNetworkChangeListener listener) {
         if (listener != null && sNetworkChangeListeners.contains(listener)) {
             sNetworkChangeListeners.remove(listener);
         }
@@ -283,18 +287,23 @@ public final class NetworkUtil {
 
             Method method = c.getMethod("startSettingNetwork", Context.class, int.class);
 
-            // 0  wire; 1 wireless; 2 wire & wireless & debug network
+            // 0 wire; 1 wireless; 2 wire & wireless & debug network
             method.invoke(t, context, 2);
 
             Logger.i(TAG,
                     "jumpToNetSettingPage: letv.setting.SettingUtil startSettingNetwork is successfully called");
+
         } catch (ClassNotFoundException e) {
+            Toast.makeText(context, "Fail to jump to setting…>_<…", Toast.LENGTH_LONG).show();
             e.printStackTrace();
         } catch (NoSuchMethodException e) {
+            Toast.makeText(context, "Fail to jump to setting…>_<…", Toast.LENGTH_LONG).show();
             e.printStackTrace();
         } catch (IllegalAccessException e) {
+            Toast.makeText(context, "Fail to jump to setting…>_<…", Toast.LENGTH_LONG).show();
             e.printStackTrace();
         } catch (InvocationTargetException e) {
+            Toast.makeText(context, "Fail to jump to setting…>_<…", Toast.LENGTH_LONG).show();
             Throwable cause = e.getCause();
             cause.printStackTrace();
         }
