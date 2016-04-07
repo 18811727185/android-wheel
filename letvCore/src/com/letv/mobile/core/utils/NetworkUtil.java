@@ -280,6 +280,7 @@ public final class NetworkUtil {
          * SettingUtil settingUtil = SettingUtil.getInstance();
          * settingUtil.startSettingNetwork(context, status); // status 1 有线，0 无线
          */
+        boolean hasErr = false;
         try {
             Class<?> c = Class.forName("letv.setting.SettingUtil");
             Method getInstanceMethod = c.getDeclaredMethod("getInstance");
@@ -294,18 +295,22 @@ public final class NetworkUtil {
                     "jumpToNetSettingPage: letv.setting.SettingUtil startSettingNetwork is successfully called");
 
         } catch (ClassNotFoundException e) {
-            Toast.makeText(context, "Fail to jump to setting…>_<…", Toast.LENGTH_LONG).show();
+            hasErr = true;
             e.printStackTrace();
         } catch (NoSuchMethodException e) {
-            Toast.makeText(context, "Fail to jump to setting…>_<…", Toast.LENGTH_LONG).show();
+            hasErr = true;
             e.printStackTrace();
         } catch (IllegalAccessException e) {
-            Toast.makeText(context, "Fail to jump to setting…>_<…", Toast.LENGTH_LONG).show();
+            hasErr = true;
             e.printStackTrace();
         } catch (InvocationTargetException e) {
-            Toast.makeText(context, "Fail to jump to setting…>_<…", Toast.LENGTH_LONG).show();
+            hasErr = true;
             Throwable cause = e.getCause();
             cause.printStackTrace();
+        } finally {
+            if (hasErr) {
+                Toast.makeText(context, "Fail to jump to setting…>_<…", Toast.LENGTH_LONG).show();
+            }
         }
     }
 }
