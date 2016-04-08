@@ -424,7 +424,7 @@ public class TimeUtils {
      */
     public static long handlerServerTime(Context context, long serverTime) {
         SharedPreferencesManager.createInstance(context, servertime_sharepref);
-        long currenttime = System.currentTimeMillis();
+        long currenttime = TimeProvider.getCurrentMillisecondTime();
         long locservertime = SharedPreferencesManager.getLong(servertime_sharepref, SERVERTIMEKEY,
                 currenttime);
         if (serverTime <= 0 || locservertime == serverTime) {

@@ -56,7 +56,7 @@ public class SntpClient {
                     | (SntpClient.NTP_VERSION << 3);
 
             // get current time and write it to the request packet
-            long requestTime = System.currentTimeMillis();
+            long requestTime = TimeProvider.getCurrentMillisecondTime();
             long requestTicks = System.nanoTime() / 1000;
             this.writeTimeStamp(buffer, SntpClient.TRANSMIT_TIME_OFFSET,
                     requestTime);

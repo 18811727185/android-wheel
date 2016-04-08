@@ -46,6 +46,7 @@ import android.util.FloatMath;
 import android.view.View;
 
 import com.letv.mobile.core.log.Logger;
+import com.letv.mobile.core.time.TimeProvider;
 
 public final class Utils {
     private static final Logger sLogger = new Logger("Utils");
@@ -874,7 +875,7 @@ public final class Utils {
             newArray[i] = INIT_STR;
         }
 
-        Random random = new Random(System.currentTimeMillis());
+        Random random = new Random(TimeProvider.getCurrentMillisecondTime());
         for (String orgStr : array) {
             while (true) {
                 int i = random.nextInt(array.length);

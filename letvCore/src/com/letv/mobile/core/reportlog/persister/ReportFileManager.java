@@ -12,6 +12,7 @@ import android.text.TextUtils;
 import com.letv.mobile.core.config.LeTVConfig;
 import com.letv.mobile.core.log.Logger;
 import com.letv.mobile.core.reportlog.collector.ReportData;
+import com.letv.mobile.core.time.TimeProvider;
 import com.letv.mobile.core.utils.FileUtils;
 
 /**
@@ -158,7 +159,7 @@ public final class ReportFileManager {
      * @return
      */
     private static String makeFilePath(String logType) {
-        long timestamp = System.currentTimeMillis();
+        long timestamp = TimeProvider.getCurrentMillisecondTime();
         String fileName = timestamp + "." + logType;
         fileName.replace(' ', '_');
         String fileDir = LeTVConfig.getErrorLogPath();

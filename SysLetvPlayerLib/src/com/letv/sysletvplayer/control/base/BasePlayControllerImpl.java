@@ -4,6 +4,7 @@ import com.letv.component.player.Interface.OnMediaStateTimeListener;
 import com.letv.component.player.Interface.OnNeedSetPlayParamsListener;
 import com.letv.component.player.LetvMediaPlayerControl;
 import com.letv.mobile.core.log.Logger;
+import com.letv.mobile.core.time.TimeProvider;
 import com.letv.mobile.core.utils.DeviceUtils;
 import com.letv.sysletvplayer.control.Interface.PlayControlInterface;
 import com.letv.sysletvplayer.listener.ControlListener;
@@ -598,7 +599,7 @@ public abstract class BasePlayControllerImpl implements PlayControlInterface {
         }
         headers.put("first-seek", String.valueOf(seek));
         if (this.debug_playtimes > 0) {
-            long playtime = System.currentTimeMillis() - this.debug_playtimes;
+            long playtime = TimeProvider.getCurrentMillisecondTime() - this.debug_playtimes;
             // NOTE(xuji):表示从点击播放按钮开始到此时的时间，用于播放器统计请求播放的时间，目前暂时没有用到，后续可能需要加上
             headers.put("request-time", String.valueOf(playtime));
         }

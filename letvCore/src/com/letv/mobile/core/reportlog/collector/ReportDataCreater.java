@@ -3,6 +3,7 @@ package com.letv.mobile.core.reportlog.collector;
 import android.content.Context;
 
 import com.letv.mobile.core.reportlog.ReportField;
+import com.letv.mobile.core.time.TimeProvider;
 import com.letv.mobile.core.utils.DeviceUtils;
 import com.letv.mobile.core.utils.SystemUtil;
 import com.letv.mobile.core.utils.TimeUtils;
@@ -42,7 +43,7 @@ public abstract class ReportDataCreater {
         reportInfo.put(ReportField.ANDROID_VERSION.name(),
                 SystemUtil.getOSVersion());
         reportInfo.put(ReportField.REPORT_DATE.name(), TimeUtils
-                .timeToStr(TimeUtils.longToTime(System.currentTimeMillis())));
+                .timeToStr(TimeUtils.longToTime(TimeProvider.getCurrentMillisecondTime())));
 
         return reportInfo;
     }

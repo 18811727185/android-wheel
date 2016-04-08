@@ -2,6 +2,8 @@ package com.letv.sysletvplayer.key;
 
 import android.view.KeyEvent;
 
+import com.letv.mobile.core.time.TimeProvider;
+
 public class LongKeyDown {
 
     LongKeyListener longKeyListener;
@@ -17,7 +19,7 @@ public class LongKeyDown {
     }
 
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        long curTime = System.currentTimeMillis();
+        long curTime = TimeProvider.getCurrentMillisecondTime();
         long gapTime = curTime - this.lastTime;
         this.lastTime = curTime;
 
