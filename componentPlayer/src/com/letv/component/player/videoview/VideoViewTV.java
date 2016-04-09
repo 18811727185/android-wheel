@@ -38,8 +38,8 @@ import com.media.ffmpeg.FFMpegPlayer.OnBlockListener;
 import com.media.ffmpeg.FFMpegPlayer.OnCacheListener;
 import com.media.ffmpeg.FFMpegPlayer.OnFirstPlayLitener;
 import com.media.ffmpeg.FFMpegPlayer.OnHardDecodeErrorListner;
-import com.stv.launcher.player.LetvPlayer;
-import com.stv.launcher.player.LetvPlayerFactory;
+import com.stv.launcher.sdk.player.LetvPlayer;
+import com.stv.launcher.sdk.player.LetvPlayerFactory;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
