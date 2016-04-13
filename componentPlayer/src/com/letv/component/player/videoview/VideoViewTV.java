@@ -345,34 +345,42 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
             if(mOnMediaStateTimeListener!=null){
 				mOnMediaStateTimeListener.onMediaStateTime(MeidaStateType.CREATE, currentDate);
 			}
-            this.mMediaPlayer = LetvPlayerFactory.instantiate(); //使用launcher的app的MediaPlayer进行MeidaPlayer的创建，解决launcher内的播放器资源竞争问题
-            this.initListener();
-            this.duration = -1;
+            //this.mMediaPlayer = LetvPlayerFactory.instantiate(); //使用launcher的app的MediaPlayer进行MeidaPlayer的创建，解决launcher内的播放器资源竞争问题
+             LetvPlayerFactory.instantiate(false, new LetvPlayer.OnInstantiateListener() {
+                @Override
+                public void onInstantiate(LetvPlayer letvPlayer, int i) {
+                    VideoViewTV.this.mMediaPlayer = letvPlayer;
+                    VideoViewTV.this.initListener();
+                    VideoViewTV.this.duration = -1;
 
-            mCurrentBufferPercentage = 0;
-            //设置播放高低水位
-            //changed for tvlive by zanxiaofei 2015-10-30
-            if(mOnNeedSetPlayParamsListener != null){
-                mOnNeedSetPlayParamsListener.onNeedSet();
-            }
-            //end
-            this.mMediaPlayer.setDataSource(this.mContext, this.mUri,
-                    this.mHeaders);
-            this.mMediaPlayer.setDisplay(this.mSurfaceHolder);
-            this.mMediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-            this.mMediaPlayer.setScreenOnWhilePlaying(true);
-            //changed for tvlive by zanxiaofei 2015-12-22
-            //设置硬解码参数，用于播放停止时将画面停止到最后一帧
-            this.mMediaPlayer.setParameter(2001, 3);
-            this.mMediaPlayer.prepareAsync();
-            this.mCurrentState = STATE_PREPARING;
-            this.attachMediaController();
-        } catch (IOException ex) {
-            this.mCurrentState = STATE_ERROR;
-            this.mTargetState = STATE_ERROR;
-            this.mErrorListener.onError(this.mMediaPlayer,
-                    MediaPlayer.MEDIA_ERROR_UNKNOWN, 0);
-            return;
+                    mCurrentBufferPercentage = 0;
+                    //设置播放高低水位
+                    //changed for tvlive by zanxiaofei 2015-10-30
+                    if(mOnNeedSetPlayParamsListener != null){
+                        mOnNeedSetPlayParamsListener.onNeedSet();
+                    }
+                    //end
+                    try {
+                        VideoViewTV.this.mMediaPlayer.setDataSource(VideoViewTV.this.mContext, VideoViewTV.this.mUri,
+                                VideoViewTV.this.mHeaders);
+                    } catch (IOException ex) {
+                        VideoViewTV.this.mCurrentState = STATE_ERROR;
+                        VideoViewTV.this.mTargetState = STATE_ERROR;
+                        VideoViewTV.this.mErrorListener.onError(VideoViewTV.this.mMediaPlayer,
+                                MediaPlayer.MEDIA_ERROR_UNKNOWN, 0);
+                        return;
+                    }
+                    VideoViewTV.this.mMediaPlayer.setDisplay(VideoViewTV.this.mSurfaceHolder);
+                    VideoViewTV.this.mMediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+                    VideoViewTV.this.mMediaPlayer.setScreenOnWhilePlaying(true);
+                    //changed for tvlive by zanxiaofei 2015-12-22
+                    //设置硬解码参数，用于播放停止时将画面停止到最后一帧
+                    VideoViewTV.this.mMediaPlayer.setParameter(2001, 3);
+                    VideoViewTV.this.mMediaPlayer.prepareAsync();
+                    VideoViewTV.this.mCurrentState = STATE_PREPARING;
+                    VideoViewTV.this.attachMediaController();
+                }
+            });
         } catch (IllegalArgumentException ex) {
             this.mCurrentState = STATE_ERROR;
             this.mTargetState = STATE_ERROR;
