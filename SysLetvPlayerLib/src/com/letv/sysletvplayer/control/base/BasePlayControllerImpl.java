@@ -461,15 +461,15 @@ public abstract class BasePlayControllerImpl implements PlayControlInterface {
             // 正在缓冲
             @Override
             public void onBufferUpdating(int percent) {
-                int mBufferPercent = BasePlayControllerImpl.this
-                        .getRandomForBuffer(percent);
+//                int mBufferPercent = BasePlayControllerImpl.this
+//                        .getRandomForBuffer(percent);
                 if (BasePlayControllerImpl.this.mControlListener != null) {
                     BasePlayControllerImpl.this.mControlListener
-                            .onBufferUpdating(mBufferPercent);
+                            .onBufferUpdating(percent);
                 }
                 if (BasePlayControllerImpl.this.mPlayerListener != null) {
                     BasePlayControllerImpl.this.mPlayerListener
-                            .onBufferUpdating(mBufferPercent);
+                            .onBufferUpdating(percent);
                 }
             }
 
