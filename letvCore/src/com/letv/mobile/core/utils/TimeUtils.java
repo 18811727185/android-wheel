@@ -1,17 +1,18 @@
 package com.letv.mobile.core.utils;
 
+import com.letv.mobile.core.R;
+import com.letv.mobile.core.time.TimeProvider;
+
+import android.annotation.SuppressLint;
+import android.content.Context;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Formatter;
 import java.util.Locale;
-
-import android.annotation.SuppressLint;
-import android.content.Context;
-
-import com.letv.mobile.core.R;
-import com.letv.mobile.core.time.TimeProvider;
+import java.util.TimeZone;
 
 /**
  * 时间转换
@@ -39,8 +40,8 @@ public class TimeUtils {
             .getString(R.string.month_ago);
     private static final String WEEK_AGO = ContextProvider.getApplicationContext().getResources()
             .getString(R.string.week_ago);
-    private static final String FEW_DAY_AGO = ContextProvider.getApplicationContext()
-            .getResources().getString(R.string.few_days_ago);
+    private static final String FEW_DAY_AGO = ContextProvider.getApplicationContext().getResources()
+            .getString(R.string.few_days_ago);
     private static final String DAY_AGO = ContextProvider.getApplicationContext().getResources()
             .getString(R.string.day_ago);
     private static final String HOUR_AGO = ContextProvider.getApplicationContext().getResources()
@@ -51,8 +52,8 @@ public class TimeUtils {
             .getString(R.string.just_now);
     private static final String YESTODAY = ContextProvider.getApplicationContext().getResources()
             .getString(R.string.yestoday);
-    private static final String TIME_FORMAT = ContextProvider.getApplicationContext()
-            .getResources().getString(R.string.update_time_format);
+    private static final String TIME_FORMAT = ContextProvider.getApplicationContext().getResources()
+            .getString(R.string.update_time_format);
 
     private static final String YYYY_MM = ContextProvider.getApplicationContext().getResources()
             .getString(R.string.yyyy_mm);
@@ -334,17 +335,19 @@ public class TimeUtils {
 
     /**
      * 时间戳转换成日期格式字符串
-     * @param seconds 精确到秒的字符串
+     * @param seconds
+     *            精确到秒的字符串
      * @param formatStr
      * @return
      */
-    public static String timeStamp2Date(String seconds,String format) {
-        if(seconds == null || seconds.isEmpty() || seconds.equals("null")){
+    public static String timeStamp2Date(String seconds, String format) {
+        if (seconds == null || seconds.isEmpty() || seconds.equals("null")) {
             return "";
         }
-        if(format == null || format.isEmpty()) format = "yyyy-MM-dd HH:mm:ss";
+        if (format == null || format.isEmpty())
+            format = "yyyy-MM-dd HH:mm:ss";
         SimpleDateFormat sdf = new SimpleDateFormat(format);
-        return sdf.format(new Date(Long.valueOf(seconds+"000")));
+        return sdf.format(new Date(Long.valueOf(seconds + "000")));
     }
 
     /**
@@ -396,6 +399,16 @@ public class TimeUtils {
     public static String formatDateYYYYMMDDString(Date date){
         try {
             return formatDate(date, new SimpleDateFormat("yyyyMMdd"));
+        } catch (NumberFormatException ex) {
+            return "";
+        }
+    }
+
+    public static String formatDateYYYYMMDDStringTimeZoneShanghai(Date date) {
+        try {
+            SimpleDateFormat sf = new SimpleDateFormat("yyyyMMdd");
+            sf.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
+            return formatDate(date, sf);
         } catch (NumberFormatException ex) {
             return "";
         }
