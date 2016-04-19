@@ -55,6 +55,8 @@ final public class LetvLoginModel {
     private final static String TAG = "LetvLoginModel";
     // System login action
     public static final String ACTION_ACCOUNTS_CHANGED = "android.accounts.LOGIN_ACCOUNTS_CHANGED"; // 登录帐号变化广播
+    public static final String ACTION_LOGIN_ON = "com.letv.action.login_event";
+    public static final String ACTION_LOGIN_OUT = "com.letv.action.logout_event";
     // Pay result action
     private final static String ACTION_PAY_RESULT = "com.letv.mobile.pay";
 
@@ -83,13 +85,36 @@ final public class LetvLoginModel {
             String action = intent.getAction();
             if (AccountManager.LOGIN_ACCOUNTS_CHANGED_ACTION.equals(action)) {
                 if (isLogin(context)) {
-                    Logger.i(TAG, "Receive system ACTION_LOGIN BroadcastReceiver");
-                    LetvLoginModel.this.setLoginState(LoginState.LOGIN_STATE_UNCHECKED_LOGIN);
+                    if (!LoginModel.isLogin()) {
+                        Logger.i(TAG, "Receive system ACTION_LOGIN BroadcastReceiver");
+                        LetvLoginModel.this.setLoginState(LoginState.LOGIN_STATE_UNCHECKED_LOGIN);
+                    }
                 } else {
                     Logger.i(TAG,
                             "Receive system ACTION_LOGOUT ||  ACTION_LOGOUT_SAVE BroadcastReceiver");
                     LetvLoginModel.this.setLoginState(LoginState.LOGIN_STATE_LOGOUT);
                 }
+            }
+        }
+
+    };
+
+    // This receiver listen to the letv account state changed information.
+    private final BroadcastReceiver mLetvLoginStateReceiver = new BroadcastReceiver() {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Logger.i(TAG, "Receive mLetvLoginStateReceiver  BroadcastReceiver");
+            String action = intent.getAction();
+            if (LetvLoginModel.ACTION_LOGIN_ON.equals(action)) {
+                if (isLogin(context)) {
+                    Logger.i(TAG, "Receive mLetvLoginStateReceiver ACTION_LOGIN BroadcastReceiver");
+                    LetvLoginModel.this.setLoginState(LoginState.LOGIN_STATE_UNCHECKED_LOGIN);
+                }
+            } else if (LetvLoginModel.ACTION_LOGIN_OUT.equals(action)) {
+                Logger.i(TAG,
+                        "Receive mLetvLoginStateReceiver ACTION_LOGOUT ||  ACTION_LOGOUT_SAVE BroadcastReceiver");
+                LetvLoginModel.this.setLoginState(LoginState.LOGIN_STATE_LOGOUT);
             }
         }
 
@@ -296,9 +321,17 @@ final public class LetvLoginModel {
 
         // NOTE(qingxia): We should register receiver listen the system login
         // module.
+        // IntentFilter filter = new IntentFilter();
+        // filter.addAction(ACTION_ACCOUNTS_CHANGED);
+        // ContextProvider.getApplicationContext().registerReceiver(this.mLoginStateReceiver,
+        // filter);
+
+        // NOTE(zanxf): We should register receiver listen the letv login
         IntentFilter filter = new IntentFilter();
-        filter.addAction(ACTION_ACCOUNTS_CHANGED);
-        ContextProvider.getApplicationContext().registerReceiver(this.mLoginStateReceiver, filter);
+        filter.addAction(ACTION_LOGIN_ON);
+        filter.addAction(ACTION_LOGIN_OUT);
+        ContextProvider.getApplicationContext().registerReceiver(this.mLetvLoginStateReceiver,
+                filter);
 
         // NOTE(shibin): We should register receiver listen member payment
         ContextProvider.getApplicationContext().registerReceiver(this.mMemberPayReceiver,
@@ -365,7 +398,6 @@ final public class LetvLoginModel {
                             // Do member info request.
                             LetvLoginModel.this.tokenLogin(null);
                         }
-
                         LetvLoginModel.this.mUserInfo = LetvLoginModel.this.getLocalUserInfo();
                         LetvLoginModel.this.notifyUserStateChanged();
                     }
@@ -581,7 +613,12 @@ final public class LetvLoginModel {
     public UserInfo getLocalUserInfo() {
         UserInfo userInfo = null;
         if (!StringUtils.isStringEmpty(this.getToken())) {
-            userInfo = SharedPreferencesManager.getSerializable(this.getToken(), new UserInfo());
+            try {
+                userInfo = SharedPreferencesManager
+                        .getSerializable(this.getToken(), new UserInfo());
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+            }
         }
 
         return userInfo;
