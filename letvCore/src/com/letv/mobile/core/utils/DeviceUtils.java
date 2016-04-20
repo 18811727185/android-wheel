@@ -101,6 +101,7 @@ public class DeviceUtils {
     public static final String TYPE_X365 = "max365";// X65 Air
     public static final String TYPE_U2 = "u2";// U2
     public static final String TYPE_U3 = "u3";// U3
+    public static final String TYPE_U4 = "u4";// U3
     public static final String TYPE_G1 = "g1";// G1
     public static final String TYPE_RECOVERY = "0radixROM";// 刷机版本
     public static final String TYPE_S240F = "s240f";// X40Air
@@ -128,6 +129,7 @@ public class DeviceUtils {
         DEVICE_S255U(TYPE_S255U),
         DEVICE_X365(TYPE_X365),
         DEVICE_U2(TYPE_U2),
+        DEVICE_U4(TYPE_U4),
         DEVICE_G1(TYPE_G1);
         final String mDeviceType;
 
@@ -148,7 +150,7 @@ public class DeviceUtils {
             return deviceType == DEVICE_C1 || deviceType == DEVICE_C1S
                     || deviceType == DEVICE_NEWC1S || deviceType == DEVICE_C2
                     || deviceType == DEVICE_T1S || deviceType == DEVICE_U2
-                    || deviceType == DEVICE_G1;
+                    || deviceType == DEVICE_G1 ||deviceType ==DEVICE_U4;
         }
 
         public static DeviceType getDeviceTypeByString(String type) {
