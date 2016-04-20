@@ -74,7 +74,8 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
     private int mCount;
 
     private SurfaceHolder mSurfaceHolder = null;
-    private LetvPlayer mMediaPlayer = null;
+   private LetvPlayer mMediaPlayer = null;
+   //private MediaPlayer mMediaPlayer = null;
     protected Context mContext;
     private int mVideoWidth;
     private int mVideoHeight;
@@ -115,6 +116,11 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
      */
     private int mRatioType = -1;
 
+    /**
+     *  是否是小屏
+     */
+    private boolean mIsSubMedia = false;
+    
     public VideoViewTV(Context context) {
         super(context);
         this.mContext = context;
@@ -125,6 +131,16 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
         // changed for tvlive by zanxiaofei 2015-10-28
         //this.setBackgroundColor(Color.argb(101, 99, 22, 00));
         //changed end
+    }
+
+    public VideoViewTV(Context context, boolean isSubMedia){
+        super(context);
+        this.mContext = context;
+        this.initVideoView();
+        mCount = atomicInteger.getAndIncrement();
+        mIsSubMedia = isSubMedia;
+        LogTag.i("VideoViewTV", "[" + mCount + "]" + "VideoViewTV sub create");
+
     }
 
     public VideoViewTV(Context context, AttributeSet attrs) {
@@ -284,7 +300,7 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
 
     public void setVideoURI(Uri uri, Map<String, String> headers) {
     	String currentDate = Tools.getCurrentDate();
-    	LetvMediaPlayerManager.getInstance().writePlayLog("["+mCount+"]"+"系统当前时间:  " + currentDate + " VideoViewTV(乐视电视videoview)  setVideoURI(), url="
+    	LetvMediaPlayerManager.getInstance().writePlayLog("[" + mCount + "]" + "系统当前时间:  " + currentDate + " VideoViewTV(乐视电视videoview)  setVideoURI(), url="
                 + ((uri != null) ? uri.toString() : "null"), true);
 		if(mOnMediaStateTimeListener!=null){
 			mOnMediaStateTimeListener.onMediaStateTime(MeidaStateType.INITPATH, currentDate);
@@ -346,10 +362,10 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
 				mOnMediaStateTimeListener.onMediaStateTime(MeidaStateType.CREATE, currentDate);
 			}
             //this.mMediaPlayer = LetvPlayerFactory.instantiate(); //使用launcher的app的MediaPlayer进行MeidaPlayer的创建，解决launcher内的播放器资源竞争问题
-             LetvPlayerFactory.instantiate(false, new LetvPlayer.OnInstantiateListener() {
+             LetvPlayerFactory.instantiate(true, new LetvPlayer.OnInstantiateListener() {
                 @Override
                 public void onInstantiate(LetvPlayer letvPlayer, int i) {
-                    VideoViewTV.this.mMediaPlayer = letvPlayer;
+                    VideoViewTV.this.mMediaPlayer = letvPlayer;//new MediaPlayer(); //
                     VideoViewTV.this.initListener();
                     VideoViewTV.this.duration = -1;
 
@@ -376,6 +392,9 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
                     //changed for tvlive by zanxiaofei 2015-12-22
                     //设置硬解码参数，用于播放停止时将画面停止到最后一帧
                     VideoViewTV.this.mMediaPlayer.setParameter(2001, 3);
+                    if(mIsSubMedia) {
+                        VideoViewTV.this.mMediaPlayer.setParameter(2054, 1);
+                    }
                     VideoViewTV.this.mMediaPlayer.prepareAsync();
                     VideoViewTV.this.mCurrentState = STATE_PREPARING;
                     VideoViewTV.this.attachMediaController();

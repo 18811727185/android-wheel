@@ -23,11 +23,13 @@ import java.util.List;
  */
 public class LetvVideoViewBuilder {
 	ArrayList<SurfaceView> hardSurfaceViews;
+	ArrayList<SurfaceView> hardSubSurfaceViews;
 	/**
 	 * 创建VideoView类型
 	 */
 	public enum Type{
 		TV, // for TV
+		SUBTV,// for MultiStreamPlay
 		MOBILE_H264_MP4, //hardware
 		MOBILE_H264_M3U8, //h264 software
 		MOBILE_H264_M3U8_HW, //h264 custom hardware
@@ -64,10 +66,13 @@ public class LetvVideoViewBuilder {
 	
 	private LetvVideoViewBuilder() {
 		hardSurfaceViews = new ArrayList<SurfaceView>();
+		hardSubSurfaceViews = new ArrayList<SurfaceView>();
 	}
 
 	private void unInit(){
 		hardSurfaceViews.clear();
+		hardSubSurfaceViews.clear();
+
 	}
 	/**
 	 * 根据Type类型创建播放器VideoView
@@ -99,7 +104,10 @@ public class LetvVideoViewBuilder {
 			//tvlive 只是用了TV这种type，因此只需要将这种硬解添加到列表中
 			hardSurfaceViews.add((SurfaceView) control);
 			break;
-			
+		case SUBTV:
+			control = new VideoViewTV(context, true);
+			hardSubSurfaceViews.add((SurfaceView)control);
+			break;
 		case MOBILE_H264_LE_MOBILE:
 			control = new VideoViewH264LeMobile(context);
 			break;
