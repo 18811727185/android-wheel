@@ -14,6 +14,7 @@ import android.media.MediaPlayer.OnSeekCompleteListener;
 import android.media.MediaPlayer.OnVideoSizeChangedListener;
 import android.media.Metadata;
 import android.net.Uri;
+import android.util.ArrayMap;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -377,6 +378,13 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
                     }
                     //end
                     try {
+                        if(mIsSubMedia) {
+                            if(mHeaders == null) {
+                                mHeaders = new ArrayMap<String, String>();
+                            }
+                            //EXO播放器多路播放需要设置该参数
+                            mHeaders.put("multi-playback", "true");
+                        }
                         VideoViewTV.this.mMediaPlayer.setDataSource(VideoViewTV.this.mContext, VideoViewTV.this.mUri,
                                 VideoViewTV.this.mHeaders);
                     } catch (IOException ex) {
