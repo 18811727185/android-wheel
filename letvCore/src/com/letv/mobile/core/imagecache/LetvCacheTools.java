@@ -1,16 +1,16 @@
 package com.letv.mobile.core.imagecache;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
-import java.text.DecimalFormat;
+import com.letv.mobile.core.config.LeTVConfig;
 
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.os.Environment;
 import android.text.TextUtils;
 
-import com.letv.mobile.core.config.LeTVConfig;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.text.DecimalFormat;
 
 /**
  * 工具类
@@ -168,7 +168,7 @@ public class LetvCacheTools {
                     }
                     listener.onComplete();
                 }
-            });
+            } , LetvCacheTools.class.getName());
             t.start();
         }
 

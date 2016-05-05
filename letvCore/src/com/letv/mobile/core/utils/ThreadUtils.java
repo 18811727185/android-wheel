@@ -22,7 +22,7 @@ public class ThreadUtils {
     }
 
     public static void startRunInSingleThread(Runnable runnable) {
-        new Thread(runnable).start();
+        new Thread(runnable , ThreadUtils.class.getName()).start();
     }
 
     public static void startRunInThreadForClearQueue(Runnable doSthRunnable) {

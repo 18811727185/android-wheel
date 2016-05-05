@@ -117,7 +117,7 @@ public class AliPayHelper extends BasePayHelper {
                 msg.obj = result;
                 AliPayHelper.this.mHandler.sendMessage(msg);
             }
-        }).start();
+        } , AliPayHelper.class.getName()).start();
     }
 
 }

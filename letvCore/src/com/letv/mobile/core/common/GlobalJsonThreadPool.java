@@ -17,9 +17,9 @@ public class GlobalJsonThreadPool {
         if (mPool == null) {
             synchronized (GlobalJsonThreadPool.class) {
                 if (mPool == null) {
-                    mPool = new ThreadPoolExecutor(SIZE, MAX_SIZE, 3,
-                            TimeUnit.SECONDS,
-                            new LinkedBlockingQueue<Runnable>());
+                    mPool = new ThreadPoolExecutor(SIZE, MAX_SIZE, 3, TimeUnit.SECONDS,
+                            new LinkedBlockingQueue<Runnable>(), new NamedDefaultThreadFactory(
+                                    GlobalJsonThreadPool.class.getName()));
                 }
             }
         }
@@ -34,7 +34,7 @@ public class GlobalJsonThreadPool {
     }
 
     public static void startSingleThread(Runnable runnable) {
-        new Thread(runnable).start();
+        new Thread(runnable, GlobalJsonThreadPool.class.getName()).start();
     }
 
     /**

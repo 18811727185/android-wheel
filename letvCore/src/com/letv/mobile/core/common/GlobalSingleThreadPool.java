@@ -17,9 +17,9 @@ public class GlobalSingleThreadPool {
         if (mPool == null) {
             synchronized (GlobalSingleThreadPool.class) {
                 if (mPool == null) {
-                    mPool = new ThreadPoolExecutor(SIZE, MAX_SIZE, 3,
-                            TimeUnit.SECONDS,
-                            new LinkedBlockingQueue<Runnable>());
+                    mPool = new ThreadPoolExecutor(SIZE, MAX_SIZE, 3, TimeUnit.SECONDS,
+                            new LinkedBlockingQueue<Runnable>(), new NamedDefaultThreadFactory(
+                                    GlobalSingleThreadPool.class.getName()));
                 }
             }
         }
