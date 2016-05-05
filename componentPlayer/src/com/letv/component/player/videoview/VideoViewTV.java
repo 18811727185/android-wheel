@@ -378,13 +378,13 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
                     }
                     //end
                     try {
-                        if(mIsSubMedia) {
-                            if(mHeaders == null) {
-                                mHeaders = new ArrayMap<String, String>();
-                            }
-                            //EXO播放器多路播放需要设置该参数
-                            mHeaders.put("multi-playback", "true");
-                        }
+//                        if(mIsSubMedia) {
+//                            if(mHeaders == null) {
+//                                mHeaders = new ArrayMap<String, String>();
+//                            }
+//                            //EXO播放器多路播放需要设置该参数
+//                            mHeaders.put("multi-playback", "true");
+//                        }
                         VideoViewTV.this.mMediaPlayer.setDataSource(VideoViewTV.this.mContext, VideoViewTV.this.mUri,
                                 VideoViewTV.this.mHeaders);
                     } catch (IOException ex) {
@@ -923,7 +923,7 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
         this.mOnErrorListener = l;
     }
 
-    public void setOnVideoSizeChangedListener(OnVideoSizeChangedListener l) {
+    public void onvisetOnVideoSizeChangedListener(OnVideoSizeChangedListener l) {
         this.mOnVideoSizeChangedListener = l;
     }
 
@@ -936,7 +936,12 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
         this.mOnSeekCompleteListener = mOnSeekCompleteListener;
     }
 
-	@Override
+    @Override
+    public void setOnVideoSizeChangedListener(OnVideoSizeChangedListener l) {
+
+    }
+
+    @Override
 	public void setVideoViewStateChangeListener(
 			OnVideoViewStateChangeListener videoViewStateChangeListener) {
 
