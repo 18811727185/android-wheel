@@ -14,7 +14,6 @@ import android.media.MediaPlayer.OnSeekCompleteListener;
 import android.media.MediaPlayer.OnVideoSizeChangedListener;
 import android.media.Metadata;
 import android.net.Uri;
-import android.util.ArrayMap;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -63,20 +62,20 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
     private static final int STATE_PAUSED = 4;// 暂停状态
     private static final int STATE_PLAYBACK_COMPLETED = 5;// 完成回播状态
 
-	private final int FORWARD_TIME = 20000;
-	private final int REWIND_TIME = 20000;
+    private final int FORWARD_TIME = 20000;
+    private final int REWIND_TIME = 20000;
 
     private Uri mUri;
     private Map<String, String> mHeaders;
     private int duration;
     private int mCurrentState = STATE_IDLE;
     private int mTargetState = STATE_IDLE;
-    private static AtomicInteger atomicInteger = new AtomicInteger(1); //代表VideoViewTV的实例个数
+    private static AtomicInteger atomicInteger = new AtomicInteger(1); // 代表VideoViewTV的实例个数
     private int mCount;
 
     private SurfaceHolder mSurfaceHolder = null;
-   private LetvPlayer mMediaPlayer = null;
-   //private MediaPlayer mMediaPlayer = null;
+    private LetvPlayer mMediaPlayer = null;
+    // private MediaPlayer mMediaPlayer = null;
     protected Context mContext;
     private int mVideoWidth;
     private int mVideoHeight;
@@ -118,23 +117,23 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
     private int mRatioType = -1;
 
     /**
-     *  是否是小屏
+     * 是否是小屏
      */
     private boolean mIsSubMedia = false;
-    
+
     public VideoViewTV(Context context) {
         super(context);
         this.mContext = context;
         this.initVideoView();
         mCount = atomicInteger.getAndIncrement();
-        LogTag.i("VideoViewTV","["+mCount+"]"+"VideoViewTV create");
-        //不需要设置背景色
+        LogTag.i("VideoViewTV", "[" + mCount + "]" + "VideoViewTV create");
+        // 不需要设置背景色
         // changed for tvlive by zanxiaofei 2015-10-28
-        //this.setBackgroundColor(Color.argb(101, 99, 22, 00));
-        //changed end
+        // this.setBackgroundColor(Color.argb(101, 99, 22, 00));
+        // changed end
     }
 
-    public VideoViewTV(Context context, boolean isSubMedia){
+    public VideoViewTV(Context context, boolean isSubMedia) {
         super(context);
         this.mContext = context;
         this.initVideoView();
@@ -163,10 +162,10 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
         this.getHolder().setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
         this.setFocusable(true);
         this.setFocusableInTouchMode(true);
-        //初始化时不能立即获取焦点,会影响launcher获取焦点
+        // 初始化时不能立即获取焦点,会影响launcher获取焦点
         // changed for tvlive by zanxiaofei 2015-10-28
-        //this.requestFocus();
-        //changed end
+        // this.requestFocus();
+        // changed end
         this.mCurrentState = STATE_IDLE;
         this.mTargetState = STATE_IDLE;
     }
@@ -203,10 +202,14 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
         if (this.mMediaPlayer != null) {
             this.mMediaPlayer.reset();
             String currentDateRelease = Tools.getCurrentDate();
-			LetvMediaPlayerManager.getInstance().writePlayLog("["+mCount+"]"+"系统当前时间:  "+currentDateRelease+"VideoViewTV release()");
-			if(mOnMediaStateTimeListener!=null){
-				mOnMediaStateTimeListener.onMediaStateTime(MeidaStateType.RELEASE, currentDateRelease);
-			}
+            LetvMediaPlayerManager.getInstance()
+                    .writePlayLog(
+                            "[" + mCount + "]" + "系统当前时间:  " + currentDateRelease
+                                    + "VideoViewTV release()");
+            if (mOnMediaStateTimeListener != null) {
+                mOnMediaStateTimeListener.onMediaStateTime(MeidaStateType.RELEASE,
+                        currentDateRelease);
+            }
             this.mMediaPlayer.release();
             this.mCurrentState = STATE_IDLE;
             this.mTargetState = STATE_IDLE;
@@ -216,22 +219,7 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int width = getDefaultSize(this.mVideoWidth, widthMeasureSpec);
-        int height = getDefaultSize(this.mVideoHeight, heightMeasureSpec);
-
-        // changed for tvlive by zjl 2015-11-05 17:26:49
-        // NOTE: 以下代码为第三方适配代码(mScreenChangeFlag为true)
-        if (this.mScreenChangeFlag && this.mVideoWidth > 0 && this.mVideoHeight > 0) {
-            if (this.mVideoWidth * MULTIPLICAND_VIDEOSIZE9 > MULTIPLICAND_VIDEOSIZE16
-                    * this.mVideoHeight) {
-                if (this.mVideoWidth * height > width * this.mVideoHeight) {
-                    height = width * this.mVideoHeight / this.mVideoWidth;
-                } else if (this.mVideoWidth * height < width * this.mVideoHeight) {
-                    width = height * this.mVideoWidth / this.mVideoHeight;
-                }
-            }
-        }
-        setMeasuredDimension(width, height);
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
     // changed for tvlive by zjl 2015-11-05 17:26:49
@@ -261,10 +249,10 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
     /**
      * 刷新屏幕尺寸
      */
-	private void invalateScreenSize() {
-		LayoutParams lp = (LayoutParams) this.getLayoutParams();
-		this.setLayoutParams(lp);
-	}
+    private void invalateScreenSize() {
+        LayoutParams lp = (LayoutParams) this.getLayoutParams();
+        this.setLayoutParams(lp);
+    }
 
     public int resolveAdjustedSize(int desiredSize, int measureSpec) {
         int result = desiredSize;
@@ -300,13 +288,15 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
     }
 
     public void setVideoURI(Uri uri, Map<String, String> headers) {
-    	String currentDate = Tools.getCurrentDate();
-    	LetvMediaPlayerManager.getInstance().writePlayLog("[" + mCount + "]" + "系统当前时间:  " + currentDate + " VideoViewTV(乐视电视videoview)  setVideoURI(), url="
-                + ((uri != null) ? uri.toString() : "null"), true);
-		if(mOnMediaStateTimeListener!=null){
-			mOnMediaStateTimeListener.onMediaStateTime(MeidaStateType.INITPATH, currentDate);
-		}
-    	mUri = uri;
+        String currentDate = Tools.getCurrentDate();
+        LetvMediaPlayerManager.getInstance().writePlayLog(
+                "[" + mCount + "]" + "系统当前时间:  " + currentDate
+                        + " VideoViewTV(乐视电视videoview)  setVideoURI(), url="
+                        + ((uri != null) ? uri.toString() : "null"), true);
+        if (mOnMediaStateTimeListener != null) {
+            mOnMediaStateTimeListener.onMediaStateTime(MeidaStateType.INITPATH, currentDate);
+        }
+        mUri = uri;
         mHeaders = headers;
         mSeekWhenPrepared = 0;
         openVideo();
@@ -321,12 +311,10 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
         this.mMediaPlayer.setOnSeekCompleteListener(this.mSeekCompleteListener);
         this.mMediaPlayer.setOnInfoListener(this.mInfoListener);
         this.mMediaPlayer.setOnPreparedListener(this.mPreparedListener);
-        this.mMediaPlayer
-                .setOnVideoSizeChangedListener(this.mSizeChangedListener);
+        this.mMediaPlayer.setOnVideoSizeChangedListener(this.mSizeChangedListener);
         this.mMediaPlayer.setOnCompletionListener(this.mCompletionListener);
         this.mMediaPlayer.setOnErrorListener(this.mErrorListener);
-        this.mMediaPlayer
-                .setOnBufferingUpdateListener(this.mBufferingUpdateListener);
+        this.mMediaPlayer.setOnBufferingUpdateListener(this.mBufferingUpdateListener);
     }
 
     /**
@@ -357,36 +345,39 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
         this.mContext.sendBroadcast(i);
         this.release(false);
         try {
-        	String currentDate = Tools.getCurrentDate();
-        	LetvMediaPlayerManager.getInstance().writePlayLog("["+mCount+"]"+"系统当前时间:  " + currentDate + " VideoViewH264mp4(乐视电视videoview)  创建MediaPlayer对象");
-            if(mOnMediaStateTimeListener!=null){
-				mOnMediaStateTimeListener.onMediaStateTime(MeidaStateType.CREATE, currentDate);
-			}
-            //this.mMediaPlayer = LetvPlayerFactory.instantiate(); //使用launcher的app的MediaPlayer进行MeidaPlayer的创建，解决launcher内的播放器资源竞争问题
-             LetvPlayerFactory.instantiate(true, new LetvPlayer.OnInstantiateListener() {
+            String currentDate = Tools.getCurrentDate();
+            LetvMediaPlayerManager.getInstance().writePlayLog(
+                    "[" + mCount + "]" + "系统当前时间:  " + currentDate
+                            + " VideoViewH264mp4(乐视电视videoview)  创建MediaPlayer对象");
+            if (mOnMediaStateTimeListener != null) {
+                mOnMediaStateTimeListener.onMediaStateTime(MeidaStateType.CREATE, currentDate);
+            }
+            // this.mMediaPlayer = LetvPlayerFactory.instantiate();
+            // //使用launcher的app的MediaPlayer进行MeidaPlayer的创建，解决launcher内的播放器资源竞争问题
+            LetvPlayerFactory.instantiate(true, new LetvPlayer.OnInstantiateListener() {
                 @Override
                 public void onInstantiate(LetvPlayer letvPlayer, int i) {
-                    VideoViewTV.this.mMediaPlayer = letvPlayer;//new MediaPlayer(); //
+                    VideoViewTV.this.mMediaPlayer = letvPlayer;// new MediaPlayer(); //
                     VideoViewTV.this.initListener();
                     VideoViewTV.this.duration = -1;
 
                     mCurrentBufferPercentage = 0;
-                    //设置播放高低水位
-                    //changed for tvlive by zanxiaofei 2015-10-30
-                    if(mOnNeedSetPlayParamsListener != null){
+                    // 设置播放高低水位
+                    // changed for tvlive by zanxiaofei 2015-10-30
+                    if (mOnNeedSetPlayParamsListener != null) {
                         mOnNeedSetPlayParamsListener.onNeedSet();
                     }
-                    //end
+                    // end
                     try {
-//                        if(mIsSubMedia) {
-//                            if(mHeaders == null) {
-//                                mHeaders = new ArrayMap<String, String>();
-//                            }
-//                            //EXO播放器多路播放需要设置该参数
-//                            mHeaders.put("multi-playback", "true");
-//                        }
-                        VideoViewTV.this.mMediaPlayer.setDataSource(VideoViewTV.this.mContext, VideoViewTV.this.mUri,
-                                VideoViewTV.this.mHeaders);
+                        // if(mIsSubMedia) {
+                        // if(mHeaders == null) {
+                        // mHeaders = new ArrayMap<String, String>();
+                        // }
+                        // //EXO播放器多路播放需要设置该参数
+                        // mHeaders.put("multi-playback", "true");
+                        // }
+                        VideoViewTV.this.mMediaPlayer.setDataSource(VideoViewTV.this.mContext,
+                                VideoViewTV.this.mUri, VideoViewTV.this.mHeaders);
                     } catch (IOException ex) {
                         VideoViewTV.this.mCurrentState = STATE_ERROR;
                         VideoViewTV.this.mTargetState = STATE_ERROR;
@@ -397,10 +388,10 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
                     VideoViewTV.this.mMediaPlayer.setDisplay(VideoViewTV.this.mSurfaceHolder);
                     VideoViewTV.this.mMediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
                     VideoViewTV.this.mMediaPlayer.setScreenOnWhilePlaying(true);
-                    //changed for tvlive by zanxiaofei 2015-12-22
-                    //设置硬解码参数，用于播放停止时将画面停止到最后一帧
+                    // changed for tvlive by zanxiaofei 2015-12-22
+                    // 设置硬解码参数，用于播放停止时将画面停止到最后一帧
                     VideoViewTV.this.mMediaPlayer.setParameter(2001, 3);
-                    if(mIsSubMedia) {
+                    if (mIsSubMedia) {
                         VideoViewTV.this.mMediaPlayer.setParameter(2054, 1);
                     }
                     VideoViewTV.this.mMediaPlayer.prepareAsync();
@@ -411,12 +402,10 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
         } catch (IllegalArgumentException ex) {
             this.mCurrentState = STATE_ERROR;
             this.mTargetState = STATE_ERROR;
-            this.mErrorListener.onError(this.mMediaPlayer,
-                    MediaPlayer.MEDIA_ERROR_UNKNOWN, 0);
+            this.mErrorListener.onError(this.mMediaPlayer, MediaPlayer.MEDIA_ERROR_UNKNOWN, 0);
             return;
         } catch (Exception ex) {
-            this.mErrorListener.onError(this.mMediaPlayer,
-                    MediaPlayer.MEDIA_ERROR_UNKNOWN, 0);
+            this.mErrorListener.onError(this.mMediaPlayer, MediaPlayer.MEDIA_ERROR_UNKNOWN, 0);
         }
     }
 
@@ -431,8 +420,7 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
     private void attachMediaController() {
         if (this.mMediaPlayer != null && this.mediaController != null) {
             this.mediaController.setMediaPlayer(this);
-            View anchorView = this.getParent() instanceof View ? (View) this
-                    .getParent() : this;
+            View anchorView = this.getParent() instanceof View ? (View) this.getParent() : this;
             this.mediaController.setAnchorView(anchorView);
             this.mediaController.setEnabled(this.isInPlaybackState());
         }
@@ -440,18 +428,16 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
 
     SurfaceHolder.Callback mSHCallback = new SurfaceHolder.Callback() {
         @Override
-        public void surfaceChanged(SurfaceHolder holder, int format, int w,
-                int h) {
+        public void surfaceChanged(SurfaceHolder holder, int format, int w, int h) {
             VideoViewTV.this.mSurfaceWidth = w;
             VideoViewTV.this.mSurfaceHeight = h;
-            LogTag.i("VideoViewTV", "["+mCount+"]"+"surfaceChanged(), mSurfaceWidth=" + mSurfaceWidth + ", mSurfaceHeight=" + mSurfaceHeight);
+            LogTag.i("VideoViewTV", "[" + mCount + "]" + "surfaceChanged(), mSurfaceWidth="
+                    + mSurfaceWidth + ", mSurfaceHeight=" + mSurfaceHeight);
             boolean isValidState = (VideoViewTV.this.mTargetState == STATE_PLAYING);
             boolean hasValidSize = (VideoViewTV.this.mVideoWidth == w && VideoViewTV.this.mVideoHeight == h);
-            if (VideoViewTV.this.mMediaPlayer != null && isValidState
-                    && hasValidSize) {
+            if (VideoViewTV.this.mMediaPlayer != null && isValidState && hasValidSize) {
                 if (VideoViewTV.this.mSeekWhenPrepared != 0) {
-                    VideoViewTV.this
-                            .seekTo(VideoViewTV.this.mSeekWhenPrepared);
+                    VideoViewTV.this.seekTo(VideoViewTV.this.mSeekWhenPrepared);
                 }
                 VideoViewTV.this.start();
             }
@@ -459,19 +445,19 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
 
         @Override
         public void surfaceCreated(SurfaceHolder holder) {
-        	LogTag.i("VideoViewTV", "["+mCount+"]"+"surfaceCreated()");
+            LogTag.i("VideoViewTV", "[" + mCount + "]" + "surfaceCreated()");
             VideoViewTV.this.mSurfaceHolder = holder;
             VideoViewTV.this.openVideo();
         }
 
         @Override
         public void surfaceDestroyed(SurfaceHolder holder) {
-        	LogTag.i("VideoViewTV", "["+mCount+"]"+"surfaceDestroyed()");
+            LogTag.i("VideoViewTV", "[" + mCount + "]" + "surfaceDestroyed()");
             VideoViewTV.this.mSurfaceHolder = null;
             if (VideoViewTV.this.mediaController != null) {
                 VideoViewTV.this.mediaController.hide();
             }
-            lastSeekWhenDestoryed = getCurrentPosition() ;
+            lastSeekWhenDestoryed = getCurrentPosition();
             VideoViewTV.this.release(true);
         }
     };
@@ -483,10 +469,14 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
         if (this.mMediaPlayer != null) {
             this.mMediaPlayer.reset();
             String currentDateRelease = Tools.getCurrentDate();
-			LetvMediaPlayerManager.getInstance().writePlayLog("["+mCount+"]"+"系统当前时间:  " + currentDateRelease + "VideoViewTV release()");
-			if(mOnMediaStateTimeListener!=null){
-				mOnMediaStateTimeListener.onMediaStateTime(MeidaStateType.RELEASE, currentDateRelease);
-			}
+            LetvMediaPlayerManager.getInstance()
+                    .writePlayLog(
+                            "[" + mCount + "]" + "系统当前时间:  " + currentDateRelease
+                                    + "VideoViewTV release()");
+            if (mOnMediaStateTimeListener != null) {
+                mOnMediaStateTimeListener.onMediaStateTime(MeidaStateType.RELEASE,
+                        currentDateRelease);
+            }
             this.mMediaPlayer.release();
             this.deadListener(this.mMediaPlayer);
             this.mMediaPlayer = null;
@@ -522,14 +512,10 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         boolean isKeyCodeSupported = keyCode != KeyEvent.KEYCODE_BACK
-                && keyCode != KeyEvent.KEYCODE_VOLUME_UP
-                && keyCode != KeyEvent.KEYCODE_VOLUME_DOWN
-                && keyCode != KeyEvent.KEYCODE_VOLUME_MUTE
-                && keyCode != KeyEvent.KEYCODE_MENU
-                && keyCode != KeyEvent.KEYCODE_CALL
-                && keyCode != KeyEvent.KEYCODE_ENDCALL;
-        if (this.isInPlaybackState() && isKeyCodeSupported
-                && this.mediaController != null) {
+                && keyCode != KeyEvent.KEYCODE_VOLUME_UP && keyCode != KeyEvent.KEYCODE_VOLUME_DOWN
+                && keyCode != KeyEvent.KEYCODE_VOLUME_MUTE && keyCode != KeyEvent.KEYCODE_MENU
+                && keyCode != KeyEvent.KEYCODE_CALL && keyCode != KeyEvent.KEYCODE_ENDCALL;
+        if (this.isInPlaybackState() && isKeyCodeSupported && this.mediaController != null) {
             if (keyCode == KeyEvent.KEYCODE_HEADSETHOOK
                     || keyCode == KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE) {
                 if (this.mMediaPlayer.isPlaying()) {
@@ -561,9 +547,9 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
         return super.onKeyDown(keyCode, event);
     }
 
-	public int getLastSeekWhenDestoryed() {
-		return lastSeekWhenDestoryed;
-	}
+    public int getLastSeekWhenDestoryed() {
+        return lastSeekWhenDestoryed;
+    }
 
     private void toggleMediaControlsVisiblity() {
         if (this.mediaController.isShowing()) {
@@ -575,11 +561,13 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
 
     @Override
     public void start() {
-    	HttpRequestManager.getInstance(mContext).requestCapability();
+        HttpRequestManager.getInstance(mContext).requestCapability();
         if (this.isInPlaybackState()) {
             this.mMediaPlayer.start();
             String currentDate = Tools.getCurrentDate();
-            LetvMediaPlayerManager.getInstance().writePlayLog("["+mCount+"]"+"系统当前时间:  "+currentDate+" VideoViewTV(乐视电视videoview)  start()");
+            LetvMediaPlayerManager.getInstance().writePlayLog(
+                    "[" + mCount + "]" + "系统当前时间:  " + currentDate
+                            + " VideoViewTV(乐视电视videoview)  start()");
             this.mCurrentState = STATE_PLAYING;
         }
         this.mTargetState = STATE_PLAYING;
@@ -600,7 +588,9 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
                 if (this.mMediaPlayer != null && this.mMediaPlayer.isPlaying()) {
                     this.mMediaPlayer.pause();
                     String currentDate = Tools.getCurrentDate();
-                    LetvMediaPlayerManager.getInstance().writePlayLog("["+mCount+"]"+"系统当前时间:  "+currentDate+" VideoViewTV(乐视电视videoview)  pause()");
+                    LetvMediaPlayerManager.getInstance().writePlayLog(
+                            "[" + mCount + "]" + "系统当前时间:  " + currentDate
+                                    + " VideoViewTV(乐视电视videoview)  pause()");
                     this.mCurrentState = STATE_PAUSED;
                 }
             } catch (Exception e) {
@@ -651,15 +641,15 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
         }
     }
 
-	@Override
-	public void forward() {
-		seekTo(getCurrentPosition() + FORWARD_TIME);
-	}
+    @Override
+    public void forward() {
+        seekTo(getCurrentPosition() + FORWARD_TIME);
+    }
 
-	@Override
-	public void rewind() {
-		seekTo(getCurrentPosition() - REWIND_TIME);
-	}
+    @Override
+    public void rewind() {
+        seekTo(getCurrentPosition() - REWIND_TIME);
+    }
 
     @Override
     public boolean isPlaying() {
@@ -670,9 +660,9 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
         }
     }
 
-	public boolean isPaused() {
-		return  mCurrentState == STATE_PAUSED;
-	}
+    public boolean isPaused() {
+        return mCurrentState == STATE_PAUSED;
+    }
 
     @Override
     public int getBufferPercentage() {
@@ -687,11 +677,6 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
         public void onVideoSizeChanged(MediaPlayer mp, int width, int height) {
             mVideoWidth = mp.getVideoWidth();
             mVideoHeight = mp.getVideoHeight();
-            LogTag.i("VideoViewTV", "["+mCount+"]"+"onVideoSizeChanged(), mVideoWidth=" + mVideoWidth + ", mVideoHeight=" + mVideoHeight);
-            if (mVideoWidth != 0 && mVideoHeight != 0) {
-                getHolder().setFixedSize(mVideoWidth, mVideoHeight);
-            }
-
             // changed for tvlive by zjl 2015-11-05 17:26:49
             if (mOnVideoSizeChangedListener != null) {
                 mOnVideoSizeChangedListener.onVideoSizeChanged(mp, width, height);
@@ -704,8 +689,7 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
         @Override
         public boolean onInfo(MediaPlayer mp, int what, int extra) {
             if (VideoViewTV.this.mOnInfoListener != null
-                    && VideoViewTV.this.mOnInfoListener.onInfo(mp, what,
-                            extra)) {
+                    && VideoViewTV.this.mOnInfoListener.onInfo(mp, what, extra)) {
                 return true;
             }
             return false;
@@ -717,8 +701,7 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
         @Override
         public void onSeekComplete(MediaPlayer mp) {
             if (VideoViewTV.this.mOnSeekCompleteListener != null) {
-                VideoViewTV.this.mOnSeekCompleteListener
-                        .onSeekComplete(mp);
+                VideoViewTV.this.mOnSeekCompleteListener.onSeekComplete(mp);
             }
         }
     };
@@ -726,11 +709,13 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
     OnPreparedListener mPreparedListener = new OnPreparedListener() {
         @Override
         public void onPrepared(MediaPlayer mp) {
-        	String currentDate = Tools.getCurrentDate();
-        	LetvMediaPlayerManager.getInstance().writePlayLog("["+mCount+"]"+"系统当前时间:  "+currentDate+" VideoViewTv(乐视电视videoview)  onPrepared()");
-			if(mOnMediaStateTimeListener!=null){
-				mOnMediaStateTimeListener.onMediaStateTime(MeidaStateType.PREPARED, currentDate);
-			}
+            String currentDate = Tools.getCurrentDate();
+            LetvMediaPlayerManager.getInstance().writePlayLog(
+                    "[" + mCount + "]" + "系统当前时间:  " + currentDate
+                            + " VideoViewTv(乐视电视videoview)  onPrepared()");
+            if (mOnMediaStateTimeListener != null) {
+                mOnMediaStateTimeListener.onMediaStateTime(MeidaStateType.PREPARED, currentDate);
+            }
             VideoViewTV.this.mCurrentState = STATE_PREPARED;
             try {
                 Class<?> cls = Class.forName(MediaPlayer.class.getName());
@@ -745,14 +730,11 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
                 Object retobj = meth.invoke(mp, arglist);
                 Metadata data = (Metadata) retobj;
                 if (data != null) {
-                    VideoViewTV.this.mCanPause = !data
-                            .has(Metadata.PAUSE_AVAILABLE)
+                    VideoViewTV.this.mCanPause = !data.has(Metadata.PAUSE_AVAILABLE)
                             || data.getBoolean(Metadata.PAUSE_AVAILABLE);
-                    VideoViewTV.this.mCanSeekBack = !data
-                            .has(Metadata.SEEK_BACKWARD_AVAILABLE)
+                    VideoViewTV.this.mCanSeekBack = !data.has(Metadata.SEEK_BACKWARD_AVAILABLE)
                             || data.getBoolean(Metadata.SEEK_BACKWARD_AVAILABLE);
-                    VideoViewTV.this.mCanSeekForward = !data
-                            .has(Metadata.SEEK_FORWARD_AVAILABLE)
+                    VideoViewTV.this.mCanSeekForward = !data.has(Metadata.SEEK_FORWARD_AVAILABLE)
                             || data.getBoolean(Metadata.SEEK_FORWARD_AVAILABLE);
                 } else {
                     VideoViewTV.this.mCanPause = VideoViewTV.this.mCanSeekBack = VideoViewTV.this.mCanSeekForward = true;
@@ -760,8 +742,7 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
 
                 if (VideoViewTV.this.mOnPreparedListener != null
                         && VideoViewTV.this.isInPlaybackState()) {
-                    VideoViewTV.this.mOnPreparedListener
-                            .onPrepared(VideoViewTV.this.mMediaPlayer);
+                    VideoViewTV.this.mOnPreparedListener.onPrepared(VideoViewTV.this.mMediaPlayer);
                 }
                 if (VideoViewTV.this.mediaController != null) {
                     VideoViewTV.this.mediaController.setEnabled(true);
@@ -770,20 +751,16 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
                 VideoViewTV.this.mVideoHeight = mp.getVideoHeight();
 
                 int seekToPosition = VideoViewTV.this.mSeekWhenPrepared; // mSeekWhenPrepared
-                                                                              // may
-                                                                              // be
+                                                                         // may
+                                                                         // be
                 // changed after seekTo()
                 // call
                 if (seekToPosition != 0) {
                     VideoViewTV.this.seekTo(seekToPosition);
                 }
-                if (VideoViewTV.this.mVideoWidth != 0
-                        && VideoViewTV.this.mVideoHeight != 0) {
+                if (VideoViewTV.this.mVideoWidth != 0 && VideoViewTV.this.mVideoHeight != 0) {
                     // Log.i("@@@@", "video size: " + mVideoWidth +"/"+
                     // mVideoHeight);
-                    VideoViewTV.this.getHolder().setFixedSize(
-                            VideoViewTV.this.mVideoWidth,
-                            VideoViewTV.this.mVideoHeight);
                     if (VideoViewTV.this.mSurfaceWidth == VideoViewTV.this.mVideoWidth
                             && VideoViewTV.this.mSurfaceHeight == VideoViewTV.this.mVideoHeight) {
                         if (VideoViewTV.this.mTargetState == STATE_PLAYING) {
@@ -792,8 +769,7 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
                                 VideoViewTV.this.mediaController.show();
                             }
                         } else if (!VideoViewTV.this.isPlaying()
-                                && (seekToPosition != 0 || VideoViewTV.this
-                                        .getCurrentPosition() > 0)) {
+                                && (seekToPosition != 0 || VideoViewTV.this.getCurrentPosition() > 0)) {
                             if (VideoViewTV.this.mediaController != null) {
                                 // Show the media controls when we're paused
                                 // into a
@@ -826,8 +802,7 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
                 VideoViewTV.this.mediaController.hide();
             }
             if (VideoViewTV.this.mOnCompletionListener != null) {
-                VideoViewTV.this.mOnCompletionListener
-                        .onCompletion(VideoViewTV.this.mMediaPlayer);
+                VideoViewTV.this.mOnCompletionListener.onCompletion(VideoViewTV.this.mMediaPlayer);
             }
         }
     };
@@ -835,18 +810,22 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
     private final OnErrorListener mErrorListener = new OnErrorListener() {
         @Override
         public boolean onError(MediaPlayer mp, int framework_err, int impl_err) {
-        	mCurrentState = STATE_ERROR;
+            mCurrentState = STATE_ERROR;
             mTargetState = STATE_ERROR;
             if (mediaController != null) {
-            	mediaController.hide();
+                mediaController.hide();
             }
 
-//            PreferenceUtil.setErrorCode(mContext, "VideoViewTV error, framework_err=" + framework_err + ", impl_err=" + impl_err);
+            // PreferenceUtil.setErrorCode(mContext, "VideoViewTV error, framework_err=" +
+            // framework_err + ", impl_err=" + impl_err);
             String currentDate = Tools.getCurrentDate();
-            LetvMediaPlayerManager.getInstance().writePlayLog("["+mCount+"]"+"系统当前时间:  "+currentDate+"VideoViewTV(乐视电视videoview) error, framework_err=" + framework_err + ", impl_err=" + impl_err);
-			if(mOnMediaStateTimeListener!=null){
-				mOnMediaStateTimeListener.onMediaStateTime(MeidaStateType.ERROR, currentDate);
-			}
+            LetvMediaPlayerManager.getInstance().writePlayLog(
+                    "[" + mCount + "]" + "系统当前时间:  " + currentDate
+                            + "VideoViewTV(乐视电视videoview) error, framework_err=" + framework_err
+                            + ", impl_err=" + impl_err);
+            if (mOnMediaStateTimeListener != null) {
+                mOnMediaStateTimeListener.onMediaStateTime(MeidaStateType.ERROR, currentDate);
+            }
             /* If an error handler has been supplied, use it and finish. */
             if (mOnErrorListener != null) {
                 if (mOnErrorListener.onError(mMediaPlayer, framework_err, impl_err)) {
@@ -860,10 +839,9 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
     private final OnBufferingUpdateListener mBufferingUpdateListener = new OnBufferingUpdateListener() {
         @Override
         public void onBufferingUpdate(MediaPlayer mp, int percent) {
-        	mCurrentBufferPercentage = percent;
+            mCurrentBufferPercentage = percent;
             if (VideoViewTV.this.mOnBufferingUpdateListener != null) {
-                VideoViewTV.this.mOnBufferingUpdateListener
-                        .onBufferingUpdate(mp, percent);
+                VideoViewTV.this.mOnBufferingUpdateListener.onBufferingUpdate(mp, percent);
             }
         }
     };
@@ -885,10 +863,10 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
         return screenSize;
     }
 
-	@Override
-	public View getView() {
-		return this;
-	}
+    @Override
+    public View getView() {
+        return this;
+    }
 
     /**
      * Register a callback to be invoked when the media file is loaded and ready
@@ -931,8 +909,7 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
         return this.mOnSeekCompleteListener;
     }
 
-    public void setOnSeekCompleteListener(
-            OnSeekCompleteListener mOnSeekCompleteListener) {
+    public void setOnSeekCompleteListener(OnSeekCompleteListener mOnSeekCompleteListener) {
         this.mOnSeekCompleteListener = mOnSeekCompleteListener;
     }
 
@@ -942,156 +919,153 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
     }
 
     @Override
-	public void setVideoViewStateChangeListener(
-			OnVideoViewStateChangeListener videoViewStateChangeListener) {
+    public void setVideoViewStateChangeListener(
+            OnVideoViewStateChangeListener videoViewStateChangeListener) {
 
-	}
+    }
 
-	@Override
-	public boolean isEnforcementWait() {
-		return false;
-	}
+    @Override
+    public boolean isEnforcementWait() {
+        return false;
+    }
 
-	@Override
-	public void setEnforcementWait(boolean enforcementWait) {
+    @Override
+    public void setEnforcementWait(boolean enforcementWait) {
 
-	}
+    }
 
-	@Override
-	public boolean isEnforcementPause() {
-		return false;
-	}
+    @Override
+    public boolean isEnforcementPause() {
+        return false;
+    }
 
-	@Override
-	public void setEnforcementPause(boolean enforcementPause) {
+    @Override
+    public void setEnforcementPause(boolean enforcementPause) {
 
-	}
+    }
 
-	@Override
-	public void setVideoPlayUrl(PlayUrl url) {
-		// TODO Auto-generated method stub
+    @Override
+    public void setVideoPlayUrl(PlayUrl url) {
+        // TODO Auto-generated method stub
 
-	}
+    }
 
-	@Override
-	public void setOnAdNumberListener(OnAdNumberListener l) {
-		// TODO Auto-generated method stub
+    @Override
+    public void setOnAdNumberListener(OnAdNumberListener l) {
+        // TODO Auto-generated method stub
 
-	}
+    }
 
-	@Override
-	public void setCacheSize(int video_size, int audio_size, int picutureSize, int startpic_size) {
-		// TODO Auto-generated method stub
+    @Override
+    public void setCacheSize(int video_size, int audio_size, int picutureSize, int startpic_size) {
+        // TODO Auto-generated method stub
 
-	}
+    }
 
-	@Override
-	public void setOnBlockListener(OnBlockListener l) {
-		// TODO Auto-generated method stub
+    @Override
+    public void setOnBlockListener(OnBlockListener l) {
+        // TODO Auto-generated method stub
 
-	}
+    }
 
-	@Override
-	public void setOnMediaStateTimeListener(OnMediaStateTimeListener l) {
-		this.mOnMediaStateTimeListener = l;
-	}
+    @Override
+    public void setOnMediaStateTimeListener(OnMediaStateTimeListener l) {
+        this.mOnMediaStateTimeListener = l;
+    }
 
-	@Override
-	public void setOnHardDecodeErrorListener(OnHardDecodeErrorListner l) {
-		// TODO Auto-generated method stub
+    @Override
+    public void setOnHardDecodeErrorListener(OnHardDecodeErrorListner l) {
+        // TODO Auto-generated method stub
 
-	}
+    }
 
-	@Override
-	public int getAudioSessionId() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    @Override
+    public int getAudioSessionId() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
-	@Override
-	public void setOnCacheListener(OnCacheListener l) {
-		// TODO Auto-generated method stub
+    @Override
+    public void setOnCacheListener(OnCacheListener l) {
+        // TODO Auto-generated method stub
 
-	}
+    }
 
-	@Override
-	public void setOnFirstPlayListener(OnFirstPlayLitener l) {
-		// TODO Auto-generated method stub
+    @Override
+    public void setOnFirstPlayListener(OnFirstPlayLitener l) {
+        // TODO Auto-generated method stub
 
-	}
+    }
 
-	@Override
-	public int setSourceType(int sourceType) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    @Override
+    public int setSourceType(int sourceType) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
-	@Override
-	public int setMachineInfomation(float ScreenResolution) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    @Override
+    public int setMachineInfomation(float ScreenResolution) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
-	@Override
-	public int setOneFingertouchInfomation(float begin_x, float begin_y,
-			float end_x, float end_y) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    @Override
+    public int setOneFingertouchInfomation(float begin_x, float begin_y, float end_x, float end_y) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
-	@Override
-	public int setTwoFingertouchInfomation(float begin_x0, float begin_y0,
-			float begin_x1, float begin_y1, float end_x0, float end_y0,
-			float end_x1, float end_y1) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    @Override
+    public int setTwoFingertouchInfomation(float begin_x0, float begin_y0, float begin_x1,
+            float begin_y1, float end_x0, float end_y0, float end_x1, float end_y1) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
-	@Override
-	public int setgravity_yroInfomation(float gravity_yro_x,
-			float gravity_yro_y, float gravity_yro_z) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    @Override
+    public int setgravity_yroInfomation(float gravity_yro_x, float gravity_yro_y,
+            float gravity_yro_z) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
-	@Override
-	public int setGravityInfomation(float gravity_x, float gravity_y,
-			float gravity_z) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    @Override
+    public int setGravityInfomation(float gravity_x, float gravity_y, float gravity_z) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
-	@Override
-	public int setgravity_yroValidInfomation(boolean  gravityValid) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    @Override
+    public int setgravity_yroValidInfomation(boolean gravityValid) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
-	@Override
-	public int setAngleInit() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    @Override
+    public int setAngleInit() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
-	@Override
-	public int setTwoFingerZoom(float zoom) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    @Override
+    public int setTwoFingerZoom(float zoom) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
-	@Override
-	public void setInitPosition(int msec) {
-		// TODO Auto-generated method stub
+    @Override
+    public void setInitPosition(int msec) {
+        // TODO Auto-generated method stub
 
-	}
+    }
 
-	@Override
-	public void setVolume(int volume) {
+    @Override
+    public void setVolume(int volume) {
         // changed for tvlive by zanxiaofei 2015-11-30
-        if(mMediaPlayer != null) {
+        if (mMediaPlayer != null) {
             mMediaPlayer.setVolume(volume);
         }
-	}
+    }
 
     /**
      * 硬解码需要返回mediaplayer进行一些设置 changed for tvlive by zanxiaofei 2015-10-28
@@ -1102,8 +1076,8 @@ public class VideoViewTV extends SurfaceView implements LetvMediaPlayerControl {
         return mMediaPlayer;
     }
 
-
     private OnNeedSetPlayParamsListener mOnNeedSetPlayParamsListener;
+
     /**
      * 硬解码需要设置播放高低水位
      * changed for tvlive by zanxiaofei 2015-10-30

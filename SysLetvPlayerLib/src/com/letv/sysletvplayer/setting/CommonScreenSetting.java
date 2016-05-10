@@ -69,13 +69,12 @@ public abstract class CommonScreenSetting {
     }
 
     private void adjust(int w, int h) {
-        this.getHolder().setFixedSize(w, h);
         FrameLayout.LayoutParams lp = (android.widget.FrameLayout.LayoutParams) this
                 .getLayoutParams();
         lp.width = w;
         lp.height = h;
         lp.gravity = Gravity.CENTER;
         this.setLayoutParams(lp);
+        this.getHolder().setFixedSize(w, h);
     }
-
 }
