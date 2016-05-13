@@ -5,7 +5,7 @@ import android.os.IBinder;
 import android.os.ServiceManager;
 import android.telephony.TelephonyManager;
 
-import com.android.letvmanager.LetvManager;
+import android.letvmanager.LetvManager;
 import com.letv.mobile.core.config.DeviceConfig;
 import com.letv.mobile.core.log.Logger;
 import com.letv.tv.core.device.DeviceInfo;
@@ -410,5 +410,29 @@ public class DeviceUtils {
         }
         return "";
     }
+    /**
+     * 获取销售区域
+     * CN 中国，HK 中国香港，TW 中国台湾，US 美国，IN 印度，RU 俄罗斯
+     * 当返回为""时，表示系统未获取到IMEI所对应的销售区域，或者该IMEI是无效的
+     */
+    public static String getSalesArea(Context context) {
+        if (context == null) {
+            return "";
+        }
+        String salesArea = "";
+        try {
+            salesArea = LetvManager.getSaleArea(ContextProvider.getApplicationContext());
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+        return salesArea;
+    }
 
+    /**
+     * 获取用户区域
+     */
+    public static String getCountryArea() {
+        String countryArea = Locale.getDefault().getCountry();
+        return countryArea == null ? "" : countryArea;
+    }
 }
