@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <string name="paychannel_alipay">支付宝钱包支付</string>
-    <string name="paychannel_weixin">微信支付</string>
-
-</resources>
